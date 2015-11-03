@@ -731,4 +731,16 @@ a.relation-box-link {
         width: 100%;
         float: left;
     }
+    .page-number {
+        padding: 5px 10px;
+        font-size: 1.0em;
+    }
+    .extend.next {
+        padding: 5px 10px;
+        font-size: 1.0em;
+    }
+    .extend.prev {
+        padding: 5px 10px;
+        font-size: 1.0em;
+    }
 }

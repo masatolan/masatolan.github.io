@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-wifi/</loc>
+    <lastmod>2015-11-03T15:42:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/</loc>
+    <lastmod>2015-11-03T15:31:10.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://masatolan.com/Webservice/tabtag/</loc>
     <lastmod>2015-10-25T14:59:11.000Z</lastmod>
   </url>
@@ -357,11 +367,6 @@
   </url>
   
   <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/</loc>
-    <lastmod>2015-10-21T03:22:10.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://masatolan.com/Webservice/send-anywhere/</loc>
     <lastmod>2015-10-21T03:21:51.000Z</lastmod>
   </url>
@@ -444,11 +449,6 @@
   <url>
     <loc>http://masatolan.com/raspberry-pi/raspberry-pi-security/</loc>
     <lastmod>2015-10-21T03:18:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-wifi/</loc>
-    <lastmod>2015-10-21T03:17:54.000Z</lastmod>
   </url>
   
   <url>

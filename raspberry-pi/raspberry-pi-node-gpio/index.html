@@ -45,7 +45,7 @@
               <div>
                 <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
                 <input type="hidden" name="ie" value="UTF-8" />
-                <input type="text" name="q" size="15" />
+                <input type="text" name="q" size="10" />
                 <input type="submit" name="sa" value="検索" />
               </div>
             </form>
@@ -174,7 +174,7 @@
 <hr>
 <h3 id="「Node-js」で光らせてみよう！">「Node.js」で光らせてみよう！</h3><p>それでは、先ほどと同じことを「Node.js」でやってみたいと思います。</p>
 <p>ラズパイのターミナル上から、「led.js」というファイルを作成して、以下のようなコードを書いて保存します。(今回はrootにしなくてもOKです…)</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&#39;fs&#39;);&#10; &#10;fs.writeFileSync(&#39;/sys/class/gpio/export&#39;, 25);&#10;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/direction&#39;, &#39;out&#39;);&#10;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/value&#39;, 1); &#10; &#10;setTimeout(function()&#123;&#10;&#9;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/value&#39;, 0);&#10;&#9;fs.writeFileSync(&#39;/sys/class/gpio/unexport&#39;, 25);&#10;&#125;, 2000);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>led.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"> </span><br><span class="line">fs.writeFileSync(<span class="string">'/sys/class/gpio/export'</span>, <span class="number">25</span>);</span><br><span class="line">fs.writeFileSync(<span class="string">'/sys/class/gpio/gpio25/direction'</span>, <span class="string">'out'</span>);</span><br><span class="line">fs.writeFileSync(<span class="string">'/sys/class/gpio/gpio25/value'</span>, <span class="number">1</span>); </span><br><span class="line"> </span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	fs.writeFileSync(<span class="string">'/sys/class/gpio/gpio25/value'</span>, <span class="number">0</span>);</span><br><span class="line">	fs.writeFileSync(<span class="string">'/sys/class/gpio/unexport'</span>, <span class="number">25</span>);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
 <p>あとは、このプログラムを実行すれば良いのですが、内容を少し解説しておきます。</p>
 <p>　<br>まずは、ファイルを操作する必要があるので、Node.jsの「fs」モジュールを使えるようにしておきます。</p>
 <pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
