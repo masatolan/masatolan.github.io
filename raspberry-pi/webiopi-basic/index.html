@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/raspberry-pi/webiopi-basic/">
+    <title>ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！">
+    <meta property="og:description" content="ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！">
+    <meta property="og:url" content="http://masatolan.com/raspberry-pi/webiopi-basic/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/raspberrypi/3/webiopi-basic_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/03/25
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/webiopi-basic/&text=ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/webiopi-basic/&text=ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/raspberrypi/3/webiopi-basic_1.jpg" alt="1"></p>
+<p>以前から試そうと思って、なかなか出来ていなかった「<a href="https://code.google.com/p/webiopi/" target="_blank" rel="external">WebIOPi</a>」をようやく触ってみたのでログ代わりに残しておきます。</p>
+<p>「WebIOPi」を使うと、PCやスマホのブラウザからラズベリーパイのGPIOを簡単に操作することが出来るようになり、画面のUIなども自作できるので非常に便利かと思います。</p>
+<p>今回は、ひとまずLEDの点灯までトライしてみたいと思います！</p>
+<a id="more"></a>
+<hr>
+<h3 id="準備すること！">準備すること！</h3><p>ブラウザから、ラズベリーパイのLED点灯までをやりたいので、まずは以下のような構成でトライしようと思います。</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_2.jpg" alt="2"></p>
+<p>・ラズベリーパイ(B+)<br>・ブレッドボード<br>・ジャンパーワイヤ2本(オス・メス)<br>・抵抗(220Ω)<br>・LED</p>
+<p>私のラズベリーパイは、Wi-FiでMacbookと連携しているのですが、基本的にラズベリーパイのコンソール画面で作業できれば、どんな環境でも問題ありません。</p>
+<blockquote>
+<p>（参考）<br><a href="http://masatolan.com/raspberry-pi/raspberry-pi-coder-wifi/">MacbookとラズベリーパイをWi-Fiで接続する方法</a>｜うえぶまなぶ</p>
+</blockquote>
+<p>　<br>あとは、「LED点灯」できるように回路を組んでおきます。</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_3.jpg" alt="3"></p>
+<p>※今回は、GPIO25番を出力にしてます。</p>
+<hr>
+<h3 id="「WebIOPi」の事前準備！">「WebIOPi」の事前準備！</h3><p>それでは、早速「WebIOPi」をラズベリーパイにインストールして使ってみます。</p>
+<p>最初に、公式の「<a href="http://sourceforge.net/projects/webiopi/files/" target="_blank" rel="external">ダウンロードページ</a>」にある最新版のリンクを取得しておきます。</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_4.jpg" alt="4"></p>
+<p>　<br>その後、ラズベリーパイのコンソール画面で、「wget」コマンドと先ほどコピーしたリンクを貼りつけて実行します。</p>
+<pre><code><span class="variable">$ </span>wget <span class="symbol">http:</span>/<span class="regexp">/sourceforge.net/projects</span><span class="regexp">/webiopi/files</span><span class="regexp">/WebIOPi-0.7.1.tar.gz/download</span>
+</code></pre><p>※URLはバージョンアップによって変わるので、コピーしたリンクを使ってください</p>
+<p>　<br>すると、「download」という圧縮ファイルが生成されるので解凍します。</p>
+<pre><code><span class="variable">$ </span>tar xvzf download
+</code></pre><p>　<br>そして、WebIOPiのフォルダに入り、「setup.sh」を実行します！</p>
+<pre><code>$ cd WebIOPi-<span class="number">0.7</span><span class="number">.1</span>/
+
+$ sudo ./setup.sh
+</code></pre><p>途中で「Do you want to access WebIOPi over Internet? [y/n]」という確認メッセージが表示されますが「n」でパスして問題ありません。</p>
+<p>これは「<a href="http://www.weaved.com/in-action/weaved-iot-kit" target="_blank" rel="external">Weaved</a>」という別のWebサービスと連携するために用意されているので、今回は実行する必要はありません。<br>（※あとからでも実行は可能です…）</p>
+<p>ここまでくれば、とりあえず「WebIOPi」を使うための準備はOKです！</p>
+<hr>
+<h3 id="ブラウザから「GPIO」を操作してみよう！">ブラウザから「GPIO」を操作してみよう！</h3><p>早速、起動してみましょう！</p>
+<pre><code>$ sudo /etc/init.d/webiopi <span class="built_in">start</span>
+</code></pre><p>これだけで、ブラウザからラズベリーパイにアクセスできるようになります。</p>
+<p>　<br>アクセス方法は、PCかスマホのブラウザで【ラズベリーパイのIPアドレス】と「ポート番号」を指定すればOKです！</p>
+<pre><code><span class="string">http:</span><span class="comment">//IPアドレス:8000</span>
+
+例: <span class="string">http:</span><span class="comment">//192.168.0.4:8000</span>
+</code></pre><p>※ポート番号は、デフォルトで「8000」になっています。</p>
+<p>　<br>初回のアクセスだけ認証が必要で、デフォルトは以下の通り。</p>
+<pre><code><span class="attribute">user</span>: <span class="string">webiopi</span>
+<span class="attribute">password</span>: <span class="string">raspberry</span>
+</code></pre><p>　<br>これで、以下の画面が表示されていれば成功なので、「GPIO Header」をクリックしてみましょう。</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_5.jpg" alt="5"></p>
+<p>　<br>すると、「GPIO」のGUIが表示されます。</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_6.jpg" alt="6"></p>
+<p>　<br>そこで、「LED点灯」を行うために、「GPIO25番」のピンを「OUT」にし、ピン番号をクリックして「オレンジ色」にしてみましょう！</p>
+<p><img src="/images/2015/raspberrypi/3/webiopi-basic_7.jpg" alt="7"></p>
+<p>　<br>いかがでしょう？</p>
+<p>これで、ブラウザからラズベリーパイのLEDが点灯できるようになりました！<br>（※LEDの消灯は、再度「22」のオレンジ色をクリックします）</p>
+<p>　<br>最後に、終了する場合は「WebIOPi」を止めておきましょう。</p>
+<pre><code><span class="variable">$ </span>sudo /etc/init.d/webiopi stop
+</code></pre><p>これで、ブラウザからのアクセスは出来なくなります。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>とりあえず、ブラウザからラズベリーパイを動かせそうな段階まで来たので、近いうちに「画面UI」などを作って操作してみたいと思います。</p>
+<p>さまざまなライブラリが公開されていますが、公式サイトにも<a href="https://code.google.com/p/webiopi/wiki/JAVASCRIPT" target="_blank" rel="external">JavaScriptライブラリ</a>などが用意されているようです。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://code.google.com/p/webiopi/" target="_blank" rel="external">WebIOPi</a>」公式サイト<br>　<br>「<a href="http://masatolan.com/categories/raspberry-pi/">ラズベリーパイ活用記事まとめ</a>」</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/webiopi-basic/&text=ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/webiopi-basic/&text=ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/webiopi-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-hunt/">
+                        世界中のラズベリーパイ活用事例を毎日紹介してくれる「Pi Hunt」が楽し過ぎ！
+                        <img src="/images/2015/raspberrypi/4/pi-hunt_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-ttytter/">
+                        ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-node-gpio/">
+                        ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！
+                        <img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-top/">
+                        「Raspberry Pi 2」で作られた13インチノートPC「pi-top」が299ドルで販売中！
+                        <img src="/images/2015/raspberrypi/2/pi-top_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/iphone-to-raspberry-pi/">
+                        iPhoneからラズベリーパイに「SSH接続」してみた！
+                        <img src="/images/2015/raspberrypi/2/iphone-to-raspberry-pi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-wifi/">
+                        Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！
+                        <img src="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-security/">
+                        5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-lxde/">
+                        MacbookにラズベリーパイのGUI環境(LXDE)を表示してみた！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-lxde_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

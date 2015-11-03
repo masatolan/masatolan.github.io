@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/chrome-extension/">
+    <title>クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！">
+    <meta property="og:description" content="クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！">
+    <meta property="og:url" content="http://masatolan.com/programming/chrome-extension/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/8/chrome-extension_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/08/22
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/chrome-extension/&text=クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/chrome-extension/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/chrome-extension/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/chrome-extension/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/chrome-extension/&text=クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/chrome-extension/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/chrome-extension/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/chrome-extension/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/8/chrome-extension_1.jpg" alt="1"></p>
+<p>ふとしたきっかけで、急に「テトリス」が遊びたくなったので、いろいろ探してみたのですが良いのが見つからず…。</p>
+<p>普段からChromeブラウザを愛用していることから、「<a href="https://chrome.google.com/webstore/category/apps" target="_blank" rel="external">Chromeウェブストア</a>」も検索したのですが、お手頃感のあるモノが見つからず…。</p>
+<p>結局のところ、探すのが辛くなってきたので、自分好みの気軽に遊べるテトリスを、「Chrome拡張機能」として可能な限り簡単に作ってみました。</p>
+<a id="more"></a>
+<hr>
+<h3 id="ミニマムなChrome拡張機能を作る！">ミニマムなChrome拡張機能を作る！</h3><p>そもそも「Chrome拡張機能」は、誰でも簡単に作れるように設計されています。<br>とりあえず、「アイコンをクリックして◯◯◯する…」みたいな拡張機能は、「HTMLファイル」「マニフェストファイル」「アイコン画像」を用意すればすぐに実現できます。</p>
+<p>　<br>「HTMLファイル」は、普通にWebページを作る時に用意するモノがあればOKで、まずは以下のミニマムなHTMLを用意します。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>テトリス<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br>「アイコン画像」は好きなモノを用意するか、「<a href="https://pixlr.com/editor/" target="_blank" rel="external">pixlr</a>」とかで適当に作っても良いでしょう。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_2.jpg" alt="2"></p>
+<p>サイズは「19×19px」にしておき、「icon.png」のようなファイル名にしておきましょう。</p>
+<p>　<br>「マニフェストファイル」は、自作した拡張機能をChromeで使えるようにするためのモノですが、中身はごく簡単なJSONファイルです。</p>
+<figure class="highlight javascript"><figcaption><span>manifest.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"manifest_version"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"tetris"</span>,</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="string">"browser_action"</span>: &#123;</span><br><span class="line">      <span class="string">"default_icon"</span>: <span class="string">"icon.png"</span>,</span><br><span class="line">      <span class="string">"default_popup"</span>: <span class="string">"index.html"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>「manifest_version」で、現在の最新版であるバージョン「2」を指定し、「name」＝拡張機能の名称、「version」＝拡張機能のバージョンを任意に設定すればOK！</p>
+<p>ちなみに、この3つの項目は必須事項なので、必ず明記しておきましょう。</p>
+<p>　<br>あと、「browser_action」という項目を記載することで、「アイコンをクリックして◯◯◯する…」という機能が使えるようになります。</p>
+<p>「default_icon」で、先ほど用意した画像を設定し、「default_popup」にHTMLファイルを紐付ければ完了です！<br>ファイル名は、「manifest.json」にしておきましょう。</p>
+<p>詳しいマニフェストファイルの書き方は、Googleが公式に公開しているドキュメントが分かりやすいです。</p>
+<blockquote>
+<p>＜参考＞<br>「<a href="https://developer.chrome.com/extensions/manifest" target="_blank" rel="external">マニフェストドキュメント</a>」公式サイト</p>
+</blockquote>
+<p>　<br>ここまでで、以下のようなファイルを作成しました。</p>
+<pre><code>app
+ ├─ index<span class="class">.html</span>
+ ├─ manifest<span class="class">.json</span>
+ ├─ <span class="attribute">icon</span>.png
+</code></pre><p>　<br>あとは、この「app」フォルダごとChromeの「拡張機能設定ページ」へ放り込めば完成です！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_3.jpg" alt="3"></p>
+<p>　<br>Chromeの上部にアイコンが表示されるので、クリックすると「テトリス」と表示されるのが分かると思います。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_4.jpg" alt="4"></p>
+<p>これは、HTMLファイルの「p」要素に記載した「テトリス」の文字が表示されていることになります。<br>簡単に言ってしまえば、アイコンをクリックしたら「body」要素を表示するようなイメージでしょう。</p>
+<hr>
+<h3 id="手っ取り早く「テトリス」がしたい！">手っ取り早く「テトリス」がしたい！</h3><p>とりあえず、アイコンをクリックしたら「テトリス」の文字を表示する拡張機能は完成したので、あとはココに「遊べるテトリス」が表示されれば理想的です。</p>
+<p>ただ、テトリスをゼロから実装する気力は無かったので、何か良さそうなモノを探していたら、以前にちょっと話題になったJavaScriptライブラリ「<a href="http://aerolab.github.io/blockrain.js/" target="_blank" rel="external">Blockrain.js</a>」を発見！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_5.jpg" alt="5"></p>
+<p>これは、ライブラリを読み込んで、簡単なコードを追加するだけで「テトリス」が遊べてしまうという、まさに今回の拡張機能作りにピッタリなものです！</p>
+<p>　<br>そこで早速、HTMLファイルにライブラリを読み込むように修正してみます。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">src</span>=<span class="value">"blockrain.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"blockrain.jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>テトリス<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"game"</span> <span class="attribute">style</span>=<span class="value">"width:250px; height:500px;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ダウンロードしたライブラリに含まれている、「blockrain.css」「blockrain.jquery.min.js」を追加し、<a href="http://jquery.com/" target="_blank" rel="external">jQuery</a>も一緒に読み込んでおきます。</p>
+<p>あと、「div」要素にテトリスのゲーム画面サイズを指定しておくのを忘れないようにしましょう。</p>
+<p>　<br>そして、新たにJavaScriptファイル「main.js」を追加し、以下のコードを書いておけばOK！</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">'.game'</span>).blockrain();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>たったこれだけで、遊べるテトリスの完成です！</p>
+<p>注意点として、HTMLファイル内にJavaScriptコードを記載すると、Chrome拡張機能の仕様でエラーになるようです。<br>なので、どんなに少ないコードであっても、外部ファイルとして読み込むようにしておきましょう。</p>
+<p>　<br>ここまで完成したら、先ほど読み込んだ拡張機能ページを表示し、「リロード」をクリックしてファイルを再読み込みします。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_6.jpg" alt="6"></p>
+<p>　<br>そして、アイコンをクリックすれば、見事にテトリスが遊べます！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_7.jpg" alt="7"></p>
+<p>これで、なんとか当初の目的であった「気軽にテトリスで遊ぶ！」というのが達成できたような気がします。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>今回は、「Chromeウェブストア」へ登録していないので、あくまで個人が楽しむための拡張機能ですが、まぁこういう使い方でも良いのかなと思ってます。</p>
+<p>Googleが用意している「公式ドキュメント」を読む限り、まだまだ多彩な機能が用意されており、専用のAPIも豊富に揃っているようです。</p>
+<p>これらを活用すれば、もっと面白い機能が作れそうなので、また時間が空いたら挑戦してみようと思います。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://developer.chrome.com/extensions" target="_blank" rel="external">Chrome拡張機能ドキュメント</a>」公式サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/chrome-extension/&text=クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/chrome-extension/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/chrome-extension/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/chrome-extension/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/chrome-extension/&text=クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/chrome-extension/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/chrome-extension/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/chrome-extension/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

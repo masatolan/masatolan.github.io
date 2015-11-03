@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/dom-animator/">
+    <title>HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」 | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」">
+    <meta property="og:description" content="HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」">
+    <meta property="og:url" content="http://masatolan.com/programming/dom-animator/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/3/dom-animator_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/03/31
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dom-animator/&text=HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dom-animator/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dom-animator/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dom-animator/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dom-animator/&text=HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dom-animator/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dom-animator/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dom-animator/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/3/dom-animator_1.jpg" alt="1"></p>
+<p>普通にWebサイトを閲覧する人は、HTMLコードを見る機会は少ないと思います。</p>
+<p>しかし、今回ご紹介する「<a href="http://tholman.com/dom-animator/" target="_blank" rel="external">Dom-Animator.js</a>」を使う場合、ブラウザのデベロッパーツールなどでHTMLコードを見ないと、何が起きたかまったく分からないという面白いライブラリです。</p>
+<a id="more"></a>
+<hr>
+<h3 id="どんなことが出来るのか？">どんなことが出来るのか？</h3><p>まずは、「Dom-Animator.js」を使うとどんな事が出来るのかを見てみましょう！</p>
+<p>公式サイトへアクセスすると、ブラウザのデベロッパーツールを開くように明記されています。</p>
+<blockquote>
+<p>（参考）<br>Macは、「Command」+「Option」+「I」<br>Windowsは、「Control」+「Shift」+「I」<br>で、デベロッパーツールが開きます。</p>
+</blockquote>
+<p>　<br>そこで、そのまま開いてみると、コード内にひときわ目立つ「アスキーアート」がアニメーションしているのが分かります！<br><img src="/images/2015/programming/3/dom-animator_2.jpg" alt="2"></p>
+<p>　<br>分かりやすいように、GIFにしてみました。</p>
+<p><img src="/images/2015/programming/3/dom-animator_3.gif" alt="3"></p>
+<p>このように、HTMLコード内で自分の好きな「アニメーション」を埋め込めるだけのマニアックなライブラリなんです…。</p>
+<p>誰かが、自分のHTMLコードを開いた時に、アニメーションが表示されて驚く様子を想像して楽しめる方のみ、トライしてみてください。</p>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>使い方ですが、意外とシンプルな構造になっています。</p>
+<p>まず、「head」要素内に「Dom-Animator.js」を追加します！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/dom-animator.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>　<br>これだけで、準備は完了です！</p>
+<p>あとは、「script」要素内でインスタンスを作成して、表示させたいアニメーションを設定するだけです！</p>
+<p>　<br>まず、インスタンスの作成！</p>
+<pre><code><span class="keyword">var</span> domAnimator = <span class="keyword">new</span> DomAnimator();
+</code></pre><p>　<br>そして、表示させたいアスキーアートを設定！</p>
+<pre><code>domAnimator.addFrame(<span class="string">'o_o'</span>);
+domAnimator.addFrame(<span class="string">'-_o'</span>);
+</code></pre><p>ここでは、2つのアスキーアートを交互にアニメーションさせて、ウィンクをしているように見せてます。</p>
+<p>　<br>最後に、アニメーションの実行。</p>
+<pre><code><span class="tag">domAnimator</span><span class="class">.animate</span>();
+</code></pre><p>これで完了です！</p>
+<p>　<br>ソースの全体はコチラ。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> domAnimator = <span class="keyword">new</span> DomAnimator();</span><br><span class="line">  domAnimator.addFrame(<span class="string">'o_o'</span>);</span><br><span class="line">  domAnimator.addFrame(<span class="string">'-_o'</span>);</span><br><span class="line">  domAnimator.animate();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>簡単ですね！</p>
+<p>　<br>ちなみに、アスキーアートは配列で用意することも可能です！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> frame1 = [</span><br><span class="line">		<span class="string">'       .-"-.       '</span>,</span><br><span class="line">		<span class="string">'     _/_-.-_\\_     '</span>,</span><br><span class="line">		<span class="string">'    /|( o o )|\\    '</span>,</span><br><span class="line">		<span class="string">'   | //  "  \\\\ |   '</span>,</span><br><span class="line">		<span class="string">"  / / \\'---'/ \\ \\  "</span>,</span><br><span class="line">		<span class="string">'  \\ \\_/`"""`\\_/ /  '</span>,</span><br><span class="line">		<span class="string">'   \\           /   '</span>,      </span><br><span class="line">		<span class="string">'    \\         /    '</span>,</span><br><span class="line">		<span class="string">'     |   .   |     '</span>]</span><br><span class="line">　</span><br><span class="line">		domAnimator.addFrame(frame1);</span><br></pre></td></tr></table></figure>
+<p>　<br>他にも、たくさんの<a href="https://github.com/tholman/dom-animator" target="_blank" rel="external">オプション</a>が用意されているので、ご興味ある方は挑戦してみてください。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://tholman.com/dom-animator/" target="_blank" rel="external">Dom-Animator.js</a>」公式サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dom-animator/&text=HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dom-animator/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dom-animator/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dom-animator/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dom-animator/&text=HTMLコード内でアニメーションする超マニアックなJSライブラリ「Dom-Animator.js」" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dom-animator/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dom-animator/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dom-animator/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

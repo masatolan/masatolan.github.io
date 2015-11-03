@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/thefuck/">
+    <title>コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！">
+    <meta property="og:description" content="コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！">
+    <meta property="og:url" content="http://masatolan.com/programming/thefuck/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/4/thefuck_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/04/28
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/thefuck/&text=コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/thefuck/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/thefuck/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/thefuck/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/thefuck/&text=コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/thefuck/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/thefuck/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/thefuck/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/4/thefuck_1.jpg" alt="1"></p>
+<p>コマンドラインで作業をしていると、タイプミスや誤入力でエラーが表示されて「イラッ」とした経験を持つ方もいるかと思います。</p>
+<p>こんな時、海外ならば「Fuck!(クソッ)」という汚い言葉使いになってしまうでしょう…。</p>
+<p>ところが、それを逆手にとって「fuck」とそのまま入力するだけで、誤ったコマンドを自動修正して再実行してくれる便利ツール「<a href="https://github.com/nvbn/thefuck" target="_blank" rel="external">The Fuck</a>」が公開されていたのでご紹介！</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>一体どのように使うのか、いくつか事例が掲載されているので見ていきましょう。</p>
+<p>　<br>例えば、何らかのツールをインストールしようとして、管理者権限「sudo」を付け忘れてエラー…、みたいなよくあるパターン。</p>
+<pre><code>$ apt-get <span class="operator"><span class="keyword">install</span> vim
+<span class="keyword">E</span>: Could <span class="keyword">not</span> <span class="keyword">open</span> <span class="keyword">lock</span> <span class="keyword">file</span> /<span class="keyword">var</span>/lib/dpkg/<span class="keyword">lock</span> - <span class="keyword">open</span> (<span class="number">13</span>: Permission denied)
+<span class="keyword">E</span>: Unable <span class="keyword">to</span> <span class="keyword">lock</span> the administration <span class="keyword">directory</span> (/<span class="keyword">var</span>/lib/dpkg/), <span class="keyword">are</span> you root?</span>
+</code></pre><p>　<br>本来なら、ここで「sudo」を付けて再入力するわけですが、この時に「fuck」と打ち込めば「自動修正＆再実行」を代行してくれるのです！</p>
+<pre><code>$ fuck
+sudo apt-<span class="built_in">get</span> install <span class="keyword">vim</span>
+</code></pre><p>　<br>他にも、ディレクトリを戻ろうとしてミスった時…</p>
+<pre><code><span class="variable">$ </span>cd..
+<span class="symbol">bash:</span> cd..<span class="symbol">:</span> command <span class="keyword">not</span> found
+
+<span class="variable">$ </span>fuck
+cd ..
+/home $
+</code></pre><p>　<br>gitのブランチをミスタイプした時…</p>
+<pre><code>$ git brnch
+git: <span class="string">'brnch'</span> is <span class="operator">not</span> <span class="operator">a</span> git <span class="command"><span class="keyword">command</span>. <span class="title">See</span> <span class="string">'git --help'</span>.</span>
+
+Did you mean this?
+    branch
+
+$ fuck
+git branch
+* master
+</code></pre><p>という感じで、とにかく「fuck」を打ち込めば、自動で正しく再実行してくれるわけです。</p>
+<p>他にも、さまざまなケースに対応できるようになっており、詳細はドキュメントに詳しく明記されています。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://github.com/nvbn/thefuck#user-content-how-it-works" target="_blank" rel="external">公式ドキュメント</a>」｜GitHub</p>
+</blockquote>
+<hr>
+<h3 id="必要な環境準備！">必要な環境準備！</h3><p>「The Fuck」は、Python言語で開発されていることもあり、以下3つの環境をあらじかめ準備しておく必要があります。</p>
+<ul>
+<li>pip</li>
+<li>python</li>
+<li>python-dev</li>
+</ul>
+<p>　<br>インストール自体は、とてもシンプルで以下のコマンドでOKです。</p>
+<pre><code>$ sudo pip <span class="keyword">install</span> thefuck
+</code></pre><p>　<br>その後、エイリアスを登録しておきます。</p>
+<pre><code><span class="variable">$ </span><span class="keyword">alias</span> fuck=<span class="string">'eval $(thefuck $(fc -ln -1))'</span>
+<span class="variable">$ </span><span class="keyword">alias</span> <span class="constant">FUCK=</span><span class="string">'fuck'</span>
+</code></pre><p>これで準備完了！</p>
+<p>あとは、イラッとした時に「fuck」と打ち込むだけで、すべてが解決されるでしょう。</p>
+<p>　<br>ちなみに、解決されなかったら、自分でルールを追加することも可能なので、ぜひトライしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://github.com/nvbn/thefuck" target="_blank" rel="external">The Fuck</a>」サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/thefuck/&text=コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/thefuck/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/thefuck/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/thefuck/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/thefuck/&text=コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/thefuck/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/thefuck/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/thefuck/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

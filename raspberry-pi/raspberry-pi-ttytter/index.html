@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/">
+    <title>ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！">
+    <meta property="og:description" content="ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！">
+    <meta property="og:url" content="http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/03/30
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/&text=ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/&text=ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg" alt="1"></p>
+<p>ラズベリーパイを使っていて、最も簡単かつシンプルに「Twitter」と連携できる「<a href="http://www.floodgap.com/software/ttytter/copts.html" target="_blank" rel="external">ttytter</a>」というツールを試してみました。</p>
+<p>ラズベリーパイのコマンドラインから、直接コマンドを叩くだけでツイート可能なので、かなり応用範囲も広いかと思います。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>それでは、インストール方法を見ていきましょう！</p>
+<p>　<br>まず、ラズベリーパイのコマンドラインから「ttytter」をインストールします。</p>
+<pre><code>$ sudo apt-<span class="keyword">get</span> install ttytter
+</code></pre><p>　<br>そして、実行！</p>
+<pre><code><span class="variable">$ </span>ttytter -ssl
+</code></pre><p>　<br>すると、たくさん文字列が表示されますが、最後に以下の文章が確認できるので「エンターキー」を叩きます！</p>
+<pre><code>** This wizard will overwrite /home/<span class="built_in">pi</span>/.ttytterkey
+Press <span class="keyword">RETURN</span>/ENTER <span class="keyword">to</span> <span class="keyword">continue</span> <span class="literal">or</span> CTRL-C NOW! <span class="keyword">to</span> abort.
+</code></pre><p>　<br>そして、また文字列がズラッと表示されるのですが、途中に以下のような文章が表示されているのが分かります。</p>
+<pre><code>1. Visit, in your browser, ALL ON ONE LINE,
+
+https://api.twitter.com/oauth/authorize<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>
+</code></pre><p>　<br>この「https:」から始まるリンクをコピペして、PCのブラウザで開くとTwitter認証画面が表示されます。</p>
+<p><img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_2.jpg" alt="2"></p>
+<p>（※事前に自分のTwitterアカウントにログインしておいてください）</p>
+<p>　<br>この画面で「連携アプリを認証」ボタンをクリックすると、ピン番号が表示されるのでメモしておきます。</p>
+<p><img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_3.jpg" alt="3"></p>
+<p>　<br>そして、再度ラズベリーパイのコマンドラインへ戻ると、以下のような文章で止まっているのが分かります。</p>
+<pre><code><span class="number">5.</span> A PIN will appear. Enter <span class="keyword">it</span> <span class="keyword">below</span>.
+
+Enter PIN&gt;
+</code></pre><p>　<br>ここへ、先ほどメモした「ピン番号」を入力すれば、準備は完了です！</p>
+<hr>
+<h3 id="早速、ツイートしてみよう！">早速、ツイートしてみよう！</h3><p>それでは、準備も整ったので、早速ツイートを実行してみようと思います。</p>
+<p>ラズベリーパイのコマンドラインから、以下のコマンドを実行してみましょう！</p>
+<pre><code><span class="variable">$ </span>ttytter -ssl -status=<span class="string">"サンプルツイート"</span>
+</code></pre><p>　<br>Twitterのツイートを確認すると、しっかりとツイートされていることが確認できます！</p>
+<p><img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_4.jpg" alt="4"></p>
+<p>特に難しい設定は必要なく、たったこれだけでラズベリーパイからツイートを実行することができました。</p>
+<p>これなら、シェルスクリプトなどを使って、複雑なプログラミングを組んだりすることも簡単ですね。</p>
+<hr>
+<h3 id="再認証する手順！">再認証する手順！</h3><p>参考程度ですが、Twitterの認証を解除した後に、再認証する方法を掲載しておきます。<br>（ちょっとハマったので、ログ代わりに…）</p>
+<p>今回に限った話ではありませんが、連携の認証解除はTwitterの設定から簡単に行えます。</p>
+<p><img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_5.jpg" alt="5"></p>
+<p>ただしttytterの場合、一度解除してしまうと再度連携するのにコツがいります。</p>
+<p>　<br>その「コツ」とは、「.ttytterkey」ファイルを削除しなければいけないという点です。</p>
+<p>ラズベリーパイのルートディレクトリで、以下のコマンドを実行しましょう！</p>
+<pre><code><span class="variable">$ </span>rm .ttytterkey
+</code></pre><p>これで、ひとまずアクセスキーを保存しているファイルが削除できます。</p>
+<p>　<br>この作業をやってから、以下のコマンドを実行することで再認証が出来るようになります！</p>
+<pre><code><span class="variable">$ </span>ttytter -ssl
+</code></pre><p>これで、もう一度「連携認証」からやり直せばOK！</p>
+<p>　<br>ちなみに、ttytterは「オプション」が豊富に用意されているので、ご興味ある方は以下のサイトもチェックしておくと良いでしょう！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.floodgap.com/software/ttytter/copts.html" target="_blank" rel="external">ttytter</a>」オプション解説サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/&text=ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/&text=ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-ttytter/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-hunt/">
+                        世界中のラズベリーパイ活用事例を毎日紹介してくれる「Pi Hunt」が楽し過ぎ！
+                        <img src="/images/2015/raspberrypi/4/pi-hunt_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/webiopi-basic/">
+                        ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/webiopi-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-node-gpio/">
+                        ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！
+                        <img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-top/">
+                        「Raspberry Pi 2」で作られた13インチノートPC「pi-top」が299ドルで販売中！
+                        <img src="/images/2015/raspberrypi/2/pi-top_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/iphone-to-raspberry-pi/">
+                        iPhoneからラズベリーパイに「SSH接続」してみた！
+                        <img src="/images/2015/raspberrypi/2/iphone-to-raspberry-pi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-wifi/">
+                        Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！
+                        <img src="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-security/">
+                        5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-lxde/">
+                        MacbookにラズベリーパイのGUI環境(LXDE)を表示してみた！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-lxde_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

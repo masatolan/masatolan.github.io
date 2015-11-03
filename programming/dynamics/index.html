@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/dynamics/">
+    <title>JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！">
+    <meta property="og:description" content="JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！">
+    <meta property="og:url" content="http://masatolan.com/programming/dynamics/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/6/dynamics-js_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/06/16
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dynamics/&text=JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dynamics/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dynamics/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dynamics/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dynamics/&text=JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dynamics/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dynamics/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dynamics/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/6/dynamics-js_1.jpg" alt="1"></p>
+<p>「CSSでアニメーションは難しい！」とか、「JavaScriptで全部制御したい！」…という人にはオススメのライブラリ「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」のご紹介！</p>
+<p>コードが非常にシンプルで扱いやすいのが特徴で、単純なWebサイトへ簡単に動きを付けられるようになります。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>まずは、<a href="https://github.com/michaelvillar/dynamics.js/releases" target="_blank" rel="external">Downloadページ</a>から最新版の「Dynamics.js」をダウンロードしましょう。</p>
+<p><img src="/images/2015/programming/6/dynamics-js_2.jpg" alt="2"></p>
+<p>2015年6月現在の最新版は「0.0.3」となっています。(恐らく今後も活発にバージョンアップされていくと思います…)</p>
+<p>　<br>あとは、HTMLコード内でDynamics.jsを読み込めば、準備OKです！</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Dynamics Sample<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dynamics.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="アニメーションの制御方法！">アニメーションの制御方法！</h3><p>実際に、Dynamics.jsを使って「CSSアニメーション」を制御する方法ですが、ざっくり言ってしまうと、以下の構文を覚えるだけで使えてしまいます！</p>
+<pre><code>dynamics.animate(el, <span class="keyword">property</span>, <span class="keyword">option</span>);
+</code></pre><p>-【el】<br>DOMエレメントのことで、CSSでスタイリングするように要素を指定します。</p>
+<p>-【property】<br>移動、回転、拡大など、どんなアニメーションをさせたいかを指定します。</p>
+<p>-【option】<br>アニメーションの種類や持続時間、周期、摩擦力など、細かい微調整をします。</p>
+<p>　<br>ひとまず、これだけ覚えておけば手軽にアニメーションが実現できるのは魅力的です。</p>
+<hr>
+<h3 id="実際に作ってみよう！">実際に作ってみよう！</h3><p>　<br>例えば、以下のように「div」要素で作った黒色の四角があったとします。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br><figure class="highlight css"><figcaption><span>style.css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#box</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">60px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">60px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>　<br>この状態で、先ほどの構文に当てはめながらjavaScriptを書くと、以下のようになるでしょう。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"> </span><br><span class="line">dynamics.animate(el, property, option);</span><br></pre></td></tr></table></figure>
+<p>「div」要素のboxを「el」として設定しました。</p>
+<p>あとは、「property」と「option」を指定すれば、「div」要素のboxはアニメーションしてくれるわけです。</p>
+<p>　<br>今回は、左右にバウンドするようなアニメーションを指定したいと思います。</p>
+<p>そこで、「property」に横移動を設定し、「option」にバウンドするアニメーションを指定したのが以下のスクリプトになります。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"><span class="keyword">var</span> property = &#123;</span><br><span class="line">    translateX: <span class="number">400</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    type: dynamics.bounce,</span><br><span class="line">    frequency: <span class="number">600</span>,</span><br><span class="line">    friction: <span class="number">400</span>,</span><br><span class="line">    duration: <span class="number">2500</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">dynamics.animate(el, property, option);</span><br></pre></td></tr></table></figure>
+<p>どんなオプションのパラメータが指定できるのかは、「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」の公式サイトで実際に試せるようになっているので便利です。</p>
+<p>上記サンプルに、スタートボタンを追加したのがコチラ！<br>（ボタンをクリックすると、アニメーションします）</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="QbMOGz" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/QbMOGz/" target="_blank" rel="external">QbMOGz</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「Dynamics.js」は、単純にパラメータを指定するだけなので、プログラミングというよりも「ジェネレーターアプリ」に近いかもしれません。</p>
+<p>使い方はすぐに覚えられるので、既存のサイトやブログに面白いアニメーションをぜひ実装してみてください。</p>
+<p>ちなみに、公式サイトにも掲載されていますが、SVGをアニメーションさせることも可能です。</p>
+<p></p><p data-height="301" data-theme-id="12894" data-slug-hash="VLzQrL" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/VLzQrL/" target="_blank" rel="external">Sample for Dynamics.js</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>ちょっとしたアクセントには最適ではないでしょうか。</p>
+<p>　<br>注意点としては、あまり古いブラウザには対応していないところ…。<br>（推奨されているのは、Safari 7+, Firefox 35+, Chrome 34+, IE10+となっています）</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」公式サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dynamics/&text=JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dynamics/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dynamics/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dynamics/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/dynamics/&text=JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/dynamics/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/dynamics/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/dynamics/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

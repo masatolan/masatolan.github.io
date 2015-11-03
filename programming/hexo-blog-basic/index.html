@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/hexo-blog-basic/">
+    <title>Hexoでブログ作ってGithub Pagesへ公開するまでの手順！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="Hexoでブログ作ってGithub Pagesへ公開するまでの手順！">
+    <meta property="og:description" content="Hexoでブログ作ってGithub Pagesへ公開するまでの手順！">
+    <meta property="og:url" content="http://masatolan.com/programming/hexo-blog-basic/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/1/hexo-blog-basic_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">Hexoでブログ作ってGithub Pagesへ公開するまでの手順！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2014/11/12
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/hexo-blog-basic/&text=Hexoでブログ作ってGithub Pagesへ公開するまでの手順！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/hexo-blog-basic/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/hexo-blog-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/hexo-blog-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/hexo-blog-basic/&text=Hexoでブログ作ってGithub Pagesへ公開するまでの手順！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/hexo-blog-basic/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/hexo-blog-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/hexo-blog-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" alt="top"></p>
+<p>ブログを始めるにあたり、以下の要望を満たしてくれる環境をいろいろ試行錯誤してました。</p>
+<ul>
+<li>ウザい広告が出現しない</li>
+<li>ソースコードをすべていじれる</li>
+<li>無料で使える</li>
+<li>それなりのアクセスにも耐えられるサーバー</li>
+<li>自分の好きなアドセンスを配置できる</li>
+<li>独自ドメインが使える</li>
+<li>バックアップが簡単にできる<br>…etc</li>
+</ul>
+<a id="more"></a>
+<p>という…ワガママな要望だったわけですが、これをすべて解決してくれたのが【<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages</a>】でした。</p>
+<p>以前より、多少のプログラミングやGitをかじっていたこともあり、導入は問題なく完了したので、忘れないうちにまとめておきます。</p>
+<p>また、より快適なブログ環境を整えるために、【<a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>】というJavaScriptでブログ構築が行えるツールを使ってみたので、合わせて記載しました。</p>
+<hr>
+<h3 id="最初に必要なモノ">最初に必要なモノ</h3><p>まず、Github PagesとHexoを組み合わせてブログを作成するにあたり、必要なツールは以下の3点になります。</p>
+<ol>
+<li>Git</li>
+<li>Node.js</li>
+<li>Hexo</li>
+</ol>
+<p>※あとは当然ですが、任意のテキストエディタとブラウザが必要です。</p>
+<hr>
+<h3 id="Gitの準備">Gitの準備</h3><p>導入には2つの方法があります。</p>
+<p>まず1つ目は、GUIによる「インストーラー」を使った方法。</p>
+<blockquote>
+<p>【<a href="http://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="external">Gitインストーラー</a>】</p>
+</blockquote>
+<p>こちらは、グラフィカルなUIでインストール出来るので、初心者の方に向いています。</p>
+<p>2つ目は、ターミナルのコマンドラインからインストールする方法。</p>
+<pre><code>$ sudo <span class="foreign"><span class="keyword">port</span> install git-core +svn +doc +bash_completion +gitweb</span>
+</code></pre><p>私は、この方法でサクッとインストールしておきました。</p>
+<blockquote>
+<p>参考【<a href="http://git-scm.com/book/ja/v1" target="_blank" rel="external">Git資料</a>】</p>
+</blockquote>
+<hr>
+<h3 id="Node-jsの準備">Node.jsの準備</h3><p>Hexoを使ってブログを構築するために「Node.js」を導入します。</p>
+<p>Node.jsのバージョン管理ツール「nvm」を導入することで、簡単にインストール出来るうえ、バージョン管理もラクになります。</p>
+<p>以下、コマンドラインで実行…。</p>
+<pre><code><span class="variable">$ </span>git clone <span class="symbol">git:</span>/<span class="regexp">/github.com/creationix</span><span class="regexp">/nvm.git ~/</span>.nvm<span class="variable">$ </span>source ~<span class="regexp">/.nvm/nvm</span>.sh
+</code></pre><p>　<br>そして、早速nvmを使って、現在のNode.jsのバージョンを確認してみます。</p>
+<pre><code>$ nvm ls-remote
+
+V0<span class="number">.10</span><span class="number">.30</span>
+V0<span class="number">.10</span><span class="number">.31</span>
+V0<span class="number">.10</span><span class="number">.32</span>
+V0<span class="number">.10</span><span class="number">.33</span>
+V0<span class="number">.11</span><span class="number">.0</span>
+V0<span class="number">.11</span><span class="number">.1</span>
+V0<span class="number">.11</span><span class="number">.2</span>
+V0<span class="number">.11</span><span class="number">.3</span>
+V0<span class="number">.11</span><span class="number">.4</span>
+V0<span class="number">.11</span><span class="number">.5</span>
+以下省略…
+</code></pre><p>　<br>このバージョンの見方ですが、【偶数＝安定版、奇数＝開発版】となっているのが特徴です。</p>
+<pre><code>（参考例）
+V0<span class="number">.10</span>は安定版、V0<span class="number">.11</span>は開発版
+</code></pre><p>　<br>そして、なるべく「最新・安定版」のNode.jsをインストールしておきます。</p>
+<pre><code>$ nvm install <span class="number">0.10</span><span class="number">.32</span>
+$ node -v
+V0<span class="number">.10</span><span class="number">.32</span>
+</code></pre><p>　<br>このままでも良いのですが、一般的にターミナルを起動したら自動でnvmが使えるようにしたいので、以下の設定を実行します。</p>
+<pre><code>$ nvm alias default V0<span class="number">.10</span><span class="number">.32</span>
+
+$ vim ~/.bash_profile
+以下、.bash_profileに入力して保存
+
+<span class="keyword">if</span> <span class="string">[[ -s ~/.nvm/nvm.sh ]]</span>;
+    <span class="keyword">then</span> source ~/.nvm/nvm.sh
+fi
+</code></pre><p>これでOKです！</p>
+<blockquote>
+<p>（Tips）<br>もし「.bash_profile」が無ければ、作成してください。</p>
+</blockquote>
+<hr>
+<h3 id="Hexoをインストール">Hexoをインストール</h3><p>Node.jsとGitの準備が完了した時点で、以下のコマンドを実行します。</p>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span>
+</code></pre><p>　<br>Hexoはこれで完了！</p>
+<p>超簡単ですね。</p>
+<hr>
+<h3 id="Hexoでブログを作る！">Hexoでブログを作る！</h3><p>とりあえず、サクッとブログを作ってみます。</p>
+<p>まず、新しいブログ「myBlog」を作成！</p>
+<pre><code>$ hexo init myB<span class="built_in">log</span>
+</code></pre><p>　<br>新規作成直後のみ、myBlogを初期化する必要があります。</p>
+<pre><code>$ <span class="built_in">cd</span> myB<span class="built_in">log</span>
+$ npm install
+</code></pre><p>npmをインストールすることで、Node関連のファイルが生成されます。</p>
+<p>　<br>hexoのサーバーを起動します。</p>
+<pre><code><span class="variable">$ </span>hexo s
+</code></pre><p>ブラウザで「<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 」にアクセスすると、デフォルトのHexoブログが表示されていることが確認できます。</p>
+<blockquote>
+<p>（Tips）<br>【Ctrl】+【C】で、Hexoサーバーを終了</p>
+</blockquote>
+<hr>
+<h3 id="Github_Pagesで公開！">Github Pagesで公開！</h3><p>このままGithub Pagesへ公開します。</p>
+<p>すでに生成されているファイル内に「config.yml」というファイルがあるので、その中にGithubの設定を入力します。</p>
+<pre><code>$ vim _config.yml
+ファイル内の「<span class="type">Deployment</span>」部分に、以下の設定を入力する
+
+<span class="title">deploy</span>:
+    <span class="typedef"><span class="keyword">type</span>: github</span>
+    repo: 【自分のgithubのレポジトリ】
+    branch: master
+</code></pre><blockquote>
+<p>（Tips）<br>事前に、Githubのアカウントを取得し、【自分のアカウント名.github.io】というレポジトリを作成したうえで、上記の「repo:」へ入力します。<br>※参考記事【<a href="http://liginc.co.jp/web/html-css/html/96453" target="_blank" rel="external">Github Pages用のレポジトリ作成｜LIG INC.</a>】</p>
+</blockquote>
+<p>あとは、以下のコマンド1発で、Github Pagesにブログを公開することが出来ます。</p>
+<pre><code>$ hexo <span class="keyword">d</span> -<span class="keyword">g</span>
+</code></pre><blockquote>
+<p>（Tips）<br>[d]は、デプロイコマンド<br>[-g]は、ページ生成コマンド</p>
+</blockquote>
+<p>　<br>最後に、自分で決めた【自分のアカウント名.github.io】のURLへアクセスすれば、ブログが世界中に公開されているのを確認することが出来ます！</p>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/hexo-blog-basic/&text=Hexoでブログ作ってGithub Pagesへ公開するまでの手順！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/hexo-blog-basic/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/hexo-blog-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/hexo-blog-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/hexo-blog-basic/&text=Hexoでブログ作ってGithub Pagesへ公開するまでの手順！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/hexo-blog-basic/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/hexo-blog-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/hexo-blog-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

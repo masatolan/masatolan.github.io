@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/raspberry-pi/raspberry-pi-security/">
+    <title>5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！">
+    <meta property="og:description" content="5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！">
+    <meta property="og:url" content="http://masatolan.com/raspberry-pi/raspberry-pi-security/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/01/19
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-security/&text=5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-security/&text=5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg" alt="1"></p>
+<p><a href="/raspberry-pi/raspberry-pi-basic/">ラズベリーパイの初期設定</a>が完了したら、そのまま遊ぶ前にやっておくべき事があります。</p>
+<p>それが、最低限のセキュリティ設定です！</p>
+<p>ラズパイは、デフォルト状態だとあまりにも無防備になっています。　この機会に、わずか5ステップで最低限のセキュリティを確保する方法をまとめましたので、ぜひ参考にしてみてください！</p>
+<a id="more"></a>
+<hr>
+<h3 id="【ステップ１】ラズパイを最新版にする！">【ステップ１】ラズパイを最新版にする！</h3><p>まずは、ラズベリーパイの「ファームウェア」を最新版にしておきます。(すでに最新版の方は飛ばして下さい…)</p>
+<p>ラズパイのコマンドラインから、以下を実行。</p>
+<pre><code><span class="variable">$ </span>sudo rpi-update
+</code></pre><p>　<br>完了したら、再起動！</p>
+<pre><code><span class="variable">$ </span>sudo reboot
+</code></pre><p>　<br>ついでに、パッケージ管理ツールも最新版にしておくとベスト！</p>
+<pre><code>$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+</code></pre><p>　<br>さらに、アップグレードもしておきます。</p>
+<pre><code>$ sudo apt-<span class="keyword">get</span> upgrade
+</code></pre><p>　<br>ちなみに、もし「vim」を導入していないのであれば、インストールしておくとテキスト編集が快適になります…。</p>
+<pre><code>$ sudo apt-<span class="built_in">get</span> install <span class="keyword">vim</span>
+</code></pre><hr>
+<h3 id="【ステップ２】rootのパスワードを設定する！">【ステップ２】rootのパスワードを設定する！</h3><p>初期状態のラズベリーパイは、何でも可能な「root」にパスワードが設定されていません。<br>このままだと、誰でもrootへアクセス出来るので「パスワード」をサクッと設定しておきましょう。</p>
+<p>ラズパイのコマンドラインから、以下を実行。</p>
+<pre><code><span class="variable">$ </span>sudo passwd root
+</code></pre><p>新しいパスワードを、2回入力して完了。</p>
+<p>　<br>正しく設定されたかを、以下のコマンドで確認！</p>
+<pre><code><span class="variable">$ </span>su
+</code></pre><p>先ほど設定したパスワードで、アクセス出来たらOK。</p>
+<p>元のユーザーに戻しておきましょう。</p>
+<blockquote>
+<p>（Tips）<br>「exit」コマンドを実行すると、現在のユーザーをログアウトして、以前のユーザーに戻ることが出来ます。</p>
+</blockquote>
+<hr>
+<h3 id="【ステップ３】新規ユーザーを追加する！">【ステップ３】新規ユーザーを追加する！</h3><p>ラズパイは、最初から「pi」ユーザーが設定されているのですが、「ユーザー名」も「パスワード」も公開されているので、できれば使わない方が無難です。</p>
+<p>そこで、新しいユーザーを追加しておきましょう！</p>
+<p>ラズパイのコマンドラインから、以下を実行。（新規ユーザー名を「newuser」にする場合…）</p>
+<pre><code>$ sudo <span class="keyword">adduser </span>newuser
+</code></pre><p>新しいパスワードを2回入力して設定を完了します。</p>
+<blockquote>
+<p>（Tips）<br>途中で、「Full Name []」を聞かれますが、そのまま何も入力せずに「エンターキー」を押せばOK。（他の問いもエンターでOK…）</p>
+</blockquote>
+<p>　<br>「pi」ユーザーと同じgroup(権限?)にしておきたいので、まず「pi」ユーザーのgroupを確認します。</p>
+<pre><code>$ groups <span class="constant">pi</span>
+</code></pre><p>　<br>ズラッと、いろいろ表示されると思いますが、新規ユーザーに全部このgroupを追加します。</p>
+<pre><code>$ sudo usermod -G pi,adm,dialout,cdrom,sudo,<span class="tag">audio</span>,<span class="tag">video</span>,plugdev,games,users,netdev,<span class="tag">input</span>,spi,gpio newuser
+</code></pre><p>最後の「newuser」は、新規ユーザー名となります。</p>
+<blockquote>
+<p>（Tips）<br>もし、今後groupを追加する場合は、「gpasswd -a」コマンドを利用する方が便利なので覚えておきましょう。</p>
+</blockquote>
+<p>　<br>groupが追加されたことを確認！(ユーザー名がnewuserの場合…)</p>
+<pre><code><span class="variable">$ </span>groups newuser
+</code></pre><p>先ほどの「pi」ユーザーのように表示されたらOK！</p>
+<blockquote>
+<p>（Tips）<br>もし、「pi」ユーザー内のファイルを、新規ユーザーにコピーしたい場合は、「$ cp -r /home/pi/* /home/username」とすればOKです。</p>
+</blockquote>
+<p>　<br>これで、一旦ラズパイを終了させて、新規ユーザーでログインできるか確認しておきましょう。</p>
+<pre><code>$ ssh newuser@<span class="number">192.168</span><span class="number">.3</span><span class="number">.3</span>
+</code></pre><p>（IPアドレスは、各自の環境に合わせてください…）</p>
+<hr>
+<h3 id="【ステップ４】「pi」ユーザーを削除する！">【ステップ４】「pi」ユーザーを削除する！</h3><p>新規ユーザーでログイン出来たら、もう「pi」ユーザーは使うことが無いので以下のコマンドで削除しておきます。</p>
+<pre><code>$ userdel -r <span class="constant">pi</span>
+</code></pre><p>　<br>もし、削除するのが嫌な場合はそのまま残しておくか、ユーザー名を変更することも可能です。</p>
+<pre><code>$ sudo usermod -l newpi <span class="constant">pi</span>
+</code></pre><p>（「newpi」というユーザー名に変更する場合…）</p>
+<blockquote>
+<p>（Tips）<br>「exit」コマンドで、すべてのユーザーをログアウトしてから実行しないと、「currently used by process 2456」のようなエラーが表示されます。<br>「kill 2456」とかで、強制的に終了させることもできます…。</p>
+</blockquote>
+<hr>
+<h3 id="【ステップ５】SSHのポート番号を変更する！">【ステップ５】SSHのポート番号を変更する！</h3><p>ラズパイの初期設定では、SSHのポート番号がデフォルトの「22」となっています。<br>このままだと攻撃されやすいので、自分の好きなポート番号に変更しましょう！</p>
+<p>ラズパイのコマンドラインから、以下を実行！</p>
+<pre><code><span class="variable">$ </span>sudo vim /etc/ssh/sshd_config
+</code></pre><p>　<br>vimでSSHの設定ファイルが開いたら、5行目くらいにあるポートの設定を変更して保存します。</p>
+<pre><code>Port <span class="number">22</span> ⇒  Port <span class="number">51234</span>
+</code></pre><p>ポート番号は、「49152〜65535」の中から好きに選ぶことが出来ます。</p>
+<p>　<br>そして、SSHを再起動します。</p>
+<pre><code><span class="variable">$ </span>sudo /etc/init.d/ssh restart
+</code></pre><p>[OK]が表示されたら完了です。</p>
+<p>　<br>一度、ログアウトしてから、以下のようにSSH接続します。</p>
+<pre><code>$ ssh newuser@<span class="number">192.168</span><span class="number">.3</span><span class="number">.3</span> -p <span class="number">51234</span>
+</code></pre><p>これで、「新しいユーザー」「新しいポート番号」で、SSH接続できるようになりました！</p>
+<blockquote>
+<p>（Tips）<br>さらにセキュリティを高めるために、SSH設定ファイル内にある「PermitRootLogin yes」という部分の最後を「<del>yes</del> ⇒ no」にしましょう。<br>これで、rootユーザーで直接ログイン出来なくなるので安全性が高まります。（rootでログインする場合は、一般ユーザーから入りましょう…）</p>
+<p>（参考）<br>「<a href="http://masatolan.com/categories/raspberry-pi/">ラズベリーパイ活用記事まとめ</a>」</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-security/&text=5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-security/&text=5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-security/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-hunt/">
+                        世界中のラズベリーパイ活用事例を毎日紹介してくれる「Pi Hunt」が楽し過ぎ！
+                        <img src="/images/2015/raspberrypi/4/pi-hunt_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/webiopi-basic/">
+                        ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/webiopi-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-ttytter/">
+                        ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-node-gpio/">
+                        ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！
+                        <img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-top/">
+                        「Raspberry Pi 2」で作られた13インチノートPC「pi-top」が299ドルで販売中！
+                        <img src="/images/2015/raspberrypi/2/pi-top_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/iphone-to-raspberry-pi/">
+                        iPhoneからラズベリーパイに「SSH接続」してみた！
+                        <img src="/images/2015/raspberrypi/2/iphone-to-raspberry-pi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-wifi/">
+                        Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！
+                        <img src="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-lxde/">
+                        MacbookにラズベリーパイのGUI環境(LXDE)を表示してみた！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-lxde_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

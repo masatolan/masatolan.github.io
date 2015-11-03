@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/raspberry-pi/raspberry-pi-wifi/">
+    <title>Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！">
+    <meta property="og:description" content="Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！">
+    <meta property="og:url" content="http://masatolan.com/raspberry-pi/raspberry-pi-wifi/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.comhttp://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/01/14
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/&text=Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/&text=Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg" alt="1"></p>
+<p><a href="/raspberry-pi/raspberry-pi-basic/">前回の記事</a>で、ラズベリーパイをMacbookで動かすための方法をご紹介しました。</p>
+<p>かなりシンプルな構成になったので、どこでも持ち運びやすくなったのですが、今回はさらに無線LAN(Wi-Fi)対応させることで、LANケーブルさえも不要にしてしまおう！という記事です。</p>
+<a id="more"></a>
+<hr>
+<h3 id="用意するもの！">用意するもの！</h3><p>ラズベリーパイを無線LAN対応させるために、USBで接続できる<a href="http://www.amazon.co.jp/gp/product/B00ESA34GA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00ESA34GA&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">PLANEX製の無線LAN(Wi-Fi)</a>アダプタを購入しました。（1000円程度です…）<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00ESA34GA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
+<p><img src="/images/2015/raspberrypi/1/raspberry-pi-wifi_2.jpg" alt="2"></p>
+<p>BUFFALO製と迷ったのですが、PLANEX製のAmazon評価が地味に高かったのでコチラに決めました。（結果的に、とても安定して高品質だと実感してます…）</p>
+<p>あと、最初にMacbookから初期設定する必要があるので、LANケーブルもちょこっと使います。ダイソーとかで売っているモノで十分です。</p>
+<p>とりあえず、これだけあればOK！</p>
+<hr>
+<h3 id="まず、最初に設定すること">まず、最初に設定すること</h3><p>いろいろ設定するにあたり、「apt-getの更新」と「Vimインストール」をやっておきましょう。<br>すでに完了している人は、読み飛ばしてもらってもOKです。</p>
+<p>まず、<a href="/raspberry-pi/raspberry-pi-basic/">前回の記事</a>でもやったように、MacbookからラズベリーパイへSSH接続しておきます。（pi@raspberrypi ~ $になっていればOK…）</p>
+<p>パッケージ管理ツールの「apt-get」を最新版にしたいので、以下のコマンドを実行！</p>
+<pre><code>$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span>
+</code></pre><p>　<br>さらに、アップグレードもしておきましょう。</p>
+<pre><code>$ sudo apt-<span class="keyword">get</span> upgrade
+</code></pre><p>確認メッセージが表示されたら、「Y」でOKです。</p>
+<p>　<br>設定用ファイルを編集するために、高機能テキストエディタ「Vim」をインストールします。（標準搭載のviやnanoが使える方はそちらでもOK…）</p>
+<pre><code>$ sudo apt-<span class="built_in">get</span> install <span class="keyword">vim</span>
+</code></pre><p>確認メッセージは、「Y」でOK。</p>
+<hr>
+<h3 id="ネットワークの設定を行う！">ネットワークの設定を行う！</h3><p>それでは、早速ラズベリーパイの無線LAN対応を行いましょう！</p>
+<p>ラズパイの「ネットワーク設定ファイル」は、以下のコマンドで開きます。</p>
+<pre><code><span class="variable">$ </span>sudo vim /etc/network/interfaces
+</code></pre><p>　<br>これで、vimを使って以下のようなファイルが開くはず。</p>
+<figure class="highlight plain"><figcaption><span>/etc/network/interfaces</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto lo&#10;&#12288;&#10;iface lo inet loopback&#10;iface eth0 inet dhcp&#10;&#12288;&#10;allow-hotplug wlan0&#10;iface wlan0 inet manual&#10;wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf&#10;iface default inet dhcp</span><br></pre></td></tr></table></figure>
+<p>「iface eth0」というのが、LANケーブルを使ったネットワーク情報です。現在は、「DHCP」に設定されているはず。</p>
+<p>そして、「iface wlan0」というのが、無線LAN(Wi-Fi)のネットワーク情報になります。</p>
+<p>編集するのは、以下の2点です！</p>
+<ul>
+<li>「iface wlan0 inet manual」⇒「iface wlan0 inet dhcp」</li>
+<li>「wpa-roam」⇒「wpa-conf」</li>
+</ul>
+<p>以下のように編集できたら、保存して完了です！</p>
+<figure class="highlight plain"><figcaption><span>/etc/network/interfaces</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto lo&#10;&#12288;&#10;iface lo inet loopback&#10;iface eth0 inet dhcp&#10;&#12288;&#10;allow-hotplug wlan0&#10;iface wlan0 inet dhcp&#10;wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf&#10;iface default inet dhcp</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>（Tips）<br>vimでテキストを編集するために、便利なチートシートがあるので活用してみてください。<br>【<a href="http://vim.rtorr.com/lang/ja/" target="_blank" rel="external">vimチートシート日本語版</a>】</p>
+</blockquote>
+<hr>
+<h3 id="自宅の無線LANと接続してみる！">自宅の無線LANと接続してみる！</h3><p>ラズベリーパイ側のネットワーク設定は完了したので、次は自宅の無線LANをラズパイに記憶させる必要があります。</p>
+<p>まず、ラズベリーパイのUSBに、冒頭で紹介したPLANEX製の無線LANアダプタを接続します。（オレンジの光がピカピカするはず…）</p>
+<p>　<br>以下のコマンドで、無線LANを検出します。</p>
+<pre><code><span class="variable">$ </span>sudo iwlist wlan<span class="number">0</span> scan
+</code></pre><p>すると、ズラズラッと無線LAN(Wi-Fi)が検出されて表示されると思います。</p>
+<p>この中に、よーく見ると自宅の無線LANの「SSID」が表示されているはずなので、確認しておいてください。</p>
+<p>　<br>そして、ラズベリーパイに「自宅の無線LAN」を記憶させるためのファイルを作成します。</p>
+<pre><code><span class="variable">$ </span>sudo sh -c <span class="string">"wpa_passphrase [SSID] [PASS] &gt;&gt; /etc/wpa_supplicant/wpa_supplicant.conf"</span>
+</code></pre><p>[SSID]の箇所には、自宅の無線LANのSSIDを入力して、[PASS]の箇所には、パスワードを入力してください。</p>
+<p>　<br>正常にファイルが作られたかを、以下のコマンドで確認します。</p>
+<pre><code>$ sudo vim /etc/wp<span class="built_in">a_supplicant</span>/wp<span class="built_in">a_supplicant</span>.conf
+</code></pre><p>すると、「ssid」「#psk」「psk」が設定されているはず。「#psk」は、パスワードがそのまま設定されているので、削除しておきましょう。</p>
+<p>さらに、自宅の無線LANが「WPA-PSK」なので、必要な情報を追記して以下のようなカタチにして保存しておきます。</p>
+<figure class="highlight plain"><figcaption><span>/etc/wpa_supplicant/wpa_supplicant.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev&#10;update_config=1&#10;network=&#123;&#10;&#9;proto=WPA&#10;&#9;key_mgmt=WPA-PSK&#10;&#9;pairwise=CCMP&#10;&#9;group=CCMP&#10;&#9;ssid=&#34;*********&#34;&#10;&#9;psk=*****************************&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>ここまで完了したら、一旦ラズベリーパイを終了させて再起動してください。</p>
+<hr>
+<h3 id="ラズベリーパイを無線LAN接続してみる！">ラズベリーパイを無線LAN接続してみる！</h3><p>ラズパイを再起動したら、以下のコマンドで「ネット接続状況」を確認します。</p>
+<pre><code><span class="variable">$ </span>sudo ifconfig
+</code></pre><p>すると、「wlan0」の中に「inet addr 192.168.3.3」のような数値が表示されているはず！</p>
+<p>これが、Macbookからラズベリーパイの無線LANへ接続するための「IPアドレス」になります。</p>
+<p>　<br>ひとまず、このIPアドレスが正常に動いているのかを確認するために、以下のコマンドを実行！（IPアドレスは自分のモノを利用してください…）</p>
+<pre><code>$ ping <span class="number">192.168</span><span class="number">.3</span><span class="number">.3</span>
+</code></pre><p>一定間隔でメッセージが表示されるようになっていれば成功です！（CTRL + Cで終了してください…）</p>
+<p>ここで、ラズベリーパイを一旦終了させて、Macbookとラズパイを繋いでいるLANケーブルを外して、共有設定も終了させてください。</p>
+<p>　<br>そして、ラズベリーパイへ再度SSH接続する時に、今度は先ほど表示されたwlan0のIPアドレスで接続してみてください。（「ユーザー名:pi」「パスワード:raspberry」は同様です）</p>
+<p>いかがでしょう？</p>
+<p>上手く接続できましたか？</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://masatolan.com/categories/raspberry-pi/">ラズベリーパイ活用記事まとめ</a>」</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/&text=Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/&text=Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-wifi/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-hunt/">
+                        世界中のラズベリーパイ活用事例を毎日紹介してくれる「Pi Hunt」が楽し過ぎ！
+                        <img src="/images/2015/raspberrypi/4/pi-hunt_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/webiopi-basic/">
+                        ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/webiopi-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-ttytter/">
+                        ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-node-gpio/">
+                        ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！
+                        <img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-top/">
+                        「Raspberry Pi 2」で作られた13インチノートPC「pi-top」が299ドルで販売中！
+                        <img src="/images/2015/raspberrypi/2/pi-top_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/iphone-to-raspberry-pi/">
+                        iPhoneからラズベリーパイに「SSH接続」してみた！
+                        <img src="/images/2015/raspberrypi/2/iphone-to-raspberry-pi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-security/">
+                        5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-lxde/">
+                        MacbookにラズベリーパイのGUI環境(LXDE)を表示してみた！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-lxde_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

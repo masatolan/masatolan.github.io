@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/milkcocoa-and-angularjs/">
+    <title>「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！">
+    <meta property="og:description" content="「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！">
+    <meta property="og:url" content="http://masatolan.com/programming/milkcocoa-and-angularjs/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/05/18
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/milkcocoa-and-angularjs/&text=「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/milkcocoa-and-angularjs/&text=「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" alt="1"></p>
+<p>AngularJSの勉強を兼ねて、サーバーやデータベース系を気にせず「チャット」などのサービスを素早く構築できる「<a href="https://mlkcca.com/" target="_blank" rel="external">milkcocoa</a>」を使ってみました。</p>
+<p>こういう「バックエンド系」をサポートしてくれるサービスはいくつかあるのですが、やはり非常に便利ですね。<br>特にプロトタイプを作る際には、今後も積極的に活用していきたいところ…。</p>
+<a id="more"></a>
+<hr>
+<h3 id="事前準備！">事前準備！</h3><p>今回は、簡易的な「チャットアプリ」を作ってみようと思います。</p>
+<p>まずは、milkcocoaを利用するために、無料のユーザー登録をしてから「アプリ作成ボタン」をクリックします！</p>
+<p><img src="/images/2015/programming/5/milkcocoa-and-angularjs_2.jpg" alt="2"></p>
+<p>（アプリ名は好きな名称でOK…）</p>
+<p>　<br>作成したアプリの管理画面にある「コード」を、HTMLとJavaScriptファイルへそれぞれコピペします！</p>
+<p><img src="/images/2015/programming/5/milkcocoa-and-angularjs_3.jpg" alt="3"></p>
+<p>　<br>そして、AngularJSの初期設定も含めて、まずはこんな感じの初期ファイルが用意できたら、準備はOKです！</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>チャットサンプル<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdn.mlkcca.com/v2.0.0/milkcocoa.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"chat.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-app</span>=<span class="value">"chatApp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-conttoller</span>=<span class="value">"chatCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br><figure class="highlight javascript"><figcaption><span>chat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">"chatApp"</span>, [])</span><br><span class="line">.controller(<span class="string">"chatCtrl"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> milkcocoa = <span class="keyword">new</span> MilkCocoa(<span class="string">"apple??????.mlkcca.com"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>あとは、AngularJSで作るコントローラー「chatCtrl」内で、ごにょごにょと処理を書いていこうと思います。</p>
+<hr>
+<h3 id="「milkcocoa」の機能を使う！">「milkcocoa」の機能を使う！</h3><p>今回作るのは、あくまで簡易的なモノなので、「ユーザー名」と「メッセージ」を入力して送信するだけのシンプルなカタチにしようと思います。</p>
+<p><img src="/images/2015/programming/5/milkcocoa-and-angularjs_4.jpg" alt="4"></p>
+<p>同じURLにアクセスすれば、不特定多数の人とシンプルなチャットが出来ます。</p>
+<p>ちなみに、メッセージデータはすべて自分のmilkcocoa上に保存されていき、いつでも管理画面が閲覧&amp;編集が出来るようになっています。</p>
+<p>　<br>それでは、まずHTMLを編集して「見た目」を作りましょう。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-app</span>=<span class="value">"myMilkApp"</span>&gt;</span></span><br><span class="line">　<span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"milkCtrl"</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">size</span>=<span class="value">"10"</span> <span class="attribute">ng-model</span>=<span class="value">"user"</span> <span class="attribute">placeholder</span>=<span class="value">"ユーザー名"</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>/&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">size</span>=<span class="value">"30"</span> <span class="attribute">ng-model</span>=<span class="value">"msg"</span> <span class="attribute">placeholder</span>=<span class="value">"メッセージを入力"</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="title">button</span> <span class="attribute">name</span>=<span class="value">"button"</span> <span class="attribute">ng-click</span>=<span class="value">"sendMes()"</span>&gt;</span>送信<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">ng-repeat</span>=<span class="value">"msgbox in msgBoxes"</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">　　　　&#123;&#123;msgbox.value.name&#125;&#125;: &#123;&#123;msgbox.value.text&#125;&#125;</span><br><span class="line"></span><br><span class="line">　　　　<span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"deleteMes($index)"</span>&gt;</span>削除<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">　　　<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">　<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>AngularJSで作ったモデル「user」と「msg」へ、入力したテキストをそれぞれ保管して「milkcocoa」にデータを送るようにします。</p>
+<p>そして、「milkcocoa」から読みだしたデータは、「msgBoxes」にすべて入れておき「ng-repeat」で1つずつ表示するカタチにしました。</p>
+<p>　<br>肝心のJSファイルですが、すでに以下のコードで「milkcocoa」が使えるようになっています。</p>
+<pre><code><span class="keyword">var</span> milkcocoa = <span class="keyword">new</span> MilkCocoa(<span class="string">"apple?????.mlkcca.com"</span>);
+</code></pre><p>　<br>あとは、利用するデータベース名を指定する必要があります。</p>
+<pre><code><span class="keyword">var</span> myApp = milkcocoa.dataStore(<span class="string">'ng-test'</span>);
+</code></pre><p>これにより、「myApp」変数を使うことで、さまざまな「milkcocoa」コマンドが利用できたり、データを保存することが出来るようになります。</p>
+<p>　<br>例えば、「milkcocoa」上に保存されているデータを読み出すには「stream」コマンドを使えば簡単です。</p>
+<pre><code>myApp.stream().<span class="built_in">next</span>(<span class="function"><span class="keyword">function</span><span class="params">(err, data)</span></span>{});
+</code></pre><p>この「data」の中に、保存されたデータがすべて入っているので、これを「msgBoxes」に入れることで、AngularJSからコントロールできるようになります。</p>
+<figure class="highlight javascript"><figcaption><span>chat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myMilkApp'</span>, [])</span><br><span class="line">.controller(<span class="string">'milkCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> milkcocoa = <span class="keyword">new</span> MilkCocoa(<span class="string">"applei9jgtmjv.mlkcca.com"</span>);</span><br><span class="line">  $scope.myApp = milkcocoa.dataStore(<span class="string">'ng-test'</span>);</span><br><span class="line"> </span><br><span class="line">  $scope.readMes = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $scope.myApp.stream().next(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">      $scope.msgBoxes = data;</span><br><span class="line">      $scope.$apply();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>「readMes」という関数を作り、これを呼び出すことで「milkcocoa」からデータを「msgBoxes」へ入れるようにしています。</p>
+<p>また、重要なのは「$apply()」というAngularJSコマンド…。</p>
+<p>これを書いておかないと、即座にデータが反映されません。これは、外部ライブラリである「milkcocoa」を利用して、$scopeの値を変更しようとしても変更できないというAngularJSの仕様によるものです。</p>
+<p>　<br>また、「milkcocoa」では任意のタイミングで情報を更新できる「on」コマンドが用意されています。</p>
+<p>これを利用すると、例えば何らかのデータを送信したタイミングで情報を更新したり、データを削除したタイミングで更新するという事が可能です。</p>
+<p>つまり、</p>
+<pre><code><span class="variable">$scope</span>.myApp.on(<span class="string">'push'</span>, <span class="keyword">function</span>(event){
+    <span class="variable">$scope</span>.readMes();
+});
+</code></pre><p>とすれば、メッセージを送信(push)したタイミングで、「readMes」関数を呼び出すことが出来ます。</p>
+<p>これだけで、メッセージを送信した直後に、入力したテキストが画面にすぐ表示される仕組みを作ることが出来るわけです。</p>
+<p>　<br>最後に、「milkcocoa」へデータを送信するには「push」コマンドを利用します。</p>
+<pre><code><span class="variable">$scope</span>.sendMes = <span class="keyword">function</span>(){
+    <span class="variable">$scope</span>.myApp.push({name: <span class="variable">$scope</span>.user, text: <span class="variable">$scope</span>.msg});
+}
+</code></pre><p>HTMLに記載したモデル「user」と「msg」のテキストを、そのまま「milkcocoa」へ送信するようになっています。<br>簡単ですね…。</p>
+<p>　<br>最終的に、JSファイルは以下のようになります。</p>
+<figure class="highlight javascript"><figcaption><span>chat.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myMilkApp'</span>, [])</span><br><span class="line">.controller(<span class="string">'milkCtrl'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> milkcocoa = <span class="keyword">new</span> MilkCocoa(<span class="string">"applei9jgtmjv.mlkcca.com"</span>);</span><br><span class="line">  $scope.myApp = milkcocoa.dataStore(<span class="string">'ng-test'</span>);</span><br><span class="line">  $scope.user = <span class="string">""</span>;</span><br><span class="line">  $scope.msgBoxes = <span class="string">""</span>;</span><br><span class="line"> </span><br><span class="line">  $scope.readMes = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $scope.myApp.stream().next(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>)</span>&#123;</span><br><span class="line">      $scope.msgBoxes = data;</span><br><span class="line">      $scope.$apply();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  $scope.sendMes = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $scope.myApp.push(&#123;name: $scope.user, text: $scope.msg&#125;);</span><br><span class="line">    $scope.msg = <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  $scope.deleteMes = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    $scope.myApp.remove($scope.msgBoxes[num].id);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  $scope.myApp.on(<span class="string">'push'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    $scope.readMes();</span><br><span class="line">  &#125;);</span><br><span class="line"> </span><br><span class="line">  $scope.myApp.on(<span class="string">'remove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    $scope.readMes();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>データの削除に関しては、「remove」コマンドを利用して、「ng-repeat」の$index番号を使って個別の「id」を特定しています。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「milkcocoa」を利用すれば、サーバーの知識やデータベースの構築といった面倒な作業をすべて丸投げできるのが魅力です。</p>
+<p>無料プランでも充分使えますが、同時接続数が20なので「プロトタイプ作り」として使うのが良いでしょう。</p>
+<p>今回は、AngularJSを利用しましたが、他の多彩なフレームワークとの相性も良さそうです。</p>
+<p>手軽にバックエンドを利用する選択肢としては、なかなか良いのではないでしょうか…。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://mlkcca.com/" target="_blank" rel="external">milkcocoa</a>」公式サイト<br>「<a href="https://angularjs.org/" target="_blank" rel="external">AngularJS</a>」公式サイト</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/milkcocoa-and-angularjs/&text=「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/milkcocoa-and-angularjs/&text=「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/milkcocoa-and-angularjs/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/">
+    <title>ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！">
+    <meta property="og:description" content="ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！">
+    <meta property="og:url" content="http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/02/15
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/raspberry-pi/">raspberry pi</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/&text=ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/&text=ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_1.jpg" alt="1"></p>
+<p>前々から、ラズベリーパイのGPIOをJavaScriptでいじりたかったのですが、いろいろ試行錯誤した結果、Node.jsを使うことにしました。</p>
+<p>と言っても、ガッツリNode.jsを知らなくても大丈夫で、今回は非常にシンプルなコードしか使いません。（ファイルシステムをチョコっと使うくらい…）</p>
+<a id="more"></a>
+<hr>
+<h3 id="事前準備！">事前準備！</h3><p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_2.jpg" alt="2"></p>
+<p>今回、用意するのは…、</p>
+<ul>
+<li>ラズベリーパイ本体</li>
+<li>ジャンパーワイヤ(オスメス用)2本</li>
+<li>LED1個</li>
+<li>ブレッドボード1台</li>
+</ul>
+<p>となっています。</p>
+<blockquote>
+<p>（参考）<br>ラズベリーパイ「<a href="http://www.amazon.co.jp/gp/product/B00G86DOP8/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00G86DOP8&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">電子工作入門キット</a>」｜Amazon<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00G86DOP8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
+</blockquote>
+<p>あと、私のラズパイ環境なのですが、Google製の「Coder」を導入して、SSH接続でMacbookのターミナルから無線LANで操作しています。</p>
+<blockquote>
+<p>（参考）<br>参考：「<a href="http://masatolan.com/raspberry-pi/raspberry-pi-coder-wifi/">Coderを使って、ラズパイをSSH接続！</a>」</p>
+</blockquote>
+<p>もし、同じように進めたい場合は、上記リンクを参考にしてみてください。</p>
+<p>ただ、特殊な環境ですが、Node.jsで操作する方法は、基本的には普通のラズベリーパイと同じことをするので、無理に合わせなくても問題ありません。</p>
+<p>　<br>本題の「Node.js」に関しては、Coderを使っていれば一緒にインストールされているのですが、自分でインストールする場合は、以下のリンクを参考にしてみてください。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://masatolan.com/programming/hexo-blog-basic/#Node-jsの準備">Node.jsの準備</a>」｜うえぶまなぶ</p>
+</blockquote>
+<hr>
+<h3 id="LEDを光らせる基本操作！">LEDを光らせる基本操作！</h3><p>まずは、ターミナル上でラズパイのファイルを直接操作して、LEDを光らせてみたいと思います。</p>
+<p>予備知識として、LEDは「アノード(足が長い)」から「カソード(足が短い)」へ電流が流れるという点に注意しましょう。</p>
+<p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_3.jpg" alt="3"></p>
+<p>　<br>そして、今回は25番ピンから電気が流れて、LEDが点灯しながらGNDへ抜けていくようになっています。</p>
+<p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_4.jpg" alt="4"></p>
+<p>　<br>イラストにすると、こんな感じ！</p>
+<p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_5.jpg" alt="5"></p>
+<blockquote>
+<p>（参考）<br>「ラズベリーパイ<a href="http://pi.gadgetoid.com/pinout" target="_blank" rel="external">GPIO図</a>」</p>
+</blockquote>
+<p>　<br>LEDを光らせるために、まずはラズパイのターミナル上から直接ファイルを操作したいと思います。</p>
+<p>ファイルへのアクセス権が必要なので、rootに移動します。 </p>
+<pre><code><span class="variable">$ </span>sudo su
+</code></pre><p>これで、rootになりました。</p>
+<p>　<br>次に、以下のコマンドを入力して、25番ピンを「export」します。</p>
+<pre><code>$ echo <span class="number">25</span> &gt; /sys/<span class="keyword">class</span>/gpio/<span class="keyword">export</span>
+</code></pre><p>これで、25番ピンを使えるようになりました。</p>
+<p>　<br>今回は、25番ピンから電気を出力するので「out」に設定します。</p>
+<pre><code><span class="variable">$ </span>echo out &gt; <span class="regexp">/sys/class</span><span class="regexp">/gpio/gpio</span>25/direction
+</code></pre><p>これで、もう準備完了です！</p>
+<p>　<br>LEDを「ON」にするには、数字の「1」を書き込めばOKです！</p>
+<pre><code><span class="variable">$ </span>echo <span class="number">1</span> &gt; <span class="regexp">/sys/class</span><span class="regexp">/gpio/gpio</span>25/value
+</code></pre><p>どうですか？　光りましたか？</p>
+<p>　<br>LEDの「OFF」は、数字の「0」を書き込みます。</p>
+<pre><code><span class="variable">$ </span>echo <span class="number">0</span> &gt; <span class="regexp">/sys/class</span><span class="regexp">/gpio/gpio</span>25/value
+</code></pre><p>これで消灯になりました。</p>
+<p>あとは、上記の方法で「1」と「0」を切り替えれば、LEDが点灯したり消灯したりするわけです。</p>
+<p>　<br>最後に、終了する時は使ったピンを「unexport」するのを忘れないようにしましょう！</p>
+<pre><code><span class="variable">$ </span>echo <span class="number">25</span> &gt; <span class="regexp">/sys/class</span><span class="regexp">/gpio/unexport</span>
+</code></pre><p>これでOK！</p>
+<p>再度、同じことをしたい場合は、もう一度最初の「export」から実行してみましょう。（最後に、元のユーザーに戻しておきましょう…）</p>
+<blockquote>
+<p>（参考）<br>rootから元のユーザーに戻すには、「exit」と入力すればOKです。</p>
+</blockquote>
+<hr>
+<h3 id="「Node-js」で光らせてみよう！">「Node.js」で光らせてみよう！</h3><p>それでは、先ほどと同じことを「Node.js」でやってみたいと思います。</p>
+<p>ラズパイのターミナル上から、「led.js」というファイルを作成して、以下のようなコードを書いて保存します。(今回はrootにしなくてもOKです…)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&#39;fs&#39;);&#10; &#10;fs.writeFileSync(&#39;/sys/class/gpio/export&#39;, 25);&#10;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/direction&#39;, &#39;out&#39;);&#10;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/value&#39;, 1); &#10; &#10;setTimeout(function()&#123;&#10;&#9;fs.writeFileSync(&#39;/sys/class/gpio/gpio25/value&#39;, 0);&#10;&#9;fs.writeFileSync(&#39;/sys/class/gpio/unexport&#39;, 25);&#10;&#125;, 2000);</span><br></pre></td></tr></table></figure>
+<p>あとは、このプログラムを実行すれば良いのですが、内容を少し解説しておきます。</p>
+<p>　<br>まずは、ファイルを操作する必要があるので、Node.jsの「fs」モジュールを使えるようにしておきます。</p>
+<pre><code><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);
+</code></pre><p>　<br>あとは、最初に実行したように、25番ピンを「export」し、出力「out」にしてからLEDの「ON(1)」を実行します。</p>
+<pre><code>fs.writeFileSync('/sys/<span class="class"><span class="keyword">class</span>/<span class="title">gpio</span>/<span class="title">export</span>', <span class="typename">25);</span></span>
+fs.writeFileSync('/sys/<span class="class"><span class="keyword">class</span>/<span class="title">gpio</span>/<span class="title">gpio25</span>/<span class="title">direction</span>', <span class="typename">'out');</span></span>
+fs.writeFileSync('/sys/<span class="class"><span class="keyword">class</span>/<span class="title">gpio</span>/<span class="title">gpio25</span>/<span class="title">value</span>', <span class="typename">1); </span></span>
+</code></pre><p>　<br>少し、プログラミングらしいことをしているのは、以下のコードくらいでしょうか。</p>
+<pre><code><span class="xml">setTimeout(function()</span><span class="expression">{
+        <span class="variable">fs.writeFileSync</span>('<span class="end-block">/sys</span><span class="end-block">/class</span><span class="end-block">/gpio</span><span class="end-block">/gpio</span>25<span class="end-block">/value</span>', 0);
+        <span class="variable">fs.writeFileSync</span>('<span class="end-block">/sys</span><span class="end-block">/class</span><span class="end-block">/gpio</span><span class="end-block">/unexport</span>', 25);
+}</span><span class="xml">, 2000);</span>
+</code></pre><p>今回は、手っ取り早く「setTimeout」を使って、2秒後に中身が実行されるようにしてます。(2秒後にLEDを消灯して25番ピンをunexport)</p>
+<p>　<br>このプログラムを実行してみます！</p>
+<pre><code><span class="variable">$ </span>sudo node led.js
+</code></pre><p>　<br>これで、2秒間LEDが点灯して消えます。</p>
+<p><img src="/images/2015/raspberrypi/2/raspberry-pi-node-gpio_6.jpg" alt="6"></p>
+<p>　<br>ただし、私の環境だと「sudo」が実行できなかったので、実行できるように設定しました。</p>
+<p>まず、Node.jsのインストール先を調べます。</p>
+<pre><code>$ whereis node
+
+<span class="regexp">/opt/</span>node<span class="regexp">/bin/</span>node
+</code></pre><p>環境によって、パスは変わるので適宜読み替えてください…。</p>
+<p>　<br>最後に、以下のコマンドを実行。</p>
+<pre><code>$ sudo ln -s <span class="regexp">/opt/</span>node<span class="regexp">/bin/</span>node <span class="regexp">/usr/</span>bin<span class="regexp">/node</span>
+</code></pre><p>これで、sudoが実行できるようになり、LEDが光りました！</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「Node.js」に関しては、ラズパイのGPIOを簡単に操作できるライブラリが多く公開されているので、このあたりを使った方が効率は良いかもしれません。</p>
+<p>また、Node.jsを使えば、ブラウザ上からGPIOを操作したりも実現できると思うので、このあたりに関しては、また次回に挑戦したいと思います。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://masatolan.com/categories/raspberry-pi/">ラズベリーパイ活用記事まとめ</a>」</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/&text=ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/&text=ラズベリーパイのGPIOを、Node.jsで操作してLED光らせてみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/raspberry-pi/raspberry-pi-node-gpio/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-hunt/">
+                        世界中のラズベリーパイ活用事例を毎日紹介してくれる「Pi Hunt」が楽し過ぎ！
+                        <img src="/images/2015/raspberrypi/4/pi-hunt_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/webiopi-basic/">
+                        ブラウザから、ラズベリーパイのGPIOを操作できる「WebIOPi」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/webiopi-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-ttytter/">
+                        ラズベリーパイとTwitterを連携し、コマンドラインからツイート可能な「ttytter」を試してみた！
+                        <img src="/images/2015/raspberrypi/3/raspberry-pi-ttytter_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/pi-top/">
+                        「Raspberry Pi 2」で作られた13インチノートPC「pi-top」が299ドルで販売中！
+                        <img src="/images/2015/raspberrypi/2/pi-top_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/iphone-to-raspberry-pi/">
+                        iPhoneからラズベリーパイに「SSH接続」してみた！
+                        <img src="/images/2015/raspberrypi/2/iphone-to-raspberry-pi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-wifi/">
+                        Macbookから、ラズベリーパイ(B+)を無線LAN(Wi-Fi)対応させてみた！
+                        <img src="http://masatolan.com/images/2015/raspberrypi/1/raspberry-pi-wifi_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-security/">
+                        5ステップで完了！ラズベリーパイ(B+)のセキュリティ設定まとめ！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-security_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/raspberry-pi/raspberry-pi-lxde/">
+                        MacbookにラズベリーパイのGUI環境(LXDE)を表示してみた！
+                        <img src="/images/2015/raspberrypi/1/raspberry-pi-lxde_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>

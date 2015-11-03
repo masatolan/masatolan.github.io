@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title><![CDATA[うえぶまなぶ]]></title>
+    <link>http://masatolan.com/</link>
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    <description><![CDATA[Webで学んだことをメモ…]]></description>
+    <pubDate>Sun, 25 Oct 2015 07:56:23 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！]]></title>
+      <link>http://masatolan.com/programming/chrome-extension/</link>
+      <guid>http://masatolan.com/programming/chrome-extension/</guid>
+      <pubDate>Sat, 22 Aug 2015 19:48:52 GMT</pubDate>
+      <description>
+      <![CDATA[クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/8/chrome-extension_1.jpg" alt="1"></p>
+<p>ふとしたきっかけで、急に「テトリス」が遊びたくなったので、いろいろ探してみたのですが良いのが見つからず…。</p>
+<p>普段からChromeブラウザを愛用していることから、「<a href="https://chrome.google.com/webstore/category/apps" target="_blank" rel="external">Chromeウェブストア</a>」も検索したのですが、お手頃感のあるモノが見つからず…。</p>
+<p>結局のところ、探すのが辛くなってきたので、自分好みの気軽に遊べるテトリスを、「Chrome拡張機能」として可能な限り簡単に作ってみました。</p>
+<a id="more"></a>
+<hr>
+<h3 id="ミニマムなChrome拡張機能を作る！">ミニマムなChrome拡張機能を作る！</h3><p>そもそも「Chrome拡張機能」は、誰でも簡単に作れるように設計されています。<br>とりあえず、「アイコンをクリックして◯◯◯する…」みたいな拡張機能は、「HTMLファイル」「マニフェストファイル」「アイコン画像」を用意すればすぐに実現できます。</p>
+<p>　<br>「HTMLファイル」は、普通にWebページを作る時に用意するモノがあればOKで、まずは以下のミニマムなHTMLを用意します。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>テトリス<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br>「アイコン画像」は好きなモノを用意するか、「<a href="https://pixlr.com/editor/" target="_blank" rel="external">pixlr</a>」とかで適当に作っても良いでしょう。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_2.jpg" alt="2"></p>
+<p>サイズは「19×19px」にしておき、「icon.png」のようなファイル名にしておきましょう。</p>
+<p>　<br>「マニフェストファイル」は、自作した拡張機能をChromeで使えるようにするためのモノですが、中身はごく簡単なJSONファイルです。</p>
+<figure class="highlight javascript"><figcaption><span>manifest.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"manifest_version"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"tetris"</span>,</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line"> </span><br><span class="line">    <span class="string">"browser_action"</span>: &#123;</span><br><span class="line">      <span class="string">"default_icon"</span>: <span class="string">"icon.png"</span>,</span><br><span class="line">      <span class="string">"default_popup"</span>: <span class="string">"index.html"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>「manifest_version」で、現在の最新版であるバージョン「2」を指定し、「name」＝拡張機能の名称、「version」＝拡張機能のバージョンを任意に設定すればOK！</p>
+<p>ちなみに、この3つの項目は必須事項なので、必ず明記しておきましょう。</p>
+<p>　<br>あと、「browser_action」という項目を記載することで、「アイコンをクリックして◯◯◯する…」という機能が使えるようになります。</p>
+<p>「default_icon」で、先ほど用意した画像を設定し、「default_popup」にHTMLファイルを紐付ければ完了です！<br>ファイル名は、「manifest.json」にしておきましょう。</p>
+<p>詳しいマニフェストファイルの書き方は、Googleが公式に公開しているドキュメントが分かりやすいです。</p>
+<blockquote>
+<p>＜参考＞<br>「<a href="https://developer.chrome.com/extensions/manifest" target="_blank" rel="external">マニフェストドキュメント</a>」公式サイト</p>
+</blockquote>
+<p>　<br>ここまでで、以下のようなファイルを作成しました。</p>
+<pre><code>app
+ ├─ index<span class="class">.html</span>
+ ├─ manifest<span class="class">.json</span>
+ ├─ <span class="attribute">icon</span>.png
+</code></pre><p>　<br>あとは、この「app」フォルダごとChromeの「拡張機能設定ページ」へ放り込めば完成です！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_3.jpg" alt="3"></p>
+<p>　<br>Chromeの上部にアイコンが表示されるので、クリックすると「テトリス」と表示されるのが分かると思います。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_4.jpg" alt="4"></p>
+<p>これは、HTMLファイルの「p」要素に記載した「テトリス」の文字が表示されていることになります。<br>簡単に言ってしまえば、アイコンをクリックしたら「body」要素を表示するようなイメージでしょう。</p>
+<hr>
+<h3 id="手っ取り早く「テトリス」がしたい！">手っ取り早く「テトリス」がしたい！</h3><p>とりあえず、アイコンをクリックしたら「テトリス」の文字を表示する拡張機能は完成したので、あとはココに「遊べるテトリス」が表示されれば理想的です。</p>
+<p>ただ、テトリスをゼロから実装する気力は無かったので、何か良さそうなモノを探していたら、以前にちょっと話題になったJavaScriptライブラリ「<a href="http://aerolab.github.io/blockrain.js/" target="_blank" rel="external">Blockrain.js</a>」を発見！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_5.jpg" alt="5"></p>
+<p>これは、ライブラリを読み込んで、簡単なコードを追加するだけで「テトリス」が遊べてしまうという、まさに今回の拡張機能作りにピッタリなものです！</p>
+<p>　<br>そこで早速、HTMLファイルにライブラリを読み込むように修正してみます。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">src</span>=<span class="value">"blockrain.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"blockrain.jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>テトリス<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"game"</span> <span class="attribute">style</span>=<span class="value">"width:250px; height:500px;"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ダウンロードしたライブラリに含まれている、「blockrain.css」「blockrain.jquery.min.js」を追加し、<a href="http://jquery.com/" target="_blank" rel="external">jQuery</a>も一緒に読み込んでおきます。</p>
+<p>あと、「div」要素にテトリスのゲーム画面サイズを指定しておくのを忘れないようにしましょう。</p>
+<p>　<br>そして、新たにJavaScriptファイル「main.js」を追加し、以下のコードを書いておけばOK！</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">'.game'</span>).blockrain();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>たったこれだけで、遊べるテトリスの完成です！</p>
+<p>注意点として、HTMLファイル内にJavaScriptコードを記載すると、Chrome拡張機能の仕様でエラーになるようです。<br>なので、どんなに少ないコードであっても、外部ファイルとして読み込むようにしておきましょう。</p>
+<p>　<br>ここまで完成したら、先ほど読み込んだ拡張機能ページを表示し、「リロード」をクリックしてファイルを再読み込みします。</p>
+<p><img src="/images/2015/programming/8/chrome-extension_6.jpg" alt="6"></p>
+<p>　<br>そして、アイコンをクリックすれば、見事にテトリスが遊べます！</p>
+<p><img src="/images/2015/programming/8/chrome-extension_7.jpg" alt="7"></p>
+<p>これで、なんとか当初の目的であった「気軽にテトリスで遊ぶ！」というのが達成できたような気がします。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>今回は、「Chromeウェブストア」へ登録していないので、あくまで個人が楽しむための拡張機能ですが、まぁこういう使い方でも良いのかなと思ってます。</p>
+<p>Googleが用意している「公式ドキュメント」を読む限り、まだまだ多彩な機能が用意されており、専用のAPIも豊富に揃っているようです。</p>
+<p>これらを活用すれば、もっと面白い機能が作れそうなので、また時間が空いたら挑戦してみようと思います。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://developer.chrome.com/extensions" target="_blank" rel="external">Chrome拡張機能ドキュメント</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/programming/chrome-extension/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[クリック1発で、便利なWebサービスが次々と表示される「Random Useful Websites」が面白い！]]></title>
+      <link>http://masatolan.com/Webservice/random-useful-websites/</link>
+      <guid>http://masatolan.com/Webservice/random-useful-websites/</guid>
+      <pubDate>Sun, 09 Aug 2015 11:13:45 GMT</pubDate>
+      <description>
+      <![CDATA[クリック1発で、便利なWebサービスが次々と表示される「Random Useful Websites」が面白い！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/8/random-useful-websites_1.jpg" alt="1"></p>
+<p>仕事の効率化や、毎日の生活を便利にしてくれる「Webサービス」を、クリック1発でランダムに表示してくれる面白いサービス「<a href="http://www.randomusefulwebsites.com/" target="_blank" rel="external">Random Useful Websites</a>」のご紹介！</p>
+<p>どんなWebサービスが表示されるか分からない…というのがユニークで、まるでオモチャ箱から次々と楽しい道具が現れるような感覚です。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>すごくシンプルですが、サイトにアクセスして「LET’S GO!」ボタンをクリックするだけです。<br>すると、新規タブが開いて、ランダムな便利Webサービスが表示されるようになっています。</p>
+<p>　<br>例えば、世界中のホテルを横断検索し、Wi-Fiの速度をホテルごとに調べられる「<a href="http://www.hotelwifitest.com/" target="_blank" rel="external">Hotel Wifi Test</a>」</p>
+<p><img src="/images/2015/webservice/8/random-useful-websites_2.jpg" alt="2"></p>
+<p>　<br>あらゆる種類のファイルを、別のファイル形式に変換できる「<a href="https://cloudconvert.com/" target="_blank" rel="external">CloudConvert</a>」</p>
+<p><img src="/images/2015/webservice/8/random-useful-websites_3.jpg" alt="3"></p>
+<p>　<br>「始点」と「終点」を選択すると、ストリートビューでアニメーションしてくれる「<a href="http://www.brianfolts.com/driver/" target="_blank" rel="external">Streetview Player</a>」</p>
+<p><img src="/images/2015/webservice/8/random-useful-websites_4.jpg" alt="4"></p>
+<p>　<br>多彩な「チートシート」を作成して共有できるサービス「<a href="http://www.cheatography.com/" target="_blank" rel="external">Cheatography</a>」</p>
+<p><img src="/images/2015/webservice/8/random-useful-websites_5.jpg" alt="5"></p>
+<p>このような便利Webサービスが、クリックするたびに次々と表示されるので、使っていて楽しいです。</p>
+<p>毎日、クリックしていけば、いろんなWebサービスを知れるので勉強にもなるでしょう。</p>
+<p>ご興味ある方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.randomusefulwebsites.com/" target="_blank" rel="external">Random Useful Websites</a>」サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/random-useful-websites/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[2つのスタートアップを融合して、新しいWebサービスのアイデアを発見する「Startup Breeding」が面白い！]]></title>
+      <link>http://masatolan.com/Webservice/startup-breeding/</link>
+      <guid>http://masatolan.com/Webservice/startup-breeding/</guid>
+      <pubDate>Sun, 02 Aug 2015 10:42:01 GMT</pubDate>
+      <description>
+      <![CDATA[2つのスタートアップを融合して、新しいWebサービスのアイデアを発見する「Startup Breeding」が面白い！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/8/startup-breeding_1.jpg" alt="1"></p>
+<p>超シンプルなサービスなんですが、「アイデア出し」をする時の相性は抜群に良いと感じたのでご紹介！</p>
+<p>サイトにアクセスする度に、毎回ランダムな2つのスタートアップ関連サービスが表示されて、この2つを組み合わせると「面白いWebサービスになるんじゃない？」と掲示してくれるわけです。</p>
+<p>すごく単純なんですが、実際に使ってみると意外に「ハッ」とさせられます…。</p>
+<a id="more"></a>
+<hr>
+<h3 id="組み合わせ事例！">組み合わせ事例！</h3><p>「<a href="http://www.startupbreeding.com/" target="_blank" rel="external">Startup Breeding</a>」にアクセスすると、すでに2つのサービスが表示されており、あとは「スペースキー」を押す度にランダムに入れ替わります。<br>（スマホの場合は、画面をタッチするだけ）</p>
+<p>例えば、こちらの組み合わせ！</p>
+<p><img src="/images/2015/webservice/8/startup-breeding_2.jpg" alt="2"></p>
+<p>「Evernote」と「facebook messenger」はどちらも有名ですが、この2つを組み合わせるとどんなWebサービスが考えられるでしょうか？</p>
+<p>実現の可否はとりあえず置いといて…、例えばmessengerのメッセージは「過去ログ」が残るようにはなっていますが、検索機能が皆無なのでEvernoteに記録できれば便利だなぁ…とか思います。<br>（Evernoteの検索機能は強力なので…）</p>
+<p>逆に、Evernoteは最近になって「コミュニケーション機能」を高めようとしていますが、ここにmessengerが利用できれば素敵ですね。</p>
+<p>　<br>さらに、こちらの組み合わせ！</p>
+<p><img src="/images/2015/webservice/8/startup-breeding_3.jpg" alt="3"></p>
+<p>クラウドファンディングで有名な「Kickstarter」と、質の高い回答が人気のQ&amp;Aサービス「Quora」をミックスしたら？…というもの。</p>
+<p>Kickstarterは、プロダクトの開発者と支援者がコミュニケーションを取れる機能も提供しているのですが、その内容のほとんどは「プロダクト」についての質問なので、「Quora」のサービスとは相性が良さそうな気がします。</p>
+<p>「Quora」は、閲覧性もKickstarterより良いので、融合すればさらに利便性の高いモノになりそう…。</p>
+<p>　<br>この組み合わせは、どうでしょう？</p>
+<p><img src="/images/2015/webservice/8/startup-breeding_4.jpg" alt="4"></p>
+<p>バーチャルリアリティ(VR)を体験できる「Oculus」と、割引クーポンを共同購入できる「Groupon」とのミックスです。</p>
+<p>まったく関連性がない組み合わせですが、例えばOculusを装着してお店を覗いた場合のみ、バーチャルなクーポンが出現するとかww…。</p>
+<p>または、Groupon本来の使い方として、「Oculus」が欲しい人同士が集まって安く購入するのもアリでしょう。(他のプロダクトでも使えそうですが…)</p>
+<p>　<br>このように、次々とランダムな組み合わせを見ていると、普通は思いつかないようなアイデアが湧き出てきます。</p>
+<p>多彩なWebサービスが登録されているようで、画面下部の名称をクリックすれば各サイトにも飛べるので、スタートアップの勉強にもなります。</p>
+<p>ご興味のある方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.startupbreeding.com/" target="_blank" rel="external">Startup Breeding</a>」サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/startup-breeding/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！]]></title>
+      <link>http://masatolan.com/programming/todo/</link>
+      <guid>http://masatolan.com/programming/todo/</guid>
+      <pubDate>Wed, 22 Jul 2015 12:02:54 GMT</pubDate>
+      <description>
+      <![CDATA[コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/7/todo_1.jpg" alt="1"></p>
+<p>普段から、「黒い画面」を使っている人に最適なタスク管理ツール「<a href="https://github.com/vesln/todo" target="_blank" rel="external">todo</a>」のご紹介！</p>
+<p>究極にシンプルなコマンドによって、メモ代わりにも使える便利なツールで、Node.jsがベースになったライブラリとなっています。</p>
+<p>コーディング中に、ちょっとした事を書き留めておきたい人は要チェック！</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>まずは、「todo」をインストールしましょう。</p>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> todo -<span class="keyword">g</span></span>
+</code></pre><p>これで準備はOK！<br>すでに「todo」コマンドが利用可能です。</p>
+<p>　<br>そこで、何かタスクを追加してみたいと思います！</p>
+<p>やり方は簡単で、以下のコマンドを実行すればOK。</p>
+<pre><code>$ todo <span class="keyword">add </span><span class="number">8</span>時から打ち合わせ！
+</code></pre><p>たったこれだけで、タスクが登録されます。</p>
+<p>　<br>確認する場合は、「todo」コマンド1発でOK！</p>
+<pre><code>$ todo
+
+<span class="number">1.</span>  ✖  <span class="number">8</span>時から打ち合わ
+</code></pre><p>タスクには、自動的に番号が割り振られるようになっており、この番号を指定するだけでタスクの完了指定もできます。</p>
+<p>　<br>例えば、以下のようなタスクがあったとします。</p>
+<pre><code>$ todo
+
+<span class="number">1.</span>  ✖  <span class="number">8</span>時から打ち合わ
+<span class="number">2.</span>  ✖  お昼までに◯◯社へメール！
+<span class="number">3.</span>  ✖  <span class="number">14</span>時から会議
+<span class="number">4.</span>  ✖  ◯◯氏と夕食
+</code></pre><p>　<br>この時に、1番のタスクを完了するコマンドは以下のとおり！</p>
+<pre><code>$ todo<span class="instruction"> check </span>1
+</code></pre><p>「check」のうしろに、完了したい番号を指定するだけです。</p>
+<p>　<br>もう一度リストチェックすると、タスクが消えているのが確認できます。</p>
+<pre><code>$ todo
+
+<span class="number">1.</span>  ✖  お昼までに◯◯社へメール！
+<span class="number">2.</span>  ✖  <span class="number">14</span>時から会議
+<span class="number">3.</span>  ✖  ◯◯氏と夕食
+</code></pre><p>　<br>また、完了したタスクも含めて、すべてのリストを見たい場合は以下のとおり！</p>
+<pre><code>$ todo ls --all
+
+<span class="number">1.</span>  ✖  お昼までに◯◯社へメール！
+<span class="number">2.</span>  ✖  <span class="number">14</span>時から会議
+<span class="number">3.</span>  ✖  ◯◯氏と夕食
+<span class="number">4.</span>  ✓  <span class="number">8</span>時から打ち合わ
+</code></pre><p>いずれも、非常にシンプルで簡単なコマンドで、即座に利用できるのはとても好感が持てます。</p>
+<p>また、「todo help」を実行すれば、他にも便利なコマンドを知ることが出来るようになっています。</p>
+<p>サクッと、お手軽にタスク管理をしたい方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://github.com/vesln/todo" target="_blank" rel="external">todo</a>」サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/programming/todo/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[電子工作入門に最適な回路キットを毎月送付してくれる「Tron-Club」が物欲をそそる！]]></title>
+      <link>http://masatolan.com/Webservice/tron-club/</link>
+      <guid>http://masatolan.com/Webservice/tron-club/</guid>
+      <pubDate>Fri, 17 Jul 2015 11:12:11 GMT</pubDate>
+      <description>
+      <![CDATA[電子工作入門に最適な回路キットを毎月送付してくれる「Tron-Club」が物欲をそそる！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/7/tron-club_1.jpg" alt="1"></p>
+<p>電子工作を楽しむために必要となる「電子回路」の基礎を、通信講座のような感覚で学習できる海外サービス「<a href="http://tronclub.com/" target="_blank" rel="external">Tron-Club</a>」が面白そうなのでご紹介！</p>
+<p>何と言っても魅力的なのが、電子回路を構成する「パーツ」がすべてセットになったキットを毎月送ってくれる点でしょう。</p>
+<a id="more"></a>
+<hr>
+<h3 id="「Tron-Club」のサービス内容！">「Tron-Club」のサービス内容！</h3><p>定期購読のカタチで送られてくるキットは、毎月20種くらいの回路を構築できるセットになっています。</p>
+<p><img src="/images/2015/webservice/7/tron-club_2.jpg" alt="2"></p>
+<p>　<br>必要なパーツ類や、図解入りの解説書などが同梱しているので、すぐに実践できるのがうれしいところ。</p>
+<p><img src="/images/2015/webservice/7/tron-club_3.jpg" alt="3"></p>
+<p>キットは、少しずつレベルアップしていく内容になっており、最終的にはロボティクス、ホームオートメーションなども実現できるようになります。</p>
+<p>　<br>「<a href="https://instagram.com/Tron_Club" target="_blank" rel="external">公式Instagram</a>」など、SNS上にはどんな回路が組めるのか写真が多くアップされているので参考になります。</p>
+<p><img src="/images/2015/webservice/7/tron-club_4.jpg" alt="4"></p>
+<p>料金は「14ユーロ／月」と「送料」のみで、初回の60日以内であれば全額返金にも対応しています。</p>
+<p>　<br>実際の様子は、以下の動画からチェックできます！</p>
+<div class="embed-responsive embed-responsive-16by9"><br>    <iframe width="560" height="315" src="https://www.youtube.com/embed/uKWSUbsGYWI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br></div>
+
+<p>ArduinoやRaspberry Piなど、国内でも電子回路を学ぶ人が増えてきているので、似たようなサービスを日本でも展開すれば人気がでそうな気がします。</p>
+<p>だれかやらないかな…。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://tronclub.com/" target="_blank" rel="external">Tron-Club</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/tron-club/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Macbookの背面ロゴを、自在にデザインできる「tabtag」は何回も貼り替えて楽しめる！]]></title>
+      <link>http://masatolan.com/Webservice/tabtag/</link>
+      <guid>http://masatolan.com/Webservice/tabtag/</guid>
+      <pubDate>Wed, 15 Jul 2015 11:26:49 GMT</pubDate>
+      <description>
+      <![CDATA[Macbookの背面ロゴを、自在にデザインできる「tabtag」は何回も貼り替えて楽しめる！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/7/tabtag_1.jpg" alt="1"></p>
+<p>アイデアが面白かったのでご紹介！</p>
+<p>Macbookの背面には、ライト付きの「アップルロゴ」が埋め込まれているのが特徴ですが、この部分に特殊なステッカーを貼り付けることで、自分好みのデザインを楽しめるのが「<a href="http://www.tabtag.com/" target="_blank" rel="external">tabtag</a>」です。</p>
+<p>光るライトを活かした素敵なアイデアになっていますよ。</p>
+<a id="more"></a>
+<hr>
+<h3 id="「tabtag」の詳細！">「tabtag」の詳細！</h3><p>「tabtag」ステッカーを購入したら、そのままMacbookの背面ロゴ部分に貼り付けるだけで、すぐに利用できるようになっています。</p>
+<p><img src="/images/2015/webservice/7/tabtag_2.jpg" alt="2"></p>
+<p>ライトの光を利用して「文字」を強調したりなど、ユニークなデザインが多く揃っています。</p>
+<p>　<br>この手軽さによって、海外では多くのユーザーを獲得しているのが<a href="https://instagram.com/tabtagram/" target="_blank" rel="external">公式のInstagram</a>からも伝わってきます。</p>
+<p><img src="/images/2015/webservice/7/tabtag_3.jpg" alt="3"></p>
+<p>ステッカーは、何度も貼り替えられる特殊な粘着になっており、水に濡らすことで粘着性を回復することができます。</p>
+<p>　<br>現在、公式サイトには、<a href="http://www.tabtag.com/collections/all" target="_blank" rel="external">数多くのステッカー</a>があらかじめ用意されています。</p>
+<p><img src="/images/2015/webservice/7/tabtag_4.jpg" alt="4"></p>
+<p>背面ロゴライトの光によって、「ON・OFF」の文字が変化するステッカーなどもあって面白いです。</p>
+<p>さらに、自分で好きなイラストを描いたり、デザイナーに注文したりすることで、自分の<a href="http://www.tabtag.com/pages/custom-tabtags" target="_blank" rel="external">オリジナルステッカーを作成</a>して購入することも可能になっています。</p>
+<p>　<br>ステッカーの種類や、実際の様子などは以下の動画からチェックできます。</p>
+<div class="embed-responsive embed-responsive-16by9"><br>    <iframe src="https://player.vimeo.com/video/95327226?color=ff0066&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe><br></div>
+
+<p>背面ロゴを、自分好みのデザインにしたい方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.tabtag.com/" target="_blank" rel="external">tabtag</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/tabtag/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[好きなURLを、絵文字に変換できる「linkmoji」が注目度抜群！]]></title>
+      <link>http://masatolan.com/Webservice/linkmoji/</link>
+      <guid>http://masatolan.com/Webservice/linkmoji/</guid>
+      <pubDate>Fri, 10 Jul 2015 12:03:20 GMT</pubDate>
+      <description>
+      <![CDATA[好きなURLを、絵文字に変換できる「linkmoji」が注目度抜群！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/7/linkmoji_1.jpg" alt="1"></p>
+<p>「<a href="https://bitly.com/" target="_blank" rel="external">Bitly</a>」のように、Webページの「URL」を短縮するサービスはいくつかありますが、絵文字に変換するサービス「<a href="http://www.xn--vi8hiv.ws/" target="_blank" rel="external">linkmoji</a>」のアイデアが面白かったのでご紹介しようと思います。</p>
+<p>URLを絵文字にしてシェアすると、見て目にも楽しくて意外にハマりそうです。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>何でもいいので、お気に入りのWebページURLを、トップ画面にコピペしましょう。</p>
+<p>今回は、サンプルとして「はてブ」のホットエントリURLを使ってみます。</p>
+<p><img src="/images/2015/webservice/7/linkmoji_2.jpg" alt="2"></p>
+<p>　<br>エンターキーを叩くと、絵文字に変換されます！</p>
+<p><img src="/images/2015/webservice/7/linkmoji_3.jpg" alt="3"></p>
+<p>これを、このままコピーしておきましょう。</p>
+<p>　<br>あとは、ブラウザの入力ボックスへ普通にコピペすると、Webページが表示されるようになります。</p>
+<p><img src="/images/2015/webservice/7/linkmoji_4.jpg" alt="4"></p>
+<p>もちろん、twitterやfacebookなどに絵文字のままシェアすることも可能なので、注目度は抜群に良いでしょう。</p>
+<p>絵文字URLだと、SNSの文面も楽しいものに変わるので、ご興味ある方はぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.xn--vi8hiv.ws/" target="_blank" rel="external">linkmoji</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/linkmoji/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！]]></title>
+      <link>http://masatolan.com/programming/enchantjs-box2d/</link>
+      <guid>http://masatolan.com/programming/enchantjs-box2d/</guid>
+      <pubDate>Mon, 06 Jul 2015 17:17:33 GMT</pubDate>
+      <description>
+      <![CDATA[「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" alt="1"></p>
+<p>久しぶりに「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」をいじっていたら、「リアルな動き」が欲しくなったので、物理エンジンを簡単に使えるプラグイン「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」を使ってみました。</p>
+<p>今さらですが、めっちゃ簡単です。コレ…。</p>
+<p>物理エンジンを使ったゲーム作りは、何だか難しいイメージがあったのですが、わりと簡単に「アングリーバード」的なデモも作れるので感心しました。</p>
+<p>そこで、基本的な使い方を、ログ代わりにまとめておきます。</p>
+<a id="more"></a>
+<hr>
+<h3 id="事前に準備すること！">事前に準備すること！</h3><p>普通に「enchant.js」で簡単なコードを書いた経験のある人なら、ほぼ同じような感覚で物理エンジンが利用できるようになっています。</p>
+<p>そこで、まずは基本となる「HTMLファイル」と「JSファイル」の骨組みを、以下のように用意しておきます。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>物理エンジンのサンプル<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br><figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enchant()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> game = <span class="keyword">new</span> Core();</span><br><span class="line"> </span><br><span class="line">  game.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//ここに処理を書く</span></span><br><span class="line">  &#125;</span><br><span class="line">  game.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>HTMLファイルに、基本となる「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」ファイルと、メインの処理を書く「main.js」ファイルを読み込ませておきます。</p>
+<p>「main.js」の中身は、「box2d」を使う、使わないに関わらず、最低限必要なコードの骨組みを用意しています。</p>
+<p>上記ファイルの準備が出来たら、通常のゲーム作りはすぐに始めることができます。</p>
+<p>ただ、今回は「box2d.enchant.js」を使って物理エンジンを利用するため、HTMLファイルにあと2つファイルを読み込ませておきましょう。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>物理エンジンのサンプル<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/Box2dWeb-2.1.a.3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/box2d.enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>追加したのは、「Box2dWeb-2.1.a.3.js」と「box2d.enchant.js」です。</p>
+<p>どちらのファイルも、公式サイトから「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」をダウンロードすれば、解凍したフォルダの中に入っています。</p>
+<blockquote>
+<p>（参考）<br>以下のフォルダ内にあるファイルです。<br>「libs」→「Box2dWeb-2.1.a.3.js」<br>「build」→「plugins」→「box2d.enchant.js」</p>
+</blockquote>
+<p>ひとまず、ここまで準備ができたら、第1段階は突破です！</p>
+<hr>
+<h3 id="物理エンジンの使い方！">物理エンジンの使い方！</h3><p>それでは、早速「enchant.js」で物理エンジンを実装してみたいと思います。</p>
+<p>ここから先は、「main.js」の中身をいろいろ編集していきます！</p>
+<p>　<br>まずは、さきほど用意した「main.js」の中にある「game.onload」内に、「物理エンジンを使うよ！」…という宣言みたいな構文を書きます。</p>
+<pre><code>var world = <span class="keyword">new</span> PhysicsWorld(<span class="number">0</span>, <span class="number">9.8</span>);
+</code></pre><p>この引数に「0」と「9.8」を入れている理由ですが、これは「横方向の重力」と「縦方向の重力」を数値で入れているだけです。</p>
+<p>現実の世界では「横方向」に重力は無いので「0」にしています。「縦方向」に「9.8」を指定しているのは、一般的な重力加速度が「1G=9.8m/s^2」という理由です。<br>（これは、「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」のドキュメントに記載されてました）</p>
+<p>このあたりは、考えだすとキリがないので、デフォルトで(0, 9.8)を指定することを覚えておけば良いでしょう。</p>
+<p>　<br>あとは、ここで作成した「world」を、「game.rootScene」へフレーム毎に組み込めばOKです。</p>
+<pre><code>game.rootScene.onenterframe = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    world.step<span class="params">(game.fps)</span>;
+}
+</code></pre><p>たったこれだけで、enchant.jsでは物理エンジンが使えるようになるのは驚きです。</p>
+<p>　<br>ひとまず、ここまでを以下にまとめておきます。これが、物理エンジンを使う時のデフォルトテンプレートになるでしょう！</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">enchant()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> game = <span class="keyword">new</span> Core();</span><br><span class="line"> </span><br><span class="line">  game.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> world = <span class="keyword">new</span> PhysicsWorld(<span class="number">0</span>, <span class="number">9.8</span>);</span><br><span class="line"> </span><br><span class="line">    game.rootScene.onenterframe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      world.step(game.fps);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  game.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="「物体」を落としてみよう！">「物体」を落としてみよう！</h3><p>物理エンジンを使う準備ができたので、とりあえず何か「物体」を作り、上から落として「重力」がどのように再現されているのか見ていきましょう！</p>
+<p>まず、適当な「物体」を表示したいと思います。</p>
+<p>通常なら、「Sprite」や「Entity」などを使うと思うのですが、物理エンジンを利用する場合はとりあえず「PhyBoxSprite()」を使えば良いでしょう。</p>
+<p>構文は以下のとおり！</p>
+<pre><code><span class="function"><span class="title">PhyBoxSprite</span><span class="params">(幅, 高さ, 動作モード, 密度, 摩擦力, 反発力, フラグ)</span></span>
+</code></pre><blockquote>
+<p>【幅・高さ】は、物体(四角形)のサイズを指定します。<br>【動作モード】は、物理エンジンの影響を「受ける」「受けない」を指定できます。<br>【密度】は、数値を大きくするほど、物体を重くしていきます。<br>【摩擦力】は、数値を小さくするほど、滑りやすくなります。<br>【反発力】は、数値が大きいほど、よく跳ね返ります。<br>【フラグ】は、【動作モード】と似ていますが、「true/false」を指定することで、物理エンジンの「影響の有無」を指定できます。</p>
+</blockquote>
+<p>　<br>上記を踏まえた上で、32×32の物体を作るとこんな感じになります。</p>
+<pre><code>PhyBoxSprite(<span class="number">32</span>, <span class="number">32</span>, enchant.box2d.DYNAMIC_SPRITE, <span class="number">1.0</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
+</code></pre><blockquote>
+<p>（参考）<br>【enchant.box2d.DYNAMIC_SPRITE】は物理エンジンの影響を受ける。<br>【enchant.box2d.STATIC_SPRITE】は物理エンジンの影響を受けない。</p>
+</blockquote>
+<p>　<br>あと、このままだと物体は上から落ちていき、画面外へ消えてしまいます。</p>
+<p>そこで、床を設置してみたいと思います。</p>
+<p>これも同じ要領で、以下のように作れることが分かります。</p>
+<pre><code>PhyBoxSprite(<span class="number">320</span>, <span class="number">16</span>, enchant.box2d.STATIC_SPRITE, <span class="number">0</span>, <span class="number">1.0</span>, <span class="number">0</span>, <span class="literal">false</span>);
+</code></pre><p>ゲーム画面のサイズが320なので「幅」も同じに指定し、物理エンジンの影響は受けなくても良いので「STATIC_SPRITE」を設定しています。</p>
+<p>　<br>基本的には、これで「物体」と「床」は作成できたのですが、「色」と「座標」の指定をしないといけません。</p>
+<p>指定方法は、以下のとおり！</p>
+<pre><code><span class="built_in">var</span> box = <span class="literal">new</span> PhyBoxSprite(<span class="attribute">...</span><span class="attribute">...</span>);
+box<span class="built_in">.</span>backgroundCol<span class="subst">or</span> = <span class="string">"red"</span>;
+box<span class="built_in">.</span>position = {
+    x: <span class="number">160</span>,
+    y: <span class="number">312</span>
+}
+</code></pre><p>色の設定は、CSSと同じ感覚でOK。(#aaaとかも使えます)</p>
+<p>あとは、作成した物体を通常通り「addChild()」してやれば完了です！</p>
+<pre><code><span class="tag">game</span><span class="class">.rootScene</span><span class="class">.addChild</span>(<span class="tag">box</span>);
+</code></pre><p>　<br>これで、「物体」と「床」が完成しました。</p>
+<p>以下のサンプルを実際に確認してみてください！<br>（以下の画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください）</p>
+<p></p><p data-height="349" data-theme-id="12894" data-slug-hash="dodXML" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/dodXML/" target="_blank" rel="external">[sample1] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>赤色の四角形に重力が働いて、落下していくのを確認できるかと思います。</p>
+<hr>
+<h3 id="クラスを作ってみよう！">クラスを作ってみよう！</h3><p>さて、いい感じに物体が落下してくれました。</p>
+<p>しかし、この物体を10個、20個…と、たくさん表示したいと思った時に、いちいち「new PhyBoxSprite…」を何度も繰り返すのは面倒です。</p>
+<p>関数を作っても良いのですが、「enchant.js」に標準で搭載されている「クラス作成機能」を使うと、簡単に複数の物体を表示できるようになります。</p>
+<p>例えば、「PhyBoxSprite」のクラスは、以下のような感じで作れます！</p>
+<pre><code><span class="keyword">var</span> Box = Class.create(PhyBoxSprite, {
+    initialize: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+        <span class="comment">//ここに初期化処理を書く</span>
+    }
+}
+</code></pre><p>「initialize」の初期化処理に、物体の生成処理、座標位置、カラー、addChild…など、基本的なコードを書いておきます。</p>
+<p>これで、「Box」という物体を持ったクラスが作られたことになります。</p>
+<blockquote>
+<p>（参考）<br>クラスの変数名は、最初が大文字になるようにしておきましょう。</p>
+</blockquote>
+<p>　<br>あとは、メインの処理に以下のコードを書くだけで、物体が表示されるようになります。</p>
+<pre><code><span class="keyword">var</span> box = <span class="keyword">new</span> Box();
+</code></pre><p>　<br>これだと、「for文」などと組み合わせて、物体を複数表示させるようなことも簡単になります。</p>
+<pre><code><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">20</span>; i++) {
+    <span class="keyword">var</span> box = <span class="keyword">new</span> Box();
+}
+</code></pre><p>　<br>以下のサンプルは、上記内容を踏まえて「物体」をいくつか表示させたモノです。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="jPZqWO" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/jPZqWO/" target="_blank" rel="external">[sample2] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>　<br>上記サンプルの「Box」クラスは、以下のようなカタチです。</p>
+<pre><code>var Box = Class.create(PhyBoxSprite, {
+  initialize: function(x, y) {
+        PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
+        <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;
+        <span class="keyword">this</span>.x = x;
+        <span class="keyword">this</span>.y = y;
+        game.rootScene.addChild(<span class="keyword">this</span>);
+    }
+});　
+</code></pre><p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
+<p>少し変化があるとすれば、「function(x, y)」というカタチで、引数に2つの数値を設定している点です。</p>
+<p>この「x, y」を、そのまま座標位置の「x, y」に入れてやることで、物体の出現位置を操作できます。</p>
+<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;<span class="number">320</span>;i+=<span class="number">32</span>) {
+    var box = <span class="keyword">new</span> Box(i, i);
+}
+</code></pre><p>このサンプルでは、「x, y」にfor文の「i」を入れて複数の物体を表示してみました。</p>
+<hr>
+<p>###物体に「力」を加えてみよう！</p>
+<p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
+<p>と言っても、実現するのは簡単で、以下の構文を覚えればOKです！</p>
+<pre><code>applyImpulse<span class="list">(<span class="keyword">new</span> b2Vec2<span class="list">(横方向の力, 縦方向の力)</span>)</span>
+</code></pre><p>「b2Vec2」というのは「ベクトル」の意味で、物理エンジンの世界ではこのベクトルをベースにした数値を使わないと、上手く計算できないようになっています。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhySprite.html#applyImpulse" target="_blank" rel="external">enchant.box2d.PhySprite</a>」ドキュメント</p>
+</blockquote>
+<p>　<br>あとは、生成したBoxに組み込むだけで使えるようになります。</p>
+<pre><code><span class="label">var</span> <span class="keyword">box </span>= new <span class="keyword">Box();
+</span><span class="keyword">box.applyImpulse(new </span><span class="keyword">b2Vec2(3, </span>-<span class="number">2</span>)<span class="comment">;</span>
+</code></pre><p>これで、右方向へ放物線を描くように飛んでいきます。</p>
+<p>　<br>この新しい構文を「Box」に組み込んだサンプルが以下になります！</p>
+<p>赤いBoxを、クリック(タッチ)すると横方向へ飛んでいくのが分かります。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="gpeMRb" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/gpeMRb/" target="_blank" rel="external">[sample3] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、Boxクラスの中へ「クリックイベント」も一緒に入れてみました。</p>
+<p>こうすると、メインの処理がスッキリするので、扱いやすくなります。<br>(言い換えれば、クリックされると飛んでいく物体が作れるクラス…という感じでしょうか)</p>
+<hr>
+<h3 id="スプライトを利用してみる！">スプライトを利用してみる！</h3><p>さて、そろそろ無機質な四角形の物体にも飽きてきたので、スプライト画像を適用してゲームっぽくしてみましょう。</p>
+<p>画像は、通常のenchant.jsと同じように、「preload()」であらかじめ画像ファイルを読み込んでおく必要があります。</p>
+<pre><code><span class="keyword">var</span> game = <span class="keyword">new</span> Core();
+game.preload(
+    画像ファイルパス,
+    画像ファイルパス,
+    画像ファイルパス
+);
+</code></pre><p>　<br>今回は、「enchant.js」で用意されている画像を使ってみたいと思います。</p>
+<p>使うのは、以下の<a href="https://github.com/wise9/enchant.js/tree/master/images" target="_blank" rel="external">画像ファイル</a>です。</p>
+<p><img src="/images/2015/programming/7/box2d-enchantjs_2.jpg" alt="2"></p>
+<p>　<br>読み込んだ画像ファイルを適用するには、「image」に画像パスを割り当てて、画像フレームを指定すればOKです！</p>
+<pre><code>var <span class="built_in">box</span> = <span class="keyword">new</span> PhyBoxSprite(<span class="number">16</span>, <span class="number">16</span>, ......);
+<span class="built_in">box</span>.<span class="built_in">image</span> = game.assets[<span class="string">"画像パス"</span>];
+<span class="built_in">box</span>.frame = 画像フレーム
+</code></pre><p>これだけで、画像を使えます。</p>
+<p>注意点として、「PhyBoxSprite」の幅と高さは、使用する画像のサイズに合わせることを覚えておきましょう。</p>
+<p>「画像フレーム」は、自分が使いたい画像が何番目にあるかを指定すればOKです。例えば、「豚キャラ」は0から数えて22番目にあるので、「22」を指定するわけです。</p>
+<p>　<br>四角形を「豚キャラ」にして、床の画像も差し替えたのが以下のサンプルです！<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="XbEjbO" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/XbEjbO/" target="_blank" rel="external">[sample4] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、「床」もクラス化しています。</p>
+<p>そして、画像の適用もクラス内で行うことで、メイン処理を見やすくしています。</p>
+<blockquote>
+<p>（参考）<br>画像ファイルは、「png」で透過処理を施しておけば、自動的にその部分が透明に処理されるので便利です。</p>
+</blockquote>
+<h2 id="">　</h2><h3 id="最後に…">最後に…</h3><p>これまで紹介してきたノウハウを使って、最後に障害物となる壁を表示してみたいと思います。</p>
+<p>完成品はコチラ！<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="KpZvEK" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/KpZvEK/" target="_blank" rel="external">[Final] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、「豚キャラ」をクリック(タッチ)すると障害物に向かって飛んでいき、壁を破壊していきます。</p>
+<p>障害物も、他の物体と同様に「PhyBoxSprite」で作っているだけなので、それほど難しくはないと思います。</p>
+<p>豚キャラは、転がっていくようにするため「PhyCircleSprite」を使って、円形の物体にしています。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「enchant.js」を使っての物理エンジンは、いかがだったでしょうか？</p>
+<p>基本的な部分しか紹介できてませんが、これだけでも「アングリーバード」風のゲームが作れそうな気がするかと思います。</p>
+<p>もし、物理エンジンに興味があって、面白いゲームを作りたい方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」公式サイト<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」ドキュメント</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/programming/enchantjs-box2d/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Node.jsのパッケージ管理「npm」の統計情報を、WebGLで3DCGにした強者現る！]]></title>
+      <link>http://masatolan.com/Webservice/understanding-npm/</link>
+      <guid>http://masatolan.com/Webservice/understanding-npm/</guid>
+      <pubDate>Tue, 30 Jun 2015 11:26:17 GMT</pubDate>
+      <description>
+      <![CDATA[Node.jsのパッケージ管理「npm」の統計情報を、WebGLで3DCGにした強者現る！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/understanding-npm_1.jpg" alt="1"></p>
+<p>昔は単独のツールだった「npm」も、今ではNode.jsをインストールすると一緒に付属されるくらいに、Node.jsのライブラリパッケージ管理として定番になりました。</p>
+<p>そんな「npm」の現状を知るために、さまざまな統計情報を分かりやすく3DCGで視覚化したサイト「<a href="https://unpm.nodesource.com/" target="_blank" rel="external">Understanding npm</a>」が話題になっているのでご紹介しておきます。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>サイトにアクセスすると、さまざまなパッケージを管理するnpmのデータベースを意味する「球体」が表示されています。</p>
+<p><img src="/images/2015/webservice/6/understanding-npm_2.jpg" alt="2"></p>
+<p>このまま、右側にある「LET’S GO」をクリックしましょう。</p>
+<p>　<br>すると、3Dで描かれた美しいアニメーションと共に、npmに関連するさまざまなデータを閲覧することができます。</p>
+<p><img src="/images/2015/webservice/6/understanding-npm_3.jpg" alt="3"></p>
+<p>例えば、npmに追加される新しいパッケージは1週間で「5,800」を超えていたり、逆に1週間でダウンロードされるパッケージ数は、なんと「約4億」近いそうです。</p>
+<p>　<br>他にも、npmを使ってどんなパッケージがダウンロードされているのかを、散布図を使って紹介しています。</p>
+<p><img src="/images/2015/webservice/6/understanding-npm_4.jpg" alt="4"></p>
+<p>grunt、gulp、nodeあたりは、さすがに多いようですね。</p>
+<p>　<br>今まで、何気なく使っていた「npm」に少し詳しくなれるサイトなので、ご興味ある方はぜひ参考にしてみてください。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://unpm.nodesource.com/" target="_blank" rel="external">Understanding npm</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/understanding-npm/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[パブリックドメインで使い放題のフルHD動画公開サイト「Coverr」が、Web制作にオススメ！]]></title>
+      <link>http://masatolan.com/Webservice/coverr/</link>
+      <guid>http://masatolan.com/Webservice/coverr/</guid>
+      <pubDate>Tue, 23 Jun 2015 11:53:07 GMT</pubDate>
+      <description>
+      <![CDATA[パブリックドメインで使い放題のフルHD動画公開サイト「Coverr」が、Web制作にオススメ！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/coverr_1.jpg" alt="1"></p>
+<p>Webサイトのトップページなどで、背景に動画を組み込んだサイトが増えていますが、そんな用途に最適な動画ビデオを公開しているサイト「<a href="http://www.coverr.co/" target="_blank" rel="external">Coverr</a>」のご紹介。</p>
+<p>公開されている動画は、すべてパブリックドメインのモノを収集しているので、自分のサイトなどへ自由に利用できるのが嬉しいところ…。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>サイトにアクセスすると、いろんなジャンルに区分けされた動画一覧が表示されているので、気に入ったモノをクリックしてみましょう。</p>
+<p><img src="/images/2015/webservice/6/coverr_2.jpg" alt="2"></p>
+<p>動画のポップアップが表示されて、どんな映像なのかを確認できるようになります。</p>
+<p>　<br>また、この時に「See it as a Coverr」ボタンをクリックしてみます。</p>
+<p><img src="/images/2015/webservice/6/coverr_3.jpg" alt="3"></p>
+<p>　<br>すると、「Coverr」のトップ画面に、先ほど選択した動画が背景に組み込まれて表示されます。</p>
+<p><img src="/images/2015/webservice/6/coverr_4.jpg" alt="4"></p>
+<p>これにより、実際に使った場合のイメージが出来るので便利です。</p>
+<p>ダウンロードした動画ファイルには、「mp4」ファイル(1920×1080)と一緒に「jpg」「webm」ファイルなども付属されています。</p>
+<p>公開されている動画は、毎週月曜日に追加更新されていくので、定期的にチェックしておくと良いでしょう。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.coverr.co/" target="_blank" rel="external">Coverr</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/coverr/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[運転中にスマホを使用しないだけで、定期的に報酬が得られるアプリ「SafeDrive」が海外で話題に！]]></title>
+      <link>http://masatolan.com/mobile/safedrive/</link>
+      <guid>http://masatolan.com/mobile/safedrive/</guid>
+      <pubDate>Wed, 17 Jun 2015 11:15:18 GMT</pubDate>
+      <description>
+      <![CDATA[運転中にスマホを使用しないだけで、定期的に報酬が得られるアプリ「SafeDrive」が海外で話題に！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/safedrive_1.jpg" alt="1"></p>
+<p>運転中のスマホ使用を低減するべく、海外で誕生したスマホアプリが「<a href="http://www.getsafedrive.com/" target="_blank" rel="external">SafeDrive</a>」です。</p>
+<p>車を運転している最中に、スマホを使わない代わりに「ポイント報酬」を貯めて買い物ができる…という、極めてシンプルなコンセプトですが効果的かと思います。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>目的がハッキリしているので、使い方も非常にシンプルです。</p>
+<p>車を運転する際に、「SafeDrive」アプリを起動するだけでOK！　あとは、すべてバックグラウンドで自動的に監視モードになってくれます。</p>
+<p><img src="/images/2015/mobile/6/safedrive_2.jpg" alt="2"></p>
+<p>およそ「10km/h」以上の速度になると、運転をしていると判断して自動的にポイント報酬が加算されていきます。</p>
+<p>GPS情報、距離、時間、速度などのデータを元に、独自のアルゴリズムによってポイントが計算される仕組みとなっています。</p>
+<p>　<br>この状態のまま、スマホを使わずに運転が終わればポイントを獲得することができます。</p>
+<p>ただし、途中でスマホをいじるためには、監視モードを解除する必要があります。そうなると、今までのポイントがゼロに戻る仕掛けになっています。</p>
+<p>ちなみに、車の運転をストップすれば、自動的に監視モードは解除されるので、スマホを操作することは可能です。</p>
+<hr>
+<h3 id="ポイント報酬で買い物！">ポイント報酬で買い物！</h3><p>獲得したポイントは、そのまま海外のネットショッピングなどで利用できるようになっています。</p>
+<p><img src="/images/2015/mobile/6/safedrive_3.jpg" alt="3"></p>
+<p>現状、ほぼすべて海外サイトなので、せめてAmazonでの利用ができればユーザーも増えるような気がします…。</p>
+<p>　<br>まだまだ改良の余地があるアプリですが、運転中のスマホ使用をやめる「きっかけ作り」としては良さそうです。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.getsafedrive.com/" target="_blank" rel="external">SafeDrive</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/mobile/safedrive/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！]]></title>
+      <link>http://masatolan.com/programming/dynamics/</link>
+      <guid>http://masatolan.com/programming/dynamics/</guid>
+      <pubDate>Tue, 16 Jun 2015 16:38:26 GMT</pubDate>
+      <description>
+      <![CDATA[JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/6/dynamics-js_1.jpg" alt="1"></p>
+<p>「CSSでアニメーションは難しい！」とか、「JavaScriptで全部制御したい！」…という人にはオススメのライブラリ「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」のご紹介！</p>
+<p>コードが非常にシンプルで扱いやすいのが特徴で、単純なWebサイトへ簡単に動きを付けられるようになります。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>まずは、<a href="https://github.com/michaelvillar/dynamics.js/releases" target="_blank" rel="external">Downloadページ</a>から最新版の「Dynamics.js」をダウンロードしましょう。</p>
+<p><img src="/images/2015/programming/6/dynamics-js_2.jpg" alt="2"></p>
+<p>2015年6月現在の最新版は「0.0.3」となっています。(恐らく今後も活発にバージョンアップされていくと思います…)</p>
+<p>　<br>あとは、HTMLコード内でDynamics.jsを読み込めば、準備OKです！</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Dynamics Sample<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"dynamics.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="アニメーションの制御方法！">アニメーションの制御方法！</h3><p>実際に、Dynamics.jsを使って「CSSアニメーション」を制御する方法ですが、ざっくり言ってしまうと、以下の構文を覚えるだけで使えてしまいます！</p>
+<pre><code>dynamics.animate(el, <span class="keyword">property</span>, <span class="keyword">option</span>);
+</code></pre><p>-【el】<br>DOMエレメントのことで、CSSでスタイリングするように要素を指定します。</p>
+<p>-【property】<br>移動、回転、拡大など、どんなアニメーションをさせたいかを指定します。</p>
+<p>-【option】<br>アニメーションの種類や持続時間、周期、摩擦力など、細かい微調整をします。</p>
+<p>　<br>ひとまず、これだけ覚えておけば手軽にアニメーションが実現できるのは魅力的です。</p>
+<hr>
+<h3 id="実際に作ってみよう！">実際に作ってみよう！</h3><p>　<br>例えば、以下のように「div」要素で作った黒色の四角があったとします。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"box"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br><figure class="highlight css"><figcaption><span>style.css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#box</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">60px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">60px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">background-color</span>:<span class="value"> black</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>　<br>この状態で、先ほどの構文に当てはめながらjavaScriptを書くと、以下のようになるでしょう。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"> </span><br><span class="line">dynamics.animate(el, property, option);</span><br></pre></td></tr></table></figure>
+<p>「div」要素のboxを「el」として設定しました。</p>
+<p>あとは、「property」と「option」を指定すれば、「div」要素のboxはアニメーションしてくれるわけです。</p>
+<p>　<br>今回は、左右にバウンドするようなアニメーションを指定したいと思います。</p>
+<p>そこで、「property」に横移動を設定し、「option」にバウンドするアニメーションを指定したのが以下のスクリプトになります。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"><span class="keyword">var</span> property = &#123;</span><br><span class="line">    translateX: <span class="number">400</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> option = &#123;</span><br><span class="line">    type: dynamics.bounce,</span><br><span class="line">    frequency: <span class="number">600</span>,</span><br><span class="line">    friction: <span class="number">400</span>,</span><br><span class="line">    duration: <span class="number">2500</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">dynamics.animate(el, property, option);</span><br></pre></td></tr></table></figure>
+<p>どんなオプションのパラメータが指定できるのかは、「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」の公式サイトで実際に試せるようになっているので便利です。</p>
+<p>上記サンプルに、スタートボタンを追加したのがコチラ！<br>（ボタンをクリックすると、アニメーションします）</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="QbMOGz" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/QbMOGz/" target="_blank" rel="external">QbMOGz</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「Dynamics.js」は、単純にパラメータを指定するだけなので、プログラミングというよりも「ジェネレーターアプリ」に近いかもしれません。</p>
+<p>使い方はすぐに覚えられるので、既存のサイトやブログに面白いアニメーションをぜひ実装してみてください。</p>
+<p>ちなみに、公式サイトにも掲載されていますが、SVGをアニメーションさせることも可能です。</p>
+<p></p><p data-height="301" data-theme-id="12894" data-slug-hash="VLzQrL" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/VLzQrL/" target="_blank" rel="external">Sample for Dynamics.js</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>ちょっとしたアクセントには最適ではないでしょうか。</p>
+<p>　<br>注意点としては、あまり古いブラウザには対応していないところ…。<br>（推奨されているのは、Safari 7+, Firefox 35+, Chrome 34+, IE10+となっています）</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/programming/dynamics/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Airbnb型の豪華クルーザーレンタル「Antlos」で、夢のバカンスが満喫できると話題に！]]></title>
+      <link>http://masatolan.com/Webservice/antlos/</link>
+      <guid>http://masatolan.com/Webservice/antlos/</guid>
+      <pubDate>Sun, 14 Jun 2015 11:25:54 GMT</pubDate>
+      <description>
+      <![CDATA[Airbnb型の豪華クルーザーレンタル「Antlos」で、夢のバカンスが満喫できると話題に！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/antlos_1.jpg" alt="1"></p>
+<p>「豪華クルーザー」を夢見ている人には朗報かもしれません。</p>
+<p>数千万円〜数億円は普通にするのがクルーザーなわけですが…、「購入なんてとても無理！」と思っている人は、海外で話題のWebサービス「<a href="https://www.antlos.com/" target="_blank" rel="external">Antlos</a>」を利用すると格安で船上バカンスを満喫できます。</p>
+<p>利用方法も、空き部屋レンタルサービスの「<a href="https://www.airbnb.jp/" target="_blank" rel="external">Airbnb</a>」と似ているので、手軽に使えるのも特徴です。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>サイトにアクセスすると、現在人気のクルーザーがラインナップされているのが分かります。</p>
+<p><img src="/images/2015/webservice/6/antlos_2.jpg" alt="2"></p>
+<p>気になるクルーザーを見つけたら、クリックしてみましょう。</p>
+<p>　<br>さらに、検索ボタンから自分が希望する細かい条件を指定することも可能！</p>
+<p><img src="/images/2015/webservice/6/antlos_3.jpg" alt="3"></p>
+<p>金額、船のスペック、シーン別、場所…など、細かい条件を指定できます。</p>
+<p>　<br>詳細画面では、船内を撮影した写真や、利用条件、設備のリストなどを事前に確認して予約ができます！</p>
+<p><img src="/images/2015/webservice/6/antlos_4.jpg" alt="4"></p>
+<p>利用料金に関しては、「◯◯ドル／人」(1日)となっており、利用可能な期間はそれぞれのクルーザーによって違います。</p>
+<p>　<br>ざっくり見たところ、「19ドル／人」でレンタルできる船もあれば、「600ドル／人」くらいする船もあり、船内の様子や設備などもかなりバラエティに富んでいます。</p>
+<p>希望の条件にピッタリ合うクルーザーを予約して、豪華な海外旅行を過ごせるのは面白いのではないでしょうか。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://www.antlos.com/" target="_blank" rel="external">Antlos</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/antlos/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[ただの調理オーブンに、Tegra K1、フルHDカメラ、スマホ連携可能な「June」がやたらスゴイ件！]]></title>
+      <link>http://masatolan.com/technology/june/</link>
+      <guid>http://masatolan.com/technology/june/</guid>
+      <pubDate>Wed, 10 Jun 2015 11:43:05 GMT</pubDate>
+      <description>
+      <![CDATA[ただの調理オーブンに、Tegra K1、フルHDカメラ、スマホ連携可能な「June」がやたらスゴイ件！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/technology/6/june_1.jpg" alt="1"></p>
+<p>調理オーブンに、こんなスペックが必要なのか…。と、思わずツッコミそうになるプロダクトですが、内容を知ると理解できるはず…。</p>
+<p>「<a href="https://juneoven.com/" target="_blank" rel="external">June</a>」は、オーブンの中に入れた料理を「カメラ」で自動認識し、最適な調理プログラムを実行できるという先進機能が特徴のようです。</p>
+<a id="more"></a>
+<hr>
+<h3 id="最新オーブン「June」とは…？">最新オーブン「June」とは…？</h3><p>「June」を使うと、例えば「クッキー」を焼きたくてオーブンに入れると、自動的に何が入っているのかを判断して表示してくれます。</p>
+<p><img src="/images/2015/technology/6/june_2.jpg" alt="2"></p>
+<p>表面の5インチタッチディスプレイに、どんな食材が入っていて、どういう調理方法でどのくらいの時間焼けばいいのかを瞬時に教えてくれるのです。</p>
+<p>これを可能にしているのが、NVIDIAが開発したクアッドコアCPU「Tegra K1」と、192基のコアを持つGPU、1920×1080のフルHDカメラとなります。</p>
+<p>Wi-Fiで、独自のサーバーとリアルタイムに通信を行い、データベースと照合しながら最適な調理方法を提案してくれるようになっています。</p>
+<p>　<br>また、調理中にオーブン内を「ライブ中継」してくれる機能もあり、スマホへ映像を流してくれます。</p>
+<p><img src="/images/2015/technology/6/june_3.jpg" alt="3"></p>
+<p>どんな状態になっているかを、遠隔で確認できるようになっており、映像をSNSへ投稿したりも可能です。</p>
+<p>　<br>スマホとの連携機能は豊富です。</p>
+<p><img src="/images/2015/technology/6/june_4.jpg" alt="4"></p>
+<p>完了が近づいたら「プッシュ通知」で知らせてくれたり、専用の温度測定器を挿入していればリアルタイムな温度変化もグラフ化してくれます。</p>
+<p>また、プロのシェフが作成した調理レシピも閲覧することができ、「June」を使った調理がさらに楽しくなりそう…。</p>
+<p>　<br>実際に、「June」を使ったデモは、以下の動画から視聴できます。</p>
+<div class="embed-responsive embed-responsive-16by9"><br>    <iframe width="560" height="315" src="https://www.youtube.com/embed/lCuLxqGd0go?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br></div>
+
+<blockquote>
+<p>（参考）<br>「<a href="https://juneoven.com/" target="_blank" rel="external">June</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/technology/june/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[アップルWWDCの盛り上がり具合を、Android Wearの心拍数で記録すると面白い件！]]></title>
+      <link>http://masatolan.com/mobile/cardiogram/</link>
+      <guid>http://masatolan.com/mobile/cardiogram/</guid>
+      <pubDate>Tue, 09 Jun 2015 11:58:52 GMT</pubDate>
+      <description>
+      <![CDATA[<p><img src="/images/2015/mobile/6/cardiogram_1.jpg" alt="1"></p>
+<p>Android Wearで心拍数を測定できるアプリ「<a href="http://cardiogr.am/">Cardiogram</a>」を使った面白いグラフが<a href="http://cardiogr.am/c/wwdc">公開</a>されているのでご紹介しようと思います。</p>
+<p>グラフは、アップルWWDCに参加しているユーザーの心拍数を記録しているのですが、他の様々なイベントでも活用してみると面白いと感じました。</p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/cardiogram_1.jpg" alt="1"></p>
+<p>Android Wearで心拍数を測定できるアプリ「<a href="http://cardiogr.am/" target="_blank" rel="external">Cardiogram</a>」を使った面白いグラフが<a href="http://cardiogr.am/c/wwdc" target="_blank" rel="external">公開</a>されているのでご紹介しようと思います。</p>
+<p>グラフは、アップルWWDCに参加しているユーザーの心拍数を記録しているのですが、他の様々なイベントでも活用してみると面白いと感じました。</p>
+<a id="more"></a>
+<hr>
+<h3 id="イベントログを心拍数で記録する！">イベントログを心拍数で記録する！</h3><p><a href="http://cardiogr.am/c/wwdc" target="_blank" rel="external">公開</a>されているグラフにアクセスすると、WWDCのイベント内容がどのような盛り上がり具合だったのかを確認することができます。<br>（※グラフは個人ユーザーのモノです…）</p>
+<p><img src="/images/2015/mobile/6/cardiogram_2.jpg" alt="2"></p>
+<p>ちなみに、このユーザーは「iOSの新メモアプリ」と「iPadのマルチタスク」に興味があったようで、心拍数が最も高くなっているのが分かります。</p>
+<p>このように、過去のイベントで自分がどのように感じたのかを、記録として残せるわけです。</p>
+<p>友人同士でグラフを見せ合って、どのタイミングで興奮したのかを比較するのは面白いかもしれません。</p>
+<p>個人的には、参加しているユーザー複数人のログを集計できる機能などがあれば、さらに有用な価値を残せるような気がしています。</p>
+<hr>
+<h3 id="「Cardiogram」って何？">「Cardiogram」って何？</h3><p>今回使用されている「Cardiogram」ですが、Google Fitと連携してスマホからもログを確認できる「心拍数測定」アプリです。</p>
+<p><img src="/images/2015/mobile/6/cardiogram_3.jpg" alt="3"></p>
+<p>Android Wearを持っていないと使えませんが、ウォッチの消費バッテリーが１日使っても1〜3%程度という優秀なアプリのようです。</p>
+<p>まだベータ版ですが、Apple Watchにも近日中に対応するようなので、興味ある方は公式サイトを参考にしてみると良いでしょう。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://cardiogr.am/" target="_blank" rel="external">Cardiogram</a>」公式サイト<br><a href="http://cardiogr.am/c/wwdc" target="_blank" rel="external">公開</a>グラフ｜Cardiogramサイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/mobile/cardiogram/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[200ページ超え！LPICの完全無料「Linux入門テキスト」をまだ知らない人は絶対損してる！]]></title>
+      <link>http://masatolan.com/internet/linux-free-textbook/</link>
+      <guid>http://masatolan.com/internet/linux-free-textbook/</guid>
+      <pubDate>Sat, 06 Jun 2015 17:02:26 GMT</pubDate>
+      <description>
+      <![CDATA[200ページ超え！LPICの完全無料「Linux入門書テキスト」をまだ知らない人は絶対損してる！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/6/linux-free-textbook_1.jpg" alt="1"></p>
+<p>最近Linuxに触れる機会が多くなってきたので、そろそろ時間を割いて勉強でもしようかとネットで検索していたら、意外な事実を知りました…。</p>
+<p>日本には、素晴らしい教材があったんですね…。</p>
+<p>その名も「<a href="http://www.lpi.or.jp/linuxtext/text.shtml" target="_blank" rel="external">Linux標準教科書</a>」。</p>
+<p>「Linuxとは…」から始まり、基本的なコマンドの使い方から「ファイル操作」「シェルスクリプト」「Vim操作」「ネットワーク管理」など、基本的な知識が無料で公開されています。</p>
+<a id="more"></a>
+<hr>
+<h3 id="どうやって入手するの？">どうやって入手するの？</h3><p>この教材は、Linux技術者認定試験を運営する「<a href="http://www.lpi.or.jp/" target="_blank" rel="external">LPICの公式サイト</a>」からダウンロードできるようになっています。</p>
+<p><img src="/images/2015/internet/6/linux-free-textbook_2.jpg" alt="2"></p>
+<p>そのため、すでにご存知の方も多いと思うのですが、私のようにまだ知らない人もいるのでは…？ と思ったのでご紹介しておきます。</p>
+<p>　<br>入手方法は簡単で、「<a href="http://www.lpi.or.jp/linuxtext/text.shtml" target="_blank" rel="external">Linux標準教科書</a>」のダウンロードサイトにアクセスして、「PDFダウンロードリンク」をクリックします。</p>
+<p><img src="/images/2015/internet/6/linux-free-textbook_3.jpg" alt="3"></p>
+<p>あとは、名前とメルアドを入力し、簡単なアンケートに回答するだけでダウンロードできます！<br>※PDF以外に、EPUB版や紙の書籍版(有料)もあります。</p>
+<hr>
+<h3 id="初心者に最適な教材内容！">初心者に最適な教材内容！</h3><p>教材の内容としては、初心者でも理解しやすいように図解入りで解説してあり、体系的にまとまっているので効率よく勉強できるはず!</p>
+<p><img src="/images/2015/internet/6/linux-free-textbook_4.jpg" alt="4"></p>
+<blockquote>
+<p>本教材の著作権は特定非営利活動法人エルピーアイジャパンに帰属します。<br>Copyright(C) The Linux Professional Institute Japan. All Rights Reserved.</p>
+</blockquote>
+<p>　<br>以下に、簡単な概要を紹介しておきます。</p>
+<p>第1章・第2章で、UNIXやディストリビューションなど、Linuxの基礎知識とインストール方法がまとまっています。</p>
+<p>第3章〜第5章で、ファイル操作を行う基本的なコマンド学習と、正規表現・パイプなどを学びます。</p>
+<p>第6章は、「viエディタ」の使い方がまとまっていますが、これは「Vim」に置き換えて読んでも問題ないでしょう。</p>
+<p>第7章・第8章で、管理者権限やアクセス権などの基礎知識を学びます。</p>
+<p>第9章は、覚えると強力な「シェルスクリプト」の基本的なプログラミング手法について書かれています。</p>
+<p>第10章は、TCP/IPやIPアドレスなど、ネットワーク関連の基礎について学習します。</p>
+<p>第11章で、パーティションやスワップ領域などのファイル管理について学べるようになっています。</p>
+<p>　<br>上記内容がすべてまとまっていることで、まさに「教科書」という名にふさわしい教材と言えるでしょう。</p>
+<blockquote>
+<p>（参考）<br>教材の「<a href="http://www.lpi.or.jp/linuxtext/wiki/index.php?title=誤植などの報告-Linux標準教科書(version_2.0)" target="_blank" rel="external">正誤表</a>」も頻繁に更新されているので、参考にすると良いでしょう。</p>
+</blockquote>
+<hr>
+<h3 id="他にもまだある素敵な教材！">他にもまだある素敵な教材！</h3><p>実は、LPICのサイトには、今回ご紹介した入門教材だけでなく、さらにステップアップできる以下の教材も無料でダウンロードできるようになっています！</p>
+<ol>
+<li><a href="http://www.lpi.or.jp/linuxtext/server.shtml" target="_blank" rel="external">Linuxサーバー構築標準教科書</a></li>
+<li><a href="http://www.lpi.or.jp/linuxtext/security.shtml" target="_blank" rel="external">Linuxセキュリティ標準教科書</a></li>
+<li><a href="http://www.lpi.or.jp/linuxtext/system.shtml" target="_blank" rel="external">高信頼システム構築標準教科書</a></li>
+<li><a href="http://www.lpi.or.jp/linuxtext/admin.shtml" target="_blank" rel="external">Linuxシステム管理標準教科書</a></li>
+</ol>
+<p>いずれも200ページ近いコンテンツで、入門教材と同じく体系的にまとまっているので非常に役立ちます！</p>
+<p>Linuxの学習をこれから始める人はもちろんですが、すでに業務で使っている人も新しい発見があるかもしれません。</p>
+<p>ぜひ、参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://www.lpi.or.jp/linuxtext/text.shtml" target="_blank" rel="external">Linux標準教科書</a>」ダウンロード｜LPICサイト<br>「<a href="http://www.lpi.or.jp/" target="_blank" rel="external">LPICの公式サイト</a>」</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/internet/linux-free-textbook/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[人気Webサービスたちが送信するメール内容を公開する「Great email copy」が面白い！]]></title>
+      <link>http://masatolan.com/Webservice/great-email-copy/</link>
+      <guid>http://masatolan.com/Webservice/great-email-copy/</guid>
+      <pubDate>Wed, 03 Jun 2015 10:53:24 GMT</pubDate>
+      <description>
+      <![CDATA[人気Webサービスたちが送信するメール内容を公開する「Great email copy」が面白い！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/great-email-copy_1.jpg" alt="1"></p>
+<p>Webサービスを運営していると、ユーザーへメールを送る機会は少なくないはず。</p>
+<p>そこで、他のWebサービスがどんな内容のメールを作成しているのか確認できる珍しいサービス「<a href="http://greatemailcopy.tumblr.com/" target="_blank" rel="external">Great email copy</a>」をご紹介します！</p>
+<p>メールコンテンツの学習にも最適です！</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>サイトにアクセスすると、さまざまなWebサービスの「メールコンテンツ」がズラッと表示されているのが分かります。</p>
+<p><img src="/images/2015/webservice/6/great-email-copy_2.jpg" alt="2"></p>
+<p>左メニューから「カテゴリ検索」が出来るようになっており、画面右下にある「More」ボタンをクリックすれば、更なるメールが次々と表示されます。</p>
+<p>　<br>特に「カテゴリ検索」が便利で、例えば「activity」を選択すると、ユーザーがサービスを利用している進捗具合を知らせる「メールコンテンツ」が表示されます。</p>
+<p><img src="/images/2015/webservice/6/great-email-copy_3.jpg" alt="3"></p>
+<p>　<br>他にも、「news」をクリックすれば、通知や新機能の紹介などを知らせるメールが確認できます。</p>
+<p><img src="/images/2015/webservice/6/great-email-copy_4.jpg" alt="4"></p>
+<p>このようなコンテンツを閲覧できることで、新しい発見があったり、自分のサービスにも取り入れてみよう…といった「取り組み」に繋がるかもしれません。</p>
+<p>　<br>「Great email copy」を提供しているのは、最適化された顧客層へ効率よくメールを送れるサービス「<a href="http://customer.io/" target="_blank" rel="external">Customer.io</a>」を運営するチームです。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://greatemailcopy.tumblr.com/" target="_blank" rel="external">Great email copy</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/great-email-copy/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Dropboxに決済機能を追加できる「Dropshop」で、ファイルを自由に売買できる！]]></title>
+      <link>http://masatolan.com/Webservice/dropshop/</link>
+      <guid>http://masatolan.com/Webservice/dropshop/</guid>
+      <pubDate>Fri, 29 May 2015 10:53:46 GMT</pubDate>
+      <description>
+      <![CDATA[Dropboxに決済機能を追加できる「Dropshop」で、ファイルを自由に売買できる！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/5/dropshop_1.jpg" alt="1"></p>
+<p>最近は、決済系のWebサービスが増えてきているのですが、Dropboxにお手軽な決済機能を追加できる「<a href="https://getdropshop.com/" target="_blank" rel="external">Dropshop</a>」が面白かったのでご紹介します！</p>
+<p>ログインも不要で、非常にシンプルな決済サービスとして設計されており、誰でも手軽に利用できるのが最大の特徴となっています。</p>
+<a id="more"></a>
+<hr>
+<h3 id="使い方！">使い方！</h3><p>サイトにアクセスすると、すでにDropboxのファイルを設定する画面になっていいます。</p>
+<p><img src="/images/2015/webservice/5/dropshop_2.jpg" alt="2"></p>
+<p>「Choose from Dropbox」ボタンをクリックして、販売したいファイルを選択するだけです。</p>
+<p>　<br>あとは、販売する「価格」を設定し、売買が成立した時に連絡を受け取るための「メルアド」を設定します。</p>
+<p><img src="/images/2015/webservice/5/dropshop_3.jpg" alt="3"></p>
+<p>　<br>たったこれだけで、即座に決済リンクが生成されます。</p>
+<p><img src="/images/2015/webservice/5/dropshop_4.jpg" alt="4"></p>
+<p>このリンクを、SNSやメールなどで伝えればOKというわけです。</p>
+<p>決済リンクをクリックしたユーザーは、クレジットカードで即座に売買が成立するようになっています。</p>
+<p>売買が成立したら、登録したメールアドレス宛に連絡が来て、「<a href="https://stripe.com/" target="_blank" rel="external">Stripe</a>」や「<a href="https://www.paypal.com/jp/webapps/mpp/home" target="_blank" rel="external">PayPal</a>」などでお金を受け取ることが出来るようになっています。</p>
+<p>　<br>あくまで決済機能だけの提供になっているので、自分のブログやSNSにリンクを貼り付けて、「電子書籍」や「写真」などの媒体を販売するのに向いているかと思います。</p>
+<p>まだベータ版の公開ですが、現在は欧州を中心に話題になりつつあるようですね。(価格も、現在は「€」指定になっています…)</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://getdropshop.com/" target="_blank" rel="external">Dropshop</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/Webservice/dropshop/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Go言語入門に最適！コンソール画面で、テトリスがプレイできる「gotetris」が面白い！]]></title>
+      <link>http://masatolan.com/internet/gotetris/</link>
+      <guid>http://masatolan.com/internet/gotetris/</guid>
+      <pubDate>Wed, 27 May 2015 11:41:22 GMT</pubDate>
+      <description>
+      <![CDATA[Go言語入門に最適！コンソール画面で、テトリスがプレイできる「gotetris」が面白い！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/gotetris_1.jpg" alt="1"></p>
+<p>Go言語も、意外と面白いんだなぁ…と感じたのでご紹介しておきます！</p>
+<p>コンソールの画面上に、プレイ可能な「テトリス」を再現した「<a href="https://github.com/jjinux/gotetris" target="_blank" rel="external">gotetris</a>」が、GitHubで公開されてます。</p>
+<p>すべてGo言語でプログラミングされており、非常にシンプルな構造にまとまっているのでコードリーディングにも良さそうです。</p>
+<a id="more"></a>
+<hr>
+<h3 id="遊び方！">遊び方！</h3><p>「README」テキストにも詳しく掲載されていますが、以下の手順で「gotetris」を簡単にインストールできます。</p>
+<p>まず、コンソール画面でディレクトリを作成して、「cd」で移動しておきます。</p>
+<pre><code>$ <span class="built_in">mkdir</span> -<span class="keyword">p</span> gotetris/src/github.<span class="keyword">com</span>/jjinux
+$ <span class="keyword">cd</span> gotetris
+</code></pre><p>　<br>次に、「git clone」で本体ファイルをインストールします。</p>
+<pre><code>$ <span class="keyword">cd</span> src/github.<span class="keyword">com</span>/jjinux &amp;&amp; git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/jjinux/gotetris.git
+</code></pre><p>　<br>あと、知らなかったのですが、Go言語は特殊な「環境変数」を設定するようです。</p>
+<pre><code>$ export GOPATH=`pwd`
+$ export PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin
+</code></pre><p>とりあえず、上記をコピペして実行してみてください。(見た目に変化は起きませんが…)</p>
+<p>　<br>必要なGoパッケージなどをインストールします。</p>
+<pre><code>$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/nsf/termbox-<span class="keyword">go</span>
+</code></pre><p>　<br>そして、ビルド＆コンパイル！</p>
+<pre><code>$ <span class="keyword">go</span> install github.<span class="keyword">com</span>/jjinux/gotetris
+</code></pre><p>これで、準備完了です！</p>
+<hr>
+<h3 id="遊んでみる！">遊んでみる！</h3><p>「gotetris」で遊ぶには、以下のコマンドを実行すればOK！</p>
+<pre><code><span class="variable">$ </span>gotetris
+</code></pre><p>　<br>これで、コンソール画面の表示が以下のようになるはず！</p>
+<p><img src="/images/2015/internet/5/gotetris_2.jpg" alt="2"></p>
+<p>　<br>操作説明にも書いてますが、キーボードの「Sキー」を叩くとゲームが開始されます。(終了は「ESC」)</p>
+<p><img src="/images/2015/internet/5/gotetris_3.jpg" alt="3"></p>
+<p>操作は「矢印キー」で行い、スペースキーで一番下まで落とせます。</p>
+<p>あとは、普通にテトリスを楽しむだけ！</p>
+<p>コンソール画面でも、こんなにインタラクティブなゲームが作れるんですね…。</p>
+<p>　<br>ちなみに、コードを見てみると「モデル・ビュー・コントロール」の3つに分かれており、MVCベースでプログラミングされているようです。</p>
+<p>Go言語は、日本語ベースの「<a href="http://golang-jp.org/doc/" target="_blank" rel="external">ドキュメント＆学習サービス</a>」も用意されているようなので、「gotetris」と合わせて勉強すると良いかもしれません。</p>
+<blockquote>
+<p>（参考）<br>「<a href="https://github.com/jjinux/gotetris" target="_blank" rel="external">gotetris</a>」GitHubサイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/internet/gotetris/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title><![CDATA[Macで「IchigoJam」のファームアップデートをして、画面のチラツキをゼロにしてみた！]]></title>
+      <link>http://masatolan.com/internet/ichigojam/</link>
+      <guid>http://masatolan.com/internet/ichigojam/</guid>
+      <pubDate>Mon, 25 May 2015 16:54:05 GMT</pubDate>
+      <description>
+      <![CDATA[Macで「IchigoJam」のファームアップデートをして、画面のチラツキをゼロにしてみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/ichigojam_1.jpg" alt="1"></p>
+<p>ひょんな事から「<a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam</a>」を入手したものの、バージョンが古かったのと画面のチラツキが気になっていたので、ファームウェアを新しくアップデートしてみました。</p>
+<p>アップデートは成功し、画面のチラツキもゼロになって快適なのは良いのですが、それまでの作業手順が意外に多くて苦戦したので、忘れないうちにログを残しておきます。</p>
+<a id="more"></a>
+<hr>
+<h3 id="「USBシリアルモジュール」を準備しよう！">「USBシリアルモジュール」を準備しよう！</h3><p>今では、手軽に<a href="http://www.amazon.co.jp/gp/product/B00VX4I6C6/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00VX4I6C6&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">Amazonでも購入できるIchigoJam</a>ですが、ファームウェアをアップデートするにはPCと接続する必要があります。<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00VX4I6C6" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
+<p>私の場合、Macbook ProとIchigoJamを接続するのですが、この時に必要なのが「USBシリアルモジュール」で、コレも一応<a href="http://www.amazon.co.jp/gp/product/B00HLUZYXA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00HLUZYXA&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">Amazon</a>で購入できます。<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00HLUZYXA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
+<p><img src="/images/2015/internet/5/ichigojam_2.jpg" alt="2"></p>
+<p>しかしながら、動作保証や配送日程などを考慮すると「<a href="http://shopfusen.jimdo.com/ichigojam/ichigojam-starter-option/" target="_blank" rel="external">ショップのふうせん</a>」で購入した方が安心でしょう…。<br>画面チラツキ防止のクリスタルもセットになっています。(私もコチラで購入しました。)</p>
+<p>　<br>あとは、Macbookで上記モジュールを認識させるために、専用ドライバをインストールしておくのを忘れないようにしましょう。</p>
+<blockquote>
+<p><a href="http://jp.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx" target="_blank" rel="external">「CP210x」専用ドライバインストールガイド</a><br>※リンク先の「Mac」用アプリをインストールしてください。</p>
+</blockquote>
+<hr>
+<h3 id="PCと接続しよう！">PCと接続しよう！</h3><p>IchigoJamとUSBシリアルモジュールを繋げるため、同梱のジャンパワイヤ3本で以下のように接続します。</p>
+<p><img src="/images/2015/internet/5/ichigojam_3.jpg" alt="3"></p>
+<p>「TXD」「RXD」をクロスするように繋げる点に注意しましょう。</p>
+<p>　<br>これで、MacbookのUSBへシリアルモジュールを差し込めば、通信はできる状態になっています。<br>しかし、ファームウェアをアップデートするためには、もう1本のジャンパワイヤを、IchigoJamの「ISP」と「GND」に接続する必要があります。</p>
+<p><img src="/images/2015/internet/5/ichigojam_4.jpg" alt="4"></p>
+<p>この状態で、シリアルモジュールをMacbookのUSBに差し込んでおきます。(モジュールのLEDが点灯するはず…）</p>
+<hr>
+<h3 id="ファームウェアをアップデートしよう！">ファームウェアをアップデートしよう！</h3><p>現在のファームウェアが「ver0.9.3」だったので、とりあえず安定版の「0.9.7」へアップデートしていきます。</p>
+<blockquote>
+<p><a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam「0.9.7」</a>｜公式サイト<br>※上記サイト後半にある「ファームバージョンアップ」の項目を参照。</p>
+</blockquote>
+<p>すでに「ver1.0」もリリースされており、上記サイトの同じ項目からダウンロード可能です。</p>
+<p>　<br>もう1つ重要なのが、MacbookからIchigoJamへファームウェアを書き込むためのツール「Maclpc21isp」です。</p>
+<blockquote>
+<p><a href="https://www.facebook.com/groups/ichigojam/files/" target="_blank" rel="external">「Maclpc21isp」インストール</a>｜IchigoJam-FAN</p>
+</blockquote>
+<p>上記のfacebookページの下の方に「Maclpc21isp.app.zip」というファイルがあるので、コレをダウンロードしてインストールしましょう。</p>
+<p>　<br>そして、IchigoJamの電源をONにすると、LEDが点灯している状態になるのですが、これはファームウェアの「書き込み待ち状態」を意味しています。</p>
+<p><img src="/images/2015/internet/5/ichigojam_5.jpg" alt="5"></p>
+<p>この状態で「Maclpc21isp」を起動して、シリアルモジュールのポートを選択します。</p>
+<p>その後、先ほどダウンロードしたファームウェアのファイルを選択する画面になります。</p>
+<p>　<br>そこで、画面チラツキ防止のクリスタルを使うので、先ほどダウンロードしたファームウェアの「ichigojam-xtal.bin」を選択します。（クリスタルを使わない場合は「ichigojam.bin」を選択します）</p>
+<p>　<br>最終的に、以下のような画面が表示されたら成功です！</p>
+<p><img src="/images/2015/internet/5/ichigojam_6.jpg" alt="6"></p>
+<p>IchigoJamの電源をOFFにして、シリアルモジュールやジャンパワイヤなどをすべて外しておきます。</p>
+<p>　<br>クリスタルを、「IchigoJam」と「@taisukef」のポートに差し込んでから、電源をONにしましょう！</p>
+<p><img src="/images/2015/internet/5/ichigojam_7.jpg" alt="7"></p>
+<p>これで、画面のチラツキも無くなり、ファームウェアもアップデート出来ました。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>予想していたよりも手順が複雑だったので、最初はかなり試行錯誤しましたが、分かってしまえば簡単な作業だったのかもしれません。</p>
+<p>ちなみに、以下のサイトで紹介されている「CoolTerm」というソフトを利用すると、IchigoJamのプログラムをMacbookで保存したりも可能になります。</p>
+<blockquote>
+<p><a href="http://15jamrecipe.jimdo.com/周辺機器/パソコンと接続/" target="_blank" rel="external">「CoolTerm紹介記事」</a>｜イチゴジャムレシピ</p>
+</blockquote>
+<p>このあたりは、また機会があれば紹介していきたいと思います。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/internet/ichigojam/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>

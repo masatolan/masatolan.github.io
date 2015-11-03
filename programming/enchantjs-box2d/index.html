@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="http://masatolan.com/programming/enchantjs-box2d/">
+    <title>「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！ | うえぶまなぶ</title>
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta name="description" content="Webで学んだことをメモ…">
+    <meta property="og:site_name" content="うえぶまなぶ">
+    <meta property="og:title" content="「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！">
+    <meta property="og:description" content="「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！">
+    <meta property="og:url" content="http://masatolan.com/programming/enchantjs-box2d/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://masatolan.com/images/2015/programming/7/box2d-enchantjs_1.jpg">
+    <meta property="fb:app_id" content="575493369194271">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="15" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2015/07/06
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/enchantjs-box2d/&text=「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/enchantjs-box2d/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/enchantjs-box2d/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/enchantjs-box2d/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/enchantjs-box2d/&text=「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/enchantjs-box2d/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/enchantjs-box2d/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/enchantjs-box2d/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2015/programming/7/box2d-enchantjs_1.jpg" alt="1"></p>
+<p>久しぶりに「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」をいじっていたら、「リアルな動き」が欲しくなったので、物理エンジンを簡単に使えるプラグイン「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」を使ってみました。</p>
+<p>今さらですが、めっちゃ簡単です。コレ…。</p>
+<p>物理エンジンを使ったゲーム作りは、何だか難しいイメージがあったのですが、わりと簡単に「アングリーバード」的なデモも作れるので感心しました。</p>
+<p>そこで、基本的な使い方を、ログ代わりにまとめておきます。</p>
+<a id="more"></a>
+<hr>
+<h3 id="事前に準備すること！">事前に準備すること！</h3><p>普通に「enchant.js」で簡単なコードを書いた経験のある人なら、ほぼ同じような感覚で物理エンジンが利用できるようになっています。</p>
+<p>そこで、まずは基本となる「HTMLファイル」と「JSファイル」の骨組みを、以下のように用意しておきます。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>物理エンジンのサンプル<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>　<br><figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enchant()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> game = <span class="keyword">new</span> Core();</span><br><span class="line"> </span><br><span class="line">  game.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//ここに処理を書く</span></span><br><span class="line">  &#125;</span><br><span class="line">  game.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>HTMLファイルに、基本となる「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」ファイルと、メインの処理を書く「main.js」ファイルを読み込ませておきます。</p>
+<p>「main.js」の中身は、「box2d」を使う、使わないに関わらず、最低限必要なコードの骨組みを用意しています。</p>
+<p>上記ファイルの準備が出来たら、通常のゲーム作りはすぐに始めることができます。</p>
+<p>ただ、今回は「box2d.enchant.js」を使って物理エンジンを利用するため、HTMLファイルにあと2つファイルを読み込ませておきましょう。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>物理エンジンのサンプル<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/Box2dWeb-2.1.a.3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/box2d.enchant.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>追加したのは、「Box2dWeb-2.1.a.3.js」と「box2d.enchant.js」です。</p>
+<p>どちらのファイルも、公式サイトから「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」をダウンロードすれば、解凍したフォルダの中に入っています。</p>
+<blockquote>
+<p>（参考）<br>以下のフォルダ内にあるファイルです。<br>「libs」→「Box2dWeb-2.1.a.3.js」<br>「build」→「plugins」→「box2d.enchant.js」</p>
+</blockquote>
+<p>ひとまず、ここまで準備ができたら、第1段階は突破です！</p>
+<hr>
+<h3 id="物理エンジンの使い方！">物理エンジンの使い方！</h3><p>それでは、早速「enchant.js」で物理エンジンを実装してみたいと思います。</p>
+<p>ここから先は、「main.js」の中身をいろいろ編集していきます！</p>
+<p>　<br>まずは、さきほど用意した「main.js」の中にある「game.onload」内に、「物理エンジンを使うよ！」…という宣言みたいな構文を書きます。</p>
+<pre><code>var world = <span class="keyword">new</span> PhysicsWorld(<span class="number">0</span>, <span class="number">9.8</span>);
+</code></pre><p>この引数に「0」と「9.8」を入れている理由ですが、これは「横方向の重力」と「縦方向の重力」を数値で入れているだけです。</p>
+<p>現実の世界では「横方向」に重力は無いので「0」にしています。「縦方向」に「9.8」を指定しているのは、一般的な重力加速度が「1G=9.8m/s^2」という理由です。<br>（これは、「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」のドキュメントに記載されてました）</p>
+<p>このあたりは、考えだすとキリがないので、デフォルトで(0, 9.8)を指定することを覚えておけば良いでしょう。</p>
+<p>　<br>あとは、ここで作成した「world」を、「game.rootScene」へフレーム毎に組み込めばOKです。</p>
+<pre><code>game.rootScene.onenterframe = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    world.step<span class="params">(game.fps)</span>;
+}
+</code></pre><p>たったこれだけで、enchant.jsでは物理エンジンが使えるようになるのは驚きです。</p>
+<p>　<br>ひとまず、ここまでを以下にまとめておきます。これが、物理エンジンを使う時のデフォルトテンプレートになるでしょう！</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">enchant()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> game = <span class="keyword">new</span> Core();</span><br><span class="line"> </span><br><span class="line">  game.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> world = <span class="keyword">new</span> PhysicsWorld(<span class="number">0</span>, <span class="number">9.8</span>);</span><br><span class="line"> </span><br><span class="line">    game.rootScene.onenterframe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      world.step(game.fps);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  game.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="「物体」を落としてみよう！">「物体」を落としてみよう！</h3><p>物理エンジンを使う準備ができたので、とりあえず何か「物体」を作り、上から落として「重力」がどのように再現されているのか見ていきましょう！</p>
+<p>まず、適当な「物体」を表示したいと思います。</p>
+<p>通常なら、「Sprite」や「Entity」などを使うと思うのですが、物理エンジンを利用する場合はとりあえず「PhyBoxSprite()」を使えば良いでしょう。</p>
+<p>構文は以下のとおり！</p>
+<pre><code><span class="function"><span class="title">PhyBoxSprite</span><span class="params">(幅, 高さ, 動作モード, 密度, 摩擦力, 反発力, フラグ)</span></span>
+</code></pre><blockquote>
+<p>【幅・高さ】は、物体(四角形)のサイズを指定します。<br>【動作モード】は、物理エンジンの影響を「受ける」「受けない」を指定できます。<br>【密度】は、数値を大きくするほど、物体を重くしていきます。<br>【摩擦力】は、数値を小さくするほど、滑りやすくなります。<br>【反発力】は、数値が大きいほど、よく跳ね返ります。<br>【フラグ】は、【動作モード】と似ていますが、「true/false」を指定することで、物理エンジンの「影響の有無」を指定できます。</p>
+</blockquote>
+<p>　<br>上記を踏まえた上で、32×32の物体を作るとこんな感じになります。</p>
+<pre><code>PhyBoxSprite(<span class="number">32</span>, <span class="number">32</span>, enchant.box2d.DYNAMIC_SPRITE, <span class="number">1.0</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
+</code></pre><blockquote>
+<p>（参考）<br>【enchant.box2d.DYNAMIC_SPRITE】は物理エンジンの影響を受ける。<br>【enchant.box2d.STATIC_SPRITE】は物理エンジンの影響を受けない。</p>
+</blockquote>
+<p>　<br>あと、このままだと物体は上から落ちていき、画面外へ消えてしまいます。</p>
+<p>そこで、床を設置してみたいと思います。</p>
+<p>これも同じ要領で、以下のように作れることが分かります。</p>
+<pre><code>PhyBoxSprite(<span class="number">320</span>, <span class="number">16</span>, enchant.box2d.STATIC_SPRITE, <span class="number">0</span>, <span class="number">1.0</span>, <span class="number">0</span>, <span class="literal">false</span>);
+</code></pre><p>ゲーム画面のサイズが320なので「幅」も同じに指定し、物理エンジンの影響は受けなくても良いので「STATIC_SPRITE」を設定しています。</p>
+<p>　<br>基本的には、これで「物体」と「床」は作成できたのですが、「色」と「座標」の指定をしないといけません。</p>
+<p>指定方法は、以下のとおり！</p>
+<pre><code><span class="built_in">var</span> box = <span class="literal">new</span> PhyBoxSprite(<span class="attribute">...</span><span class="attribute">...</span>);
+box<span class="built_in">.</span>backgroundCol<span class="subst">or</span> = <span class="string">"red"</span>;
+box<span class="built_in">.</span>position = {
+    x: <span class="number">160</span>,
+    y: <span class="number">312</span>
+}
+</code></pre><p>色の設定は、CSSと同じ感覚でOK。(#aaaとかも使えます)</p>
+<p>あとは、作成した物体を通常通り「addChild()」してやれば完了です！</p>
+<pre><code><span class="tag">game</span><span class="class">.rootScene</span><span class="class">.addChild</span>(<span class="tag">box</span>);
+</code></pre><p>　<br>これで、「物体」と「床」が完成しました。</p>
+<p>以下のサンプルを実際に確認してみてください！<br>（以下の画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください）</p>
+<p></p><p data-height="349" data-theme-id="12894" data-slug-hash="dodXML" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/dodXML/" target="_blank" rel="external">[sample1] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>赤色の四角形に重力が働いて、落下していくのを確認できるかと思います。</p>
+<hr>
+<h3 id="クラスを作ってみよう！">クラスを作ってみよう！</h3><p>さて、いい感じに物体が落下してくれました。</p>
+<p>しかし、この物体を10個、20個…と、たくさん表示したいと思った時に、いちいち「new PhyBoxSprite…」を何度も繰り返すのは面倒です。</p>
+<p>関数を作っても良いのですが、「enchant.js」に標準で搭載されている「クラス作成機能」を使うと、簡単に複数の物体を表示できるようになります。</p>
+<p>例えば、「PhyBoxSprite」のクラスは、以下のような感じで作れます！</p>
+<pre><code><span class="keyword">var</span> Box = Class.create(PhyBoxSprite, {
+    initialize: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+        <span class="comment">//ここに初期化処理を書く</span>
+    }
+}
+</code></pre><p>「initialize」の初期化処理に、物体の生成処理、座標位置、カラー、addChild…など、基本的なコードを書いておきます。</p>
+<p>これで、「Box」という物体を持ったクラスが作られたことになります。</p>
+<blockquote>
+<p>（参考）<br>クラスの変数名は、最初が大文字になるようにしておきましょう。</p>
+</blockquote>
+<p>　<br>あとは、メインの処理に以下のコードを書くだけで、物体が表示されるようになります。</p>
+<pre><code><span class="keyword">var</span> box = <span class="keyword">new</span> Box();
+</code></pre><p>　<br>これだと、「for文」などと組み合わせて、物体を複数表示させるようなことも簡単になります。</p>
+<pre><code><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">20</span>; i++) {
+    <span class="keyword">var</span> box = <span class="keyword">new</span> Box();
+}
+</code></pre><p>　<br>以下のサンプルは、上記内容を踏まえて「物体」をいくつか表示させたモノです。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="jPZqWO" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/jPZqWO/" target="_blank" rel="external">[sample2] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>　<br>上記サンプルの「Box」クラスは、以下のようなカタチです。</p>
+<pre><code>var Box = Class.create(PhyBoxSprite, {
+  initialize: function(x, y) {
+        PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
+        <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;
+        <span class="keyword">this</span>.x = x;
+        <span class="keyword">this</span>.y = y;
+        game.rootScene.addChild(<span class="keyword">this</span>);
+    }
+});　
+</code></pre><p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
+<p>少し変化があるとすれば、「function(x, y)」というカタチで、引数に2つの数値を設定している点です。</p>
+<p>この「x, y」を、そのまま座標位置の「x, y」に入れてやることで、物体の出現位置を操作できます。</p>
+<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;<span class="number">320</span>;i+=<span class="number">32</span>) {
+    var box = <span class="keyword">new</span> Box(i, i);
+}
+</code></pre><p>このサンプルでは、「x, y」にfor文の「i」を入れて複数の物体を表示してみました。</p>
+<hr>
+<p>###物体に「力」を加えてみよう！</p>
+<p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
+<p>と言っても、実現するのは簡単で、以下の構文を覚えればOKです！</p>
+<pre><code>applyImpulse<span class="list">(<span class="keyword">new</span> b2Vec2<span class="list">(横方向の力, 縦方向の力)</span>)</span>
+</code></pre><p>「b2Vec2」というのは「ベクトル」の意味で、物理エンジンの世界ではこのベクトルをベースにした数値を使わないと、上手く計算できないようになっています。</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhySprite.html#applyImpulse" target="_blank" rel="external">enchant.box2d.PhySprite</a>」ドキュメント</p>
+</blockquote>
+<p>　<br>あとは、生成したBoxに組み込むだけで使えるようになります。</p>
+<pre><code><span class="label">var</span> <span class="keyword">box </span>= new <span class="keyword">Box();
+</span><span class="keyword">box.applyImpulse(new </span><span class="keyword">b2Vec2(3, </span>-<span class="number">2</span>)<span class="comment">;</span>
+</code></pre><p>これで、右方向へ放物線を描くように飛んでいきます。</p>
+<p>　<br>この新しい構文を「Box」に組み込んだサンプルが以下になります！</p>
+<p>赤いBoxを、クリック(タッチ)すると横方向へ飛んでいくのが分かります。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="gpeMRb" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/gpeMRb/" target="_blank" rel="external">[sample3] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、Boxクラスの中へ「クリックイベント」も一緒に入れてみました。</p>
+<p>こうすると、メインの処理がスッキリするので、扱いやすくなります。<br>(言い換えれば、クリックされると飛んでいく物体が作れるクラス…という感じでしょうか)</p>
+<hr>
+<h3 id="スプライトを利用してみる！">スプライトを利用してみる！</h3><p>さて、そろそろ無機質な四角形の物体にも飽きてきたので、スプライト画像を適用してゲームっぽくしてみましょう。</p>
+<p>画像は、通常のenchant.jsと同じように、「preload()」であらかじめ画像ファイルを読み込んでおく必要があります。</p>
+<pre><code><span class="keyword">var</span> game = <span class="keyword">new</span> Core();
+game.preload(
+    画像ファイルパス,
+    画像ファイルパス,
+    画像ファイルパス
+);
+</code></pre><p>　<br>今回は、「enchant.js」で用意されている画像を使ってみたいと思います。</p>
+<p>使うのは、以下の<a href="https://github.com/wise9/enchant.js/tree/master/images" target="_blank" rel="external">画像ファイル</a>です。</p>
+<p><img src="/images/2015/programming/7/box2d-enchantjs_2.jpg" alt="2"></p>
+<p>　<br>読み込んだ画像ファイルを適用するには、「image」に画像パスを割り当てて、画像フレームを指定すればOKです！</p>
+<pre><code>var <span class="built_in">box</span> = <span class="keyword">new</span> PhyBoxSprite(<span class="number">16</span>, <span class="number">16</span>, ......);
+<span class="built_in">box</span>.<span class="built_in">image</span> = game.assets[<span class="string">"画像パス"</span>];
+<span class="built_in">box</span>.frame = 画像フレーム
+</code></pre><p>これだけで、画像を使えます。</p>
+<p>注意点として、「PhyBoxSprite」の幅と高さは、使用する画像のサイズに合わせることを覚えておきましょう。</p>
+<p>「画像フレーム」は、自分が使いたい画像が何番目にあるかを指定すればOKです。例えば、「豚キャラ」は0から数えて22番目にあるので、「22」を指定するわけです。</p>
+<p>　<br>四角形を「豚キャラ」にして、床の画像も差し替えたのが以下のサンプルです！<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="XbEjbO" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/XbEjbO/" target="_blank" rel="external">[sample4] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、「床」もクラス化しています。</p>
+<p>そして、画像の適用もクラス内で行うことで、メイン処理を見やすくしています。</p>
+<blockquote>
+<p>（参考）<br>画像ファイルは、「png」で透過処理を施しておけば、自動的にその部分が透明に処理されるので便利です。</p>
+</blockquote>
+<h2 id="">　</h2><h3 id="最後に…">最後に…</h3><p>これまで紹介してきたノウハウを使って、最後に障害物となる壁を表示してみたいと思います。</p>
+<p>完成品はコチラ！<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
+<p></p><p data-height="300" data-theme-id="12894" data-slug-hash="KpZvEK" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/KpZvEK/" target="_blank" rel="external">[Final] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<p>上記サンプルでは、「豚キャラ」をクリック(タッチ)すると障害物に向かって飛んでいき、壁を破壊していきます。</p>
+<p>障害物も、他の物体と同様に「PhyBoxSprite」で作っているだけなので、それほど難しくはないと思います。</p>
+<p>豚キャラは、転がっていくようにするため「PhyCircleSprite」を使って、円形の物体にしています。</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>「enchant.js」を使っての物理エンジンは、いかがだったでしょうか？</p>
+<p>基本的な部分しか紹介できてませんが、これだけでも「アングリーバード」風のゲームが作れそうな気がするかと思います。</p>
+<p>もし、物理エンジンに興味があって、面白いゲームを作りたい方は、ぜひ参考にしてみてください！</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://enchantjs.com/ja/" target="_blank" rel="external">enchant.js</a>」公式サイト<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhysicsWorld.html" target="_blank" rel="external">box2d.enchant.js</a>」ドキュメント</p>
+</blockquote>
+ 
+            <hr/> 
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/enchantjs-box2d/&text=「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/enchantjs-box2d/" target="_blank">facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/enchantjs-box2d/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/enchantjs-box2d/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/enchantjs-box2d/&text=「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="https://www.facebook.com/sharer/sharer.php?u=http://masatolan.com/programming/enchantjs-box2d/" target="_blank">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/enchantjs-box2d/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/enchantjs-box2d/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
+                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
+                        <img src="/images/2015/programming/3/to-quantify-alphabet_1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2015 <a href="/">うえぶまなぶ</a>　　by <a href="https://twitter.com/0310lan">0310lan</a></p>
+    </div>
+</footer>
+    </body>
+</html>
