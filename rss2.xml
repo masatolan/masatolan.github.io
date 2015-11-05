@@ -515,7 +515,7 @@ game.preload(
       <![CDATA[Node.jsのパッケージ管理「npm」の統計情報を、WebGLで3DCGにした強者現る！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/understanding-npm_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/understanding-npm1.jpg" alt="1"></p>
 <p>昔は単独のツールだった「npm」も、今ではNode.jsをインストールすると一緒に付属されるくらいに、Node.jsのライブラリパッケージ管理として定番になりました。</p>
 <p>そんな「npm」の現状を知るために、さまざまな統計情報を分かりやすく3DCGで視覚化したサイト「<a href="https://unpm.nodesource.com/" target="_blank" rel="external">Understanding npm</a>」が話題になっているのでご紹介しておきます。</p>
 <a id="more"></a>
@@ -546,7 +546,7 @@ game.preload(
       <![CDATA[パブリックドメインで使い放題のフルHD動画公開サイト「Coverr」が、Web制作にオススメ！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/coverr_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/coverr1.jpg" alt="1"></p>
 <p>Webサイトのトップページなどで、背景に動画を組み込んだサイトが増えていますが、そんな用途に最適な動画ビデオを公開しているサイト「<a href="http://www.coverr.co/" target="_blank" rel="external">Coverr</a>」のご紹介。</p>
 <p>公開されている動画は、すべてパブリックドメインのモノを収集しているので、自分のサイトなどへ自由に利用できるのが嬉しいところ…。</p>
 <a id="more"></a>
@@ -577,7 +577,7 @@ game.preload(
       <![CDATA[運転中にスマホを使用しないだけで、定期的に報酬が得られるアプリ「SafeDrive」が海外で話題に！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/safedrive_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/safedrive1.jpg" alt="1"></p>
 <p>運転中のスマホ使用を低減するべく、海外で誕生したスマホアプリが「<a href="http://www.getsafedrive.com/" target="_blank" rel="external">SafeDrive</a>」です。</p>
 <p>車を運転している最中に、スマホを使わない代わりに「ポイント報酬」を貯めて買い物ができる…という、極めてシンプルなコンセプトですが効果的かと思います。</p>
 <a id="more"></a>
@@ -611,7 +611,7 @@ game.preload(
       <![CDATA[JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/programming/6/dynamics-js_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/6/dynamics-js1.jpg" alt="1"></p>
 <p>「CSSでアニメーションは難しい！」とか、「JavaScriptで全部制御したい！」…という人にはオススメのライブラリ「<a href="http://dynamicsjs.com/" target="_blank" rel="external">Dynamics.js</a>」のご紹介！</p>
 <p>コードが非常にシンプルで扱いやすいのが特徴で、単純なWebサイトへ簡単に動きを付けられるようになります。</p>
 <a id="more"></a>
@@ -669,7 +669,7 @@ game.preload(
       <![CDATA[Airbnb型の豪華クルーザーレンタル「Antlos」で、夢のバカンスが満喫できると話題に！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/antlos_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/antlos1.jpg" alt="1"></p>
 <p>「豪華クルーザー」を夢見ている人には朗報かもしれません。</p>
 <p>数千万円〜数億円は普通にするのがクルーザーなわけですが…、「購入なんてとても無理！」と思っている人は、海外で話題のWebサービス「<a href="https://www.antlos.com/" target="_blank" rel="external">Antlos</a>」を利用すると格安で船上バカンスを満喫できます。</p>
 <p>利用方法も、空き部屋レンタルサービスの「<a href="https://www.airbnb.jp/" target="_blank" rel="external">Airbnb</a>」と似ているので、手軽に使えるのも特徴です。</p>
@@ -702,7 +702,7 @@ game.preload(
       <![CDATA[ただの調理オーブンに、Tegra K1、フルHDカメラ、スマホ連携可能な「June」がやたらスゴイ件！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/technology/6/june_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/technology/6/june1.jpg" alt="1"></p>
 <p>調理オーブンに、こんなスペックが必要なのか…。と、思わずツッコミそうになるプロダクトですが、内容を知ると理解できるはず…。</p>
 <p>「<a href="https://juneoven.com/" target="_blank" rel="external">June</a>」は、オーブンの中に入れた料理を「カメラ」で自動認識し、最適な調理プログラムを実行できるという先進機能が特徴のようです。</p>
 <a id="more"></a>
@@ -735,12 +735,12 @@ game.preload(
       <guid>http://masatolan.com/mobile/cardiogram/</guid>
       <pubDate>Tue, 09 Jun 2015 11:58:52 GMT</pubDate>
       <description>
-      <![CDATA[<p><img src="/images/2015/mobile/6/cardiogram_1.jpg" alt="1"></p>
+      <![CDATA[<p><img src="/images/2015/mobile/6/cardiogram1.jpg" alt="1"></p>
 <p>Android Wearで心拍数を測定できるアプリ「<a href="http://cardiogr.am/">Cardiogram</a>」を使った面白いグラフが<a href="http://cardiogr.am/c/wwdc">公開</a>されているのでご紹介しようと思います。</p>
 <p>グラフは、アップルWWDCに参加しているユーザーの心拍数を記録しているのですが、他の様々なイベントでも活用してみると面白いと感じました。</p>]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/cardiogram_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/mobile/6/cardiogram1.jpg" alt="1"></p>
 <p>Android Wearで心拍数を測定できるアプリ「<a href="http://cardiogr.am/" target="_blank" rel="external">Cardiogram</a>」を使った面白いグラフが<a href="http://cardiogr.am/c/wwdc" target="_blank" rel="external">公開</a>されているのでご紹介しようと思います。</p>
 <p>グラフは、アップルWWDCに参加しているユーザーの心拍数を記録しているのですが、他の様々なイベントでも活用してみると面白いと感じました。</p>
 <a id="more"></a>
@@ -772,7 +772,7 @@ game.preload(
       <![CDATA[200ページ超え！LPICの完全無料「Linux入門書テキスト」をまだ知らない人は絶対損してる！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/internet/6/linux-free-textbook_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/6/linux-free-textbook1.jpg" alt="1"></p>
 <p>最近Linuxに触れる機会が多くなってきたので、そろそろ時間を割いて勉強でもしようかとネットで検索していたら、意外な事実を知りました…。</p>
 <p>日本には、素晴らしい教材があったんですね…。</p>
 <p>その名も「<a href="http://www.lpi.or.jp/linuxtext/text.shtml" target="_blank" rel="external">Linux標準教科書</a>」。</p>
@@ -830,7 +830,7 @@ game.preload(
       <![CDATA[人気Webサービスたちが送信するメール内容を公開する「Great email copy」が面白い！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/great-email-copy_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/6/great-email-copy1.jpg" alt="1"></p>
 <p>Webサービスを運営していると、ユーザーへメールを送る機会は少なくないはず。</p>
 <p>そこで、他のWebサービスがどんな内容のメールを作成しているのか確認できる珍しいサービス「<a href="http://greatemailcopy.tumblr.com/" target="_blank" rel="external">Great email copy</a>」をご紹介します！</p>
 <p>メールコンテンツの学習にも最適です！</p>
