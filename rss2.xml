@@ -7,7 +7,7 @@
     <link>http://masatolan.com/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[Webで学んだことをメモ…]]></description>
-    <pubDate>Sun, 25 Oct 2015 07:56:23 GMT</pubDate>
+    <pubDate>Thu, 05 Nov 2015 13:55:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -19,7 +19,7 @@
       <![CDATA[クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/programming/8/chrome-extension_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/8/chrome-extension1.jpg" alt="1"></p>
 <p>ふとしたきっかけで、急に「テトリス」が遊びたくなったので、いろいろ探してみたのですが良いのが見つからず…。</p>
 <p>普段からChromeブラウザを愛用していることから、「<a href="https://chrome.google.com/webstore/category/apps" target="_blank" rel="external">Chromeウェブストア</a>」も検索したのですが、お手頃感のあるモノが見つからず…。</p>
 <p>結局のところ、探すのが辛くなってきたので、自分好みの気軽に遊べるテトリスを、「Chrome拡張機能」として可能な限り簡単に作ってみました。</p>
