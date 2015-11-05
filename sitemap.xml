@@ -2,6 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://masatolan.com/Webservice/musicroamer/</loc>
+    <lastmod>2015-11-05T16:05:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/mobile/periscope/</loc>
+    <lastmod>2015-11-05T16:05:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/pi-hunt/</loc>
+    <lastmod>2015-11-05T16:05:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/tabbie/</loc>
+    <lastmod>2015-11-05T16:05:16.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/thefuck/</loc>
+    <lastmod>2015-11-05T16:05:11.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/wlppr/</loc>
+    <lastmod>2015-11-05T16:05:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/spot/akizuki-denshi/</loc>
+    <lastmod>2015-11-05T16:04:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/blank-slate/</loc>
+    <lastmod>2015-11-05T16:04:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/codecademy-angularjs/</loc>
+    <lastmod>2015-11-05T16:04:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/fossdroid/</loc>
+    <lastmod>2015-11-05T16:04:35.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/hackr-io/</loc>
+    <lastmod>2015-11-05T16:04:29.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/imgur-embed/</loc>
+    <lastmod>2015-11-05T16:04:23.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/marvelous-db/</loc>
+    <lastmod>2015-11-05T16:04:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/pixlr-became-skitch/</loc>
+    <lastmod>2015-11-05T16:04:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/pocket-operator/</loc>
+    <lastmod>2015-11-05T16:03:57.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/random-user-generator/</loc>
+    <lastmod>2015-11-05T16:03:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/shellcheck/</loc>
+    <lastmod>2015-11-05T16:03:44.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/slack-list/</loc>
+    <lastmod>2015-11-05T16:03:37.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/dropshop/</loc>
+    <lastmod>2015-11-05T16:03:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/mobile/filld/</loc>
+    <lastmod>2015-11-05T16:03:16.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/gotetris/</loc>
+    <lastmod>2015-11-05T16:03:11.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/ichigojam/</loc>
+    <lastmod>2015-11-05T16:03:05.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/milkcocoa-and-angularjs/</loc>
+    <lastmod>2015-11-05T16:02:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/millennium-falcon-lego/</loc>
+    <lastmod>2015-11-05T16:02:49.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://masatolan.com/mobile/cardiogram/</loc>
     <lastmod>2015-11-05T15:48:49.000Z</lastmod>
   </url>
@@ -97,16 +217,6 @@
   </url>
   
   <url>
-    <loc>http://masatolan.com/technology/pocket-operator/</loc>
-    <lastmod>2015-10-25T14:56:36.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/imgur-embed/</loc>
-    <lastmod>2015-10-25T14:53:21.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://masatolan.com/Webservice/vrideo/</loc>
     <lastmod>2015-10-25T14:47:44.000Z</lastmod>
   </url>
@@ -172,118 +282,8 @@
   </url>
   
   <url>
-    <loc>http://masatolan.com/programming/random-user-generator/</loc>
-    <lastmod>2015-10-25T07:21:59.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://masatolan.com/programming/mousetrap/</loc>
     <lastmod>2015-10-24T11:49:47.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/dropshop/</loc>
-    <lastmod>2015-10-21T03:28:40.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/pixlr-became-skitch/</loc>
-    <lastmod>2015-10-21T03:28:35.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/shellcheck/</loc>
-    <lastmod>2015-10-21T03:28:17.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/slack-list/</loc>
-    <lastmod>2015-10-21T03:28:07.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/mobile/filld/</loc>
-    <lastmod>2015-10-21T03:27:53.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/gotetris/</loc>
-    <lastmod>2015-10-21T03:27:47.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/ichigojam/</loc>
-    <lastmod>2015-10-21T03:27:37.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/milkcocoa-and-angularjs/</loc>
-    <lastmod>2015-10-21T03:27:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/millennium-falcon-lego/</loc>
-    <lastmod>2015-10-21T03:27:07.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/marvelous-db/</loc>
-    <lastmod>2015-10-21T03:26:52.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/musicroamer/</loc>
-    <lastmod>2015-10-21T03:26:47.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/mobile/periscope/</loc>
-    <lastmod>2015-10-21T03:26:43.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/pi-hunt/</loc>
-    <lastmod>2015-10-21T03:26:35.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/tabbie/</loc>
-    <lastmod>2015-10-21T03:26:31.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/thefuck/</loc>
-    <lastmod>2015-10-21T03:26:26.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/wlppr/</loc>
-    <lastmod>2015-10-21T03:26:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/spot/akizuki-denshi/</loc>
-    <lastmod>2015-10-21T03:26:05.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/blank-slate/</loc>
-    <lastmod>2015-10-21T03:25:59.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/codecademy-angularjs/</loc>
-    <lastmod>2015-10-21T03:25:54.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/fossdroid/</loc>
-    <lastmod>2015-10-21T03:25:49.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/hackr-io/</loc>
-    <lastmod>2015-10-21T03:25:43.000Z</lastmod>
   </url>
   
   <url>

@@ -861,7 +861,7 @@ game.preload(
       <![CDATA[Dropboxに決済機能を追加できる「Dropshop」で、ファイルを自由に売買できる！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/5/dropshop_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/webservice/5/dropshop1.jpg" alt="1"></p>
 <p>最近は、決済系のWebサービスが増えてきているのですが、Dropboxにお手軽な決済機能を追加できる「<a href="https://getdropshop.com/" target="_blank" rel="external">Dropshop</a>」が面白かったのでご紹介します！</p>
 <p>ログインも不要で、非常にシンプルな決済サービスとして設計されており、誰でも手軽に利用できるのが最大の特徴となっています。</p>
 <a id="more"></a>
@@ -894,7 +894,7 @@ game.preload(
       <![CDATA[Go言語入門に最適！コンソール画面で、テトリスがプレイできる「gotetris」が面白い！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/gotetris_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/gotetris1.jpg" alt="1"></p>
 <p>Go言語も、意外と面白いんだなぁ…と感じたのでご紹介しておきます！</p>
 <p>コンソールの画面上に、プレイ可能な「テトリス」を再現した「<a href="https://github.com/jjinux/gotetris" target="_blank" rel="external">gotetris</a>」が、GitHubで公開されてます。</p>
 <p>すべてGo言語でプログラミングされており、非常にシンプルな構造にまとまっているのでコードリーディングにも良さそうです。</p>
@@ -943,7 +943,7 @@ $ export PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH
       <![CDATA[Macで「IchigoJam」のファームアップデートをして、画面のチラツキをゼロにしてみた！]]>
       
       </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/ichigojam_1.jpg" alt="1"></p>
+      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/ichigojam1.jpg" alt="1"></p>
 <p>ひょんな事から「<a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam</a>」を入手したものの、バージョンが古かったのと画面のチラツキが気になっていたので、ファームウェアを新しくアップデートしてみました。</p>
 <p>アップデートは成功し、画面のチラツキもゼロになって快適なのは良いのですが、それまでの作業手順が意外に多くて苦戦したので、忘れないうちにログを残しておきます。</p>
 <a id="more"></a>
