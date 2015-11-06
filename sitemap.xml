@@ -2,6 +2,316 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-security/</loc>
+    <lastmod>2015-11-06T04:31:07.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-wifi/</loc>
+    <lastmod>2015-11-06T04:30:56.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/responsive-logo/</loc>
+    <lastmod>2015-11-06T04:29:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/user-flow-patterns/</loc>
+    <lastmod>2015-11-06T04:29:23.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/web-audio-synth-v2/</loc>
+    <lastmod>2015-11-06T04:29:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/predominantly/</loc>
+    <lastmod>2015-11-06T04:29:06.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/psiu-puxa-wallpapers/</loc>
+    <lastmod>2015-11-06T04:28:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-basic/</loc>
+    <lastmod>2015-11-06T04:28:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-coder-wifi/</loc>
+    <lastmod>2015-11-06T04:28:33.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-forgot-password/</loc>
+    <lastmod>2015-11-06T04:28:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-lxde/</loc>
+    <lastmod>2015-11-06T04:28:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/github-secret/</loc>
+    <lastmod>2015-11-06T04:28:10.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/hanshin-earthquake/</loc>
+    <lastmod>2015-11-06T04:28:06.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/hipster-logo-generator/</loc>
+    <lastmod>2015-11-06T04:28:02.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/human-benchmark/</loc>
+    <lastmod>2015-11-06T04:27:57.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/map-glyphs/</loc>
+    <lastmod>2015-11-06T04:27:52.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/pixlr-ad-hide/</loc>
+    <lastmod>2015-11-06T04:27:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/androidify/</loc>
+    <lastmod>2015-11-06T04:27:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/mobile/bemyeyes/</loc>
+    <lastmod>2015-11-06T04:27:29.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/bookdrill/</loc>
+    <lastmod>2015-11-06T04:27:25.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/cloudconvert/</loc>
+    <lastmod>2015-11-06T04:27:18.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/coton/</loc>
+    <lastmod>2015-11-06T04:27:12.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/mobile/ctrlconsole/</loc>
+    <lastmod>2015-11-06T04:27:07.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/facebook-instagram-down/</loc>
+    <lastmod>2015-11-06T04:27:02.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/quiz-ken/</loc>
+    <lastmod>2015-11-06T04:26:45.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/</loc>
+    <lastmod>2015-11-06T04:26:34.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/send-anywhere/</loc>
+    <lastmod>2015-11-06T04:26:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/youtab/</loc>
+    <lastmod>2015-11-06T04:26:23.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/iphone-to-raspberry-pi/</loc>
+    <lastmod>2015-11-06T04:26:13.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/minibuilders/</loc>
+    <lastmod>2015-11-06T04:26:08.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/notion/</loc>
+    <lastmod>2015-11-06T04:26:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/pebble-time/</loc>
+    <lastmod>2015-11-06T04:25:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/pi-top/</loc>
+    <lastmod>2015-11-06T04:25:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/gifit/</loc>
+    <lastmod>2015-11-06T04:25:40.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/github-awards/</loc>
+    <lastmod>2015-11-06T04:25:36.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/google-io-make-music/</loc>
+    <lastmod>2015-11-06T04:25:32.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/how-much-to-make-an-app/</loc>
+    <lastmod>2015-11-06T04:25:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/imgur-video-to-gif/</loc>
+    <lastmod>2015-11-06T04:25:21.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/mobile/ipad-paper/</loc>
+    <lastmod>2015-11-06T04:25:14.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/asciinema/</loc>
+    <lastmod>2015-11-06T04:25:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/chessboardjs-basic/</loc>
+    <lastmod>2015-11-06T04:24:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/chrome-devtools-terminal/</loc>
+    <lastmod>2015-11-06T04:24:54.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/clinicloud/</loc>
+    <lastmod>2015-11-06T04:24:49.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/gamamia/</loc>
+    <lastmod>2015-11-06T04:24:44.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/gamebuino/</loc>
+    <lastmod>2015-11-06T04:24:40.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/tubelist/</loc>
+    <lastmod>2015-11-06T04:24:25.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/vrideo/</loc>
+    <lastmod>2015-11-06T04:24:19.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/watch-me-work/</loc>
+    <lastmod>2015-11-06T04:24:15.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/watchapps/</loc>
+    <lastmod>2015-11-06T04:24:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/webiopi-basic/</loc>
+    <lastmod>2015-11-06T04:24:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/punktendo/</loc>
+    <lastmod>2015-11-06T04:23:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/</loc>
+    <lastmod>2015-11-06T04:23:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/rawler-express/</loc>
+    <lastmod>2015-11-06T04:23:41.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/recap-guide/</loc>
+    <lastmod>2015-11-06T04:23:35.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/tanx/</loc>
+    <lastmod>2015-11-06T04:23:28.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/to-quantify-alphabet/</loc>
+    <lastmod>2015-11-06T04:23:22.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/internet/android-app-book/</loc>
+    <lastmod>2015-11-06T04:23:04.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/audiosearch/</loc>
+    <lastmod>2015-11-06T04:22:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/Webservice/chesscademy/</loc>
+    <lastmod>2015-11-06T04:22:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/dom-animator/</loc>
+    <lastmod>2015-11-06T04:22:47.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/technology/motion-tennis-cast/</loc>
+    <lastmod>2015-11-06T04:22:40.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://masatolan.com/programming/mousetrap/</loc>
+    <lastmod>2015-11-06T04:22:35.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://masatolan.com/Webservice/musicroamer/</loc>
     <lastmod>2015-11-05T16:05:34.000Z</lastmod>
   </url>
@@ -204,316 +514,6 @@
   <url>
     <loc>http://masatolan.com/programming/chrome-extension/</loc>
     <lastmod>2015-11-05T13:55:09.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-wifi/</loc>
-    <lastmod>2015-11-03T15:42:03.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-node-gpio/</loc>
-    <lastmod>2015-11-03T15:31:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/vrideo/</loc>
-    <lastmod>2015-10-25T14:47:44.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/motion-tennis-cast/</loc>
-    <lastmod>2015-10-25T14:40:05.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/minibuilders/</loc>
-    <lastmod>2015-10-25T14:34:42.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/pebble-time/</loc>
-    <lastmod>2015-10-25T14:33:39.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/quiz-ken/</loc>
-    <lastmod>2015-10-25T14:32:31.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/imgur-video-to-gif/</loc>
-    <lastmod>2015-10-25T14:26:44.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/mobile/ipad-paper/</loc>
-    <lastmod>2015-10-25T14:15:28.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/chessboardjs-basic/</loc>
-    <lastmod>2015-10-25T14:13:24.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/clinicloud/</loc>
-    <lastmod>2015-10-25T14:10:56.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/gamebuino/</loc>
-    <lastmod>2015-10-25T14:09:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/hanshin-earthquake/</loc>
-    <lastmod>2015-10-25T14:06:42.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/mobile/bemyeyes/</loc>
-    <lastmod>2015-10-25T11:21:56.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/coton/</loc>
-    <lastmod>2015-10-25T11:19:45.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/mousetrap/</loc>
-    <lastmod>2015-10-24T11:49:47.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/rawler-express/</loc>
-    <lastmod>2015-10-21T03:25:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/recap-guide/</loc>
-    <lastmod>2015-10-21T03:25:07.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/tanx/</loc>
-    <lastmod>2015-10-21T03:25:03.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/to-quantify-alphabet/</loc>
-    <lastmod>2015-10-21T03:24:58.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/tubelist/</loc>
-    <lastmod>2015-10-21T03:24:52.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/watch-me-work/</loc>
-    <lastmod>2015-10-21T03:24:36.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/watchapps/</loc>
-    <lastmod>2015-10-21T03:24:29.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/webiopi-basic/</loc>
-    <lastmod>2015-10-21T03:24:24.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/android-app-book/</loc>
-    <lastmod>2015-10-21T03:24:01.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/audiosearch/</loc>
-    <lastmod>2015-10-21T03:23:54.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/chesscademy/</loc>
-    <lastmod>2015-10-21T03:23:49.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/dom-animator/</loc>
-    <lastmod>2015-10-21T03:23:41.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/punktendo/</loc>
-    <lastmod>2015-10-21T03:23:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-ttytter/</loc>
-    <lastmod>2015-10-21T03:23:13.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/technology/notion/</loc>
-    <lastmod>2015-10-21T03:22:43.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/pi-top/</loc>
-    <lastmod>2015-10-21T03:22:25.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/send-anywhere/</loc>
-    <lastmod>2015-10-21T03:21:51.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/youtab/</loc>
-    <lastmod>2015-10-21T03:21:44.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/google-io-make-music/</loc>
-    <lastmod>2015-10-21T03:21:30.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/how-much-to-make-an-app/</loc>
-    <lastmod>2015-10-21T03:21:26.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/iphone-to-raspberry-pi/</loc>
-    <lastmod>2015-10-21T03:21:07.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/asciinema/</loc>
-    <lastmod>2015-10-21T03:20:36.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/chrome-devtools-terminal/</loc>
-    <lastmod>2015-10-21T03:20:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/gamamia/</loc>
-    <lastmod>2015-10-21T03:19:42.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/gifit/</loc>
-    <lastmod>2015-10-21T03:19:29.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/github-awards/</loc>
-    <lastmod>2015-10-21T03:19:24.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/predominantly/</loc>
-    <lastmod>2015-10-21T03:19:08.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/psiu-puxa-wallpapers/</loc>
-    <lastmod>2015-10-21T03:19:02.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-basic/</loc>
-    <lastmod>2015-10-21T03:18:55.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-coder-wifi/</loc>
-    <lastmod>2015-10-21T03:18:39.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-forgot-password/</loc>
-    <lastmod>2015-10-21T03:18:30.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-lxde/</loc>
-    <lastmod>2015-10-21T03:18:23.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/raspberry-pi/raspberry-pi-security/</loc>
-    <lastmod>2015-10-21T03:18:12.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/responsive-logo/</loc>
-    <lastmod>2015-10-21T03:17:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/user-flow-patterns/</loc>
-    <lastmod>2015-10-21T03:17:24.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/web-audio-synth-v2/</loc>
-    <lastmod>2015-10-21T03:17:19.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/internet/facebook-instagram-down/</loc>
-    <lastmod>2015-10-21T03:16:57.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/github-secret/</loc>
-    <lastmod>2015-10-21T03:16:52.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/hipster-logo-generator/</loc>
-    <lastmod>2015-10-21T03:16:31.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/human-benchmark/</loc>
-    <lastmod>2015-10-21T03:16:21.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/map-glyphs/</loc>
-    <lastmod>2015-10-21T03:16:11.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/pixlr-ad-hide/</loc>
-    <lastmod>2015-10-21T03:16:02.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/bookdrill/</loc>
-    <lastmod>2015-10-21T03:15:16.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/cloudconvert/</loc>
-    <lastmod>2015-10-21T03:15:06.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/mobile/ctrlconsole/</loc>
-    <lastmod>2015-10-21T03:14:08.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/Webservice/androidify/</loc>
-    <lastmod>2015-10-21T03:14:01.000Z</lastmod>
   </url>
   
   <url>
