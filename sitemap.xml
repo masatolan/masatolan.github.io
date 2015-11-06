@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://masatolan.com/programming/hexo-blog-basic/</loc>
+    <lastmod>2015-11-06T05:39:41.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://masatolan.com/raspberry-pi/raspberry-pi-security/</loc>
     <lastmod>2015-11-06T04:31:07.000Z</lastmod>
   </url>
@@ -514,11 +519,6 @@
   <url>
     <loc>http://masatolan.com/programming/chrome-extension/</loc>
     <lastmod>2015-11-05T13:55:09.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://masatolan.com/programming/hexo-blog-basic/</loc>
-    <lastmod>2015-10-21T03:12:59.000Z</lastmod>
   </url>
   
 </urlset>
