@@ -7,7 +7,7 @@
     <link>http://masatolan.com/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[Webで学んだことをメモ…]]></description>
-    <pubDate>Wed, 18 Nov 2015 02:37:58 GMT</pubDate>
+    <pubDate>Wed, 18 Nov 2015 02:46:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -58,7 +58,7 @@
 <p>さらに「filter:type」を指定することで、検索ボックスに入力したキーワードが含まれている「ゆるキャラ名」を自動で表示させています。</p>
 <hr>
 <h3 id="サンプルデモ！">サンプルデモ！</h3><p>今回は、単純に名前を表示するだけで、特に難しいことは一切していないですが、これでも立派な「ゆるキャラ検索アプリ」として使えるのではないでしょうか。</p>
-<p>全部のコードと、サンプルはこちら！</p>
+<p>全部のコードと、サンプルはこちら！<br>(PCブラウザにてお試しください…)</p>
 <iframe height="350" scrolling="no" src="//codepen.io/webstudy/embed/MaqMwe/?height=350&theme-id=12894&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/webstudy/pen/MaqMwe/" target="_blank" rel="external">ゆるキャラ名前検索（opendata by LinkData.org）</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
 
 <p>入力ボックスに、ゆるキャラ名の一部を入れて「検索」ボタンをクリックすれば、該当する「ゆるキャラ名称」が一覧表示されます。</p>
