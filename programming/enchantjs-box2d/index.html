@@ -220,25 +220,16 @@ box<span class="built_in">.</span>position = {
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>　<br>上記サンプルの「Box」クラスは、以下のようなカタチです。</p>
-<pre><code>var Box = Class.create(PhyBoxSprite, {
-  initialize: function(x, y) {
-        PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
-        <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;
-        <span class="keyword">this</span>.x = x;
-        <span class="keyword">this</span>.y = y;
-        game.rootScene.addChild(<span class="keyword">this</span>);
-    }
-});　
-</code></pre><p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Box = Class.create(PhyBoxSprite, &#123;</span><br><span class="line">  initialize: <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">    game.rootScene.addChild(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
 <p>少し変化があるとすれば、「function(x, y)」というカタチで、引数に2つの数値を設定している点です。</p>
 <p>この「x, y」を、そのまま座標位置の「x, y」に入れてやることで、物体の出現位置を操作できます。</p>
-<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;<span class="number">320</span>;i+=<span class="number">32</span>) {
+<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>; i &lt; <span class="number">320</span>; i+=<span class="number">32</span>) {
     var box = <span class="keyword">new</span> Box(i, i);
 }
 </code></pre><p>このサンプルでは、「x, y」にfor文の「i」を入れて複数の物体を表示してみました。</p>
 <hr>
-<p>###物体に「力」を加えてみよう！</p>
-<p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
+<h3 id="物体に「力」を加えてみよう！">物体に「力」を加えてみよう！</h3><p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
 <p>と言っても、実現するのは簡単で、以下の構文を覚えればOKです！</p>
 <pre><code>applyImpulse<span class="list">(<span class="keyword">new</span> b2Vec2<span class="list">(横方向の力, 縦方向の力)</span>)</span>
 </code></pre><p>「b2Vec2」というのは「ベクトル」の意味で、物理エンジンの世界ではこのベクトルをベースにした数値を使わないと、上手く計算できないようになっています。</p>
@@ -246,9 +237,8 @@ box<span class="built_in">.</span>position = {
 <p>（参考）<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhySprite.html#applyImpulse" target="_blank" rel="external">enchant.box2d.PhySprite</a>」ドキュメント</p>
 </blockquote>
 <p>　<br>あとは、生成したBoxに組み込むだけで使えるようになります。</p>
-<pre><code><span class="label">var</span> <span class="keyword">box </span>= new <span class="keyword">Box();
-</span><span class="keyword">box.applyImpulse(new </span><span class="keyword">b2Vec2(3, </span>-<span class="number">2</span>)<span class="comment">;</span>
-</code></pre><p>これで、右方向へ放物線を描くように飛んでいきます。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box();</span><br><span class="line">box.applyImpulse(<span class="keyword">new</span> b2Vec2(<span class="number">3</span>, -<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<p>これで、右方向へ放物線を描くように飛んでいきます。</p>
 <p>　<br>この新しい構文を「Box」に組み込んだサンプルが以下になります！</p>
 <p>赤いBoxを、クリック(タッチ)すると横方向へ飛んでいくのが分かります。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
 <p></p><p data-height="300" data-theme-id="12894" data-slug-hash="gpeMRb" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/gpeMRb/" target="_blank" rel="external">[sample3] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
@@ -405,6 +395,15 @@ game.preload(
             
             <div class="col-md-3">
                 <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/yuru-charactor-name-search-engine/">
+                        無償で使えるLinkDataのオープンデータで、ゆるキャラ名検索エンジンを作ってみた！
+                        <img src="/images/2015/programming/11/yuru-charactor-name-search-engine1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
                     <a class="relation-box-link" href="/programming/chrome-extension/">
                         クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
                         <img src="/images/2015/programming/8/chrome-extension1.jpg" class="img-responsive" alt="">
@@ -457,15 +456,6 @@ game.preload(
                 </div>
             </div>
             
-            <div class="col-md-3">
-                <div class="relation-box">
-                    <a class="relation-box-link" href="/programming/to-quantify-alphabet/">
-                        アルファベットを数値化して、英単語に当てはめたら意外に面白かった話。
-                        <img src="/images/2015/programming/3/to-quantify-alphabet1.jpg" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>
@@ -474,7 +464,7 @@ game.preload(
 <section id="tag">
     <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
     <div>
-  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/オープンデータ/">オープンデータ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
     </div>
 </section>
 

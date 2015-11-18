@@ -7,8 +7,73 @@
     <link>http://masatolan.com/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[Webで学んだことをメモ…]]></description>
-    <pubDate>Thu, 05 Nov 2015 13:55:09 GMT</pubDate>
+    <pubDate>Wed, 18 Nov 2015 02:37:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[無償で使えるLinkDataのオープンデータで、ゆるキャラ名検索エンジンを作ってみた！]]></title>
+      <link>http://masatolan.com/programming/yuru-charactor-name-search-engine/</link>
+      <guid>http://masatolan.com/programming/yuru-charactor-name-search-engine/</guid>
+      <pubDate>Sat, 14 Nov 2015 08:14:53 GMT</pubDate>
+      <description>
+      <![CDATA[無償で使えるLinkDataのオープンデータで、ゆるキャラ名検索エンジンを作ってみた！]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine1.jpg" alt="1"></p>
+<p>最近になって、知人から「オープンデータ」について教えてもらうきっかけがあり、なかでも「<a href="http://linkdata.org/" target="_blank" rel="external">LinkData.org</a>」というサイトの情報がキレイにまとまっていたので、ここで少しご紹介してみます。</p>
+<p>LinkDataのサイト内には、全国の「お城データ」や「道の駅データ」、「避難所データ」、「補助金まとめデータ」、「さくら名所データ」…など、意外とユニークで面白いデータがまとまっているので、うまく利用すれば楽しいWebアプリが作れそうです。</p>
+<a id="more"></a>
+<hr>
+<h3 id="お気に入りのオープンデータを入手しよう！">お気に入りのオープンデータを入手しよう！</h3><p>「<a href="http://linkdata.org/" target="_blank" rel="external">LinkData.org</a>」には、誰でも無償で利用でき、商用利用も可能なオープンデータが豊富にまとまっています。<br>都道府県別で探したり、人気ランキングやキーワードを指定しての検索もできるので、自分が興味のあるデータを探すのも簡単でしょう。</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine2.jpg" alt="2"></p>
+<p>　<br>今回は、サンプルとして「ゆるキャラ」のデータがまとまっている「<a href="http://linkdata.org/work/rdf1s3454i" target="_blank" rel="external">ご当地キャラクター</a>」のデータセットを使ってみようと思います。<br>（data by <a href="http://linkdata.org/work/rdf1s3454i" target="_blank" rel="external">KeitarouNakayama/ご当地キャラクター</a>）</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine3.jpg" alt="3"></p>
+<p>　<br>「ダウンロード」の項目下に、「その他の形式のAPIリストを表示」というリンクがあるのでクリックします。</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine4.jpg" alt="4"></p>
+<p>　<br>すると、外部APIとしてデータが取得できるURLが一覧表示されます。</p>
+<p>そこで「JSON」形式のURLをコピーして、実際にブラウザのアドレスバーに入力してみましょう！</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine5.jpg" alt="5"></p>
+<p>　<br>見事に、JSON形式で全国の「ご当地キャラクター」のデータが表示されたのが分かります。</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine6.jpg" alt="6"></p>
+<p>あとは、このデータをJavaScriptなどを使って、自分のWebアプリに組み込めば良いわけです。</p>
+<hr>
+<h3 id="Webアプリにデータを組み込んでみよう！">Webアプリにデータを組み込んでみよう！</h3><p>LinkDataにあるオープンデータは、URLに「callback」を指定すれば「JSONP」としてデータを受け取ることが出来るようになっています。</p>
+<p>まずは、コレを覚えておかないと、異なるドメイン間でデータを受け渡しできないので注意しましょう。</p>
+<p>　<br>さて、JSONPを受け取るために、ピュアなJavaScriptやjQueryなどを使っても良いのですが、今回は最近よく利用している「AngularJS」でプログラミングしてみたいと思います。</p>
+<p>AngularJSだと、JSONPのデータを受け取る処理は以下のように簡単です。</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$http.jsonp(url).success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="comment">//ここに処理を書く</span></span><br><span class="line"></span><br><span class="line">&#125;).error(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>「url」の部分には、先ほど確認したJSONを受け取るurlを当てはめれば、あとは「data」の中にご当地キャラクターの情報が入ることになります。</p>
+<p>　<br>また、urlには「callback」を指定する必要があるため、以下のような感じになるでしょう。</p>
+<pre><code><span class="label">http:</span>//linkdata<span class="preprocessor">.org</span>/api/<span class="number">1</span>/rdf1s3454i/local_character_rdf.json?callback=JSON_CALLBACK
+</code></pre><p>urlの最後に、「?」から始まるcallbackを設定しておきます。</p>
+<hr>
+<h3 id="ちょっと特殊なデータ構造に注意">ちょっと特殊なデータ構造に注意</h3><p>先ほどの例で、「data」の中身をコンソール出力すると分かるのですが、LinkDataの「JSONデータ構造」は少し特殊なようです。</p>
+<p><img src="/images/2015/programming/11/yuru-charactor-name-search-engine7.jpg" alt="7"></p>
+<p>すべて「url」による階層構造になっており、データによってはurlが統一されていないケースもあるようです。</p>
+<p>　<br>そこで、まずは長いurlを変数に格納し、AngularJSに用意されている「forEach」メソッドを使ってデータを取得するようにしました。</p>
+<figure class="highlight javascript"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">"http://linkdata.org/api/1/rdf1s3454i/local_character_rdf.json?callback=JSON_CALLBACK"</span>;</span><br><span class="line"><span class="keyword">var</span> nameFolder = <span class="string">"http://imi.ipa.go.jp/ns/core/rdf#名称"</span>;</span><br><span class="line">$scope.lists = [];</span><br><span class="line"></span><br><span class="line">$http.jsonp(url).success(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	angular.forEach(data, <span class="function"><span class="keyword">function</span>(<span class="params">value, key, obj</span>) </span>&#123;</span><br><span class="line">		$scope.lists[num++] = value[nameFolder][<span class="number">0</span>].value;</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>「forEach」メソッドを使うことで、「data」内の各情報へアクセスすることができるので、あとはゆるキャラの名称が記載されている部分を「$scope.lists」へ突っ込んでいます。</p>
+<p>　<br>こうすることで、HTMLに「ng-repeat」を使って一気にゆるキャラ名を表示できるようになります。</p>
+<figure class="highlight html"><figcaption><span>index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"type"</span> <span class="attribute">size</span>=<span class="value">"20"</span> <span class="attribute">placeholder</span>=<span class="value">"※ゆるキャラ名を入力..."</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">ng-click</span>=<span class="value">"onClick()"</span>&gt;</span>検索<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">li</span> <span class="attribute">ng-repeat</span>=<span class="value">"list in lists | filter:type track by $index"</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>さらに「filter:type」を指定することで、検索ボックスに入力したキーワードが含まれている「ゆるキャラ名」を自動で表示させています。</p>
+<hr>
+<h3 id="サンプルデモ！">サンプルデモ！</h3><p>今回は、単純に名前を表示するだけで、特に難しいことは一切していないですが、これでも立派な「ゆるキャラ検索アプリ」として使えるのではないでしょうか。</p>
+<p>全部のコードと、サンプルはこちら！</p>
+<iframe height="350" scrolling="no" src="//codepen.io/webstudy/embed/MaqMwe/?height=350&theme-id=12894&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style="width: 100%;">See the Pen <a href="http://codepen.io/webstudy/pen/MaqMwe/" target="_blank" rel="external">ゆるキャラ名前検索（opendata by LinkData.org）</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.<br></iframe>
+
+<p>入力ボックスに、ゆるキャラ名の一部を入れて「検索」ボタンをクリックすれば、該当する「ゆるキャラ名称」が一覧表示されます。</p>
+<p>例えば、「あのゆるキャラの名前なんだっけ…」とか、「新しいゆるキャラ名が、既存のゆるキャラと被らないかなぁ…」みたいな時に、1文字でも入力して検索すれば一覧で表示されます。<br>（「く」とか「み」など、1文字だけ入力して検索してみてください）</p>
+<hr>
+<h3 id="まとめ">まとめ</h3><p>今回ご紹介したLinkDataは、非常に面白いデータがたくさんあるので、アイデア次第でユニークなWebアプリが作れる気がしています。</p>
+<p>データに関しては、個人の方が提供しているモノもあれば、行政が積極的に取り組んでいるデータもあるので、開発するアプリによってはこのあたりも確認しておくと良いでしょう。</p>
+<p>　<br>最後に、データのライセンスですが、オープンデータということもあり基本的には「<a href="http://creativecommons.org/publicdomain/zero/1.0/deed.ja" target="_blank" rel="external">パブリック・ドメイン</a>」なので、特に何もしなくても利用できるモノばかりですが、稀に「<a href="http://creativecommons.org/licenses/by/3.0/deed.ja" target="_blank" rel="external">CC BY</a>」ライセンスもあります。</p>
+<p>これは、クレジット表示が必要となるので、どこからデータを取得しているかを明記するようにしておきましょう。<br>（今回のゆるキャラデータも「CC BY」なので、デモ画面下部にクレジットを表記しておきました…）</p>
+<blockquote>
+<p>（参考）<br>「<a href="http://linkdata.org/" target="_blank" rel="external">LinkData.org</a>」公式サイト</p>
+</blockquote>
+]]></content:encoded>
+      <comments>http://masatolan.com/programming/yuru-charactor-name-search-engine/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！]]></title>
@@ -423,25 +488,16 @@ box<span class="built_in">.</span>position = {
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>　<br>上記サンプルの「Box」クラスは、以下のようなカタチです。</p>
-<pre><code>var Box = Class.create(PhyBoxSprite, {
-  initialize: function(x, y) {
-        PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);
-        <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;
-        <span class="keyword">this</span>.x = x;
-        <span class="keyword">this</span>.y = y;
-        game.rootScene.addChild(<span class="keyword">this</span>);
-    }
-});　
-</code></pre><p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
+<figure class="highlight javascript"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Box = Class.create(PhyBoxSprite, &#123;</span><br><span class="line">  initialize: <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    PhyBoxSprite.call(<span class="keyword">this</span>, <span class="number">16</span>, <span class="number">16</span>, enchant.box2d.DYNAMIC\_SPRITE, <span class="number">1.5</span>, <span class="number">1.0</span>, <span class="number">0.3</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="keyword">this</span>.backgroundColor = <span class="string">"red"</span>;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">    game.rootScene.addChild(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>初期化処理で、「物体の生成」「赤色の設定」「出現位置」「addChild()」を行っています。</p>
 <p>少し変化があるとすれば、「function(x, y)」というカタチで、引数に2つの数値を設定している点です。</p>
 <p>この「x, y」を、そのまま座標位置の「x, y」に入れてやることで、物体の出現位置を操作できます。</p>
-<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>;i&lt;<span class="number">320</span>;i+=<span class="number">32</span>) {
+<pre><code><span class="keyword">for</span>(var i=<span class="number">0</span>; i &lt; <span class="number">320</span>; i+=<span class="number">32</span>) {
     var box = <span class="keyword">new</span> Box(i, i);
 }
 </code></pre><p>このサンプルでは、「x, y」にfor文の「i」を入れて複数の物体を表示してみました。</p>
 <hr>
-<p>###物体に「力」を加えてみよう！</p>
-<p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
+<h3 id="物体に「力」を加えてみよう！">物体に「力」を加えてみよう！</h3><p>せっかく物理エンジンを使っているので、物体をクリックして横方向へ勢いよく飛ばしてみましょう！</p>
 <p>と言っても、実現するのは簡単で、以下の構文を覚えればOKです！</p>
 <pre><code>applyImpulse<span class="list">(<span class="keyword">new</span> b2Vec2<span class="list">(横方向の力, 縦方向の力)</span>)</span>
 </code></pre><p>「b2Vec2」というのは「ベクトル」の意味で、物理エンジンの世界ではこのベクトルをベースにした数値を使わないと、上手く計算できないようになっています。</p>
@@ -449,9 +505,8 @@ box<span class="built_in">.</span>position = {
 <p>（参考）<br>「<a href="http://wise9.github.io/enchant.js/doc/plugins/ja/symbols/enchant.box2d.PhySprite.html#applyImpulse" target="_blank" rel="external">enchant.box2d.PhySprite</a>」ドキュメント</p>
 </blockquote>
 <p>　<br>あとは、生成したBoxに組み込むだけで使えるようになります。</p>
-<pre><code><span class="label">var</span> <span class="keyword">box </span>= new <span class="keyword">Box();
-</span><span class="keyword">box.applyImpulse(new </span><span class="keyword">b2Vec2(3, </span>-<span class="number">2</span>)<span class="comment">;</span>
-</code></pre><p>これで、右方向へ放物線を描くように飛んでいきます。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="keyword">new</span> Box();</span><br><span class="line">box.applyImpulse(<span class="keyword">new</span> b2Vec2(<span class="number">3</span>, -<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+<p>これで、右方向へ放物線を描くように飛んでいきます。</p>
 <p>　<br>この新しい構文を「Box」に組み込んだサンプルが以下になります！</p>
 <p>赤いBoxを、クリック(タッチ)すると横方向へ飛んでいくのが分かります。<br>(画面内にマウスを置くと、右下に「RERUN」が表示されるので、クリックしてください)</p>
 <p></p><p data-height="300" data-theme-id="12894" data-slug-hash="gpeMRb" data-default-tab="result" data-user="webstudy" class="codepen">See the Pen <a href="http://codepen.io/webstudy/pen/gpeMRb/" target="_blank" rel="external">[sample3] enchant.js with box2d</a> by webStudy (<a href="http://codepen.io/webstudy" target="_blank" rel="external">@webstudy</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
@@ -932,71 +987,6 @@ $ export PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH
 </blockquote>
 ]]></content:encoded>
       <comments>http://masatolan.com/internet/gotetris/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title><![CDATA[Macで「IchigoJam」のファームアップデートをして、画面のチラツキをゼロにしてみた！]]></title>
-      <link>http://masatolan.com/internet/ichigojam/</link>
-      <guid>http://masatolan.com/internet/ichigojam/</guid>
-      <pubDate>Mon, 25 May 2015 16:54:05 GMT</pubDate>
-      <description>
-      <![CDATA[Macで「IchigoJam」のファームアップデートをして、画面のチラツキをゼロにしてみた！]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/ichigojam1.jpg" alt="1"></p>
-<p>ひょんな事から「<a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam</a>」を入手したものの、バージョンが古かったのと画面のチラツキが気になっていたので、ファームウェアを新しくアップデートしてみました。</p>
-<p>アップデートは成功し、画面のチラツキもゼロになって快適なのは良いのですが、それまでの作業手順が意外に多くて苦戦したので、忘れないうちにログを残しておきます。</p>
-<a id="more"></a>
-<hr>
-<h3 id="「USBシリアルモジュール」を準備しよう！">「USBシリアルモジュール」を準備しよう！</h3><p>今では、手軽に<a href="http://www.amazon.co.jp/gp/product/B00VX4I6C6/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00VX4I6C6&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">Amazonでも購入できるIchigoJam</a>ですが、ファームウェアをアップデートするにはPCと接続する必要があります。<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00VX4I6C6" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
-<p>私の場合、Macbook ProとIchigoJamを接続するのですが、この時に必要なのが「USBシリアルモジュール」で、コレも一応<a href="http://www.amazon.co.jp/gp/product/B00HLUZYXA/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=B00HLUZYXA&linkCode=as2&tag=0310lan-22" target="_blank" rel="external">Amazon</a>で購入できます。<img src="http://ir-jp.amazon-adsystem.com/e/ir?t=0310lan-22&l=as2&o=9&a=B00HLUZYXA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"></p>
-<p><img src="/images/2015/internet/5/ichigojam_2.jpg" alt="2"></p>
-<p>しかしながら、動作保証や配送日程などを考慮すると「<a href="http://shopfusen.jimdo.com/ichigojam/ichigojam-starter-option/" target="_blank" rel="external">ショップのふうせん</a>」で購入した方が安心でしょう…。<br>画面チラツキ防止のクリスタルもセットになっています。(私もコチラで購入しました。)</p>
-<p>　<br>あとは、Macbookで上記モジュールを認識させるために、専用ドライバをインストールしておくのを忘れないようにしましょう。</p>
-<blockquote>
-<p><a href="http://jp.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx" target="_blank" rel="external">「CP210x」専用ドライバインストールガイド</a><br>※リンク先の「Mac」用アプリをインストールしてください。</p>
-</blockquote>
-<hr>
-<h3 id="PCと接続しよう！">PCと接続しよう！</h3><p>IchigoJamとUSBシリアルモジュールを繋げるため、同梱のジャンパワイヤ3本で以下のように接続します。</p>
-<p><img src="/images/2015/internet/5/ichigojam_3.jpg" alt="3"></p>
-<p>「TXD」「RXD」をクロスするように繋げる点に注意しましょう。</p>
-<p>　<br>これで、MacbookのUSBへシリアルモジュールを差し込めば、通信はできる状態になっています。<br>しかし、ファームウェアをアップデートするためには、もう1本のジャンパワイヤを、IchigoJamの「ISP」と「GND」に接続する必要があります。</p>
-<p><img src="/images/2015/internet/5/ichigojam_4.jpg" alt="4"></p>
-<p>この状態で、シリアルモジュールをMacbookのUSBに差し込んでおきます。(モジュールのLEDが点灯するはず…）</p>
-<hr>
-<h3 id="ファームウェアをアップデートしよう！">ファームウェアをアップデートしよう！</h3><p>現在のファームウェアが「ver0.9.3」だったので、とりあえず安定版の「0.9.7」へアップデートしていきます。</p>
-<blockquote>
-<p><a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam「0.9.7」</a>｜公式サイト<br>※上記サイト後半にある「ファームバージョンアップ」の項目を参照。</p>
-</blockquote>
-<p>すでに「ver1.0」もリリースされており、上記サイトの同じ項目からダウンロード可能です。</p>
-<p>　<br>もう1つ重要なのが、MacbookからIchigoJamへファームウェアを書き込むためのツール「Maclpc21isp」です。</p>
-<blockquote>
-<p><a href="https://www.facebook.com/groups/ichigojam/files/" target="_blank" rel="external">「Maclpc21isp」インストール</a>｜IchigoJam-FAN</p>
-</blockquote>
-<p>上記のfacebookページの下の方に「Maclpc21isp.app.zip」というファイルがあるので、コレをダウンロードしてインストールしましょう。</p>
-<p>　<br>そして、IchigoJamの電源をONにすると、LEDが点灯している状態になるのですが、これはファームウェアの「書き込み待ち状態」を意味しています。</p>
-<p><img src="/images/2015/internet/5/ichigojam_5.jpg" alt="5"></p>
-<p>この状態で「Maclpc21isp」を起動して、シリアルモジュールのポートを選択します。</p>
-<p>その後、先ほどダウンロードしたファームウェアのファイルを選択する画面になります。</p>
-<p>　<br>そこで、画面チラツキ防止のクリスタルを使うので、先ほどダウンロードしたファームウェアの「ichigojam-xtal.bin」を選択します。（クリスタルを使わない場合は「ichigojam.bin」を選択します）</p>
-<p>　<br>最終的に、以下のような画面が表示されたら成功です！</p>
-<p><img src="/images/2015/internet/5/ichigojam_6.jpg" alt="6"></p>
-<p>IchigoJamの電源をOFFにして、シリアルモジュールやジャンパワイヤなどをすべて外しておきます。</p>
-<p>　<br>クリスタルを、「IchigoJam」と「@taisukef」のポートに差し込んでから、電源をONにしましょう！</p>
-<p><img src="/images/2015/internet/5/ichigojam_7.jpg" alt="7"></p>
-<p>これで、画面のチラツキも無くなり、ファームウェアもアップデート出来ました。</p>
-<hr>
-<h3 id="まとめ">まとめ</h3><p>予想していたよりも手順が複雑だったので、最初はかなり試行錯誤しましたが、分かってしまえば簡単な作業だったのかもしれません。</p>
-<p>ちなみに、以下のサイトで紹介されている「CoolTerm」というソフトを利用すると、IchigoJamのプログラムをMacbookで保存したりも可能になります。</p>
-<blockquote>
-<p><a href="http://15jamrecipe.jimdo.com/周辺機器/パソコンと接続/" target="_blank" rel="external">「CoolTerm紹介記事」</a>｜イチゴジャムレシピ</p>
-</blockquote>
-<p>このあたりは、また機会があれば紹介していきたいと思います。</p>
-<blockquote>
-<p>（参考）<br>「<a href="http://ichigojam.net/" target="_blank" rel="external">IchigoJam</a>」公式サイト</p>
-</blockquote>
-]]></content:encoded>
-      <comments>http://masatolan.com/internet/ichigojam/#disqus_thread</comments>
     </item>
     
   </channel>
