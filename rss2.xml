@@ -7,8 +7,29 @@
     <link>http://masatolan.com/</link>
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     <description><![CDATA[Webで学んだことをメモ…]]></description>
-    <pubDate>Wed, 18 Nov 2015 02:46:07 GMT</pubDate>
+    <pubDate>Wed, 18 Nov 2015 12:30:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title><![CDATA[digital-broadcasting-game]]></title>
+      <link>http://masatolan.com/technology/digital-broadcasting-game/</link>
+      <guid>http://masatolan.com/technology/digital-broadcasting-game/</guid>
+      <pubDate>Wed, 18 Nov 2015 12:26:39 GMT</pubDate>
+      <description>
+      <![CDATA[<p><img src="/images/2015/" alt="1"></p>]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2015/" alt="1"></p>
+<a id="more"></a>
+<hr>
+<p>###</p>
+<blockquote>
+<p>（参考）<br>「[]」</p>
+</blockquote>
+<p>[]: </p>
+]]></content:encoded>
+      <comments>http://masatolan.com/technology/digital-broadcasting-game/#disqus_thread</comments>
+    </item>
     
     <item>
       <title><![CDATA[無償で使えるLinkDataのオープンデータで、ゆるキャラ名検索エンジンを作ってみた！]]></title>
@@ -938,55 +959,6 @@ game.preload(
 </blockquote>
 ]]></content:encoded>
       <comments>http://masatolan.com/Webservice/dropshop/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title><![CDATA[Go言語入門に最適！コンソール画面で、テトリスがプレイできる「gotetris」が面白い！]]></title>
-      <link>http://masatolan.com/internet/gotetris/</link>
-      <guid>http://masatolan.com/internet/gotetris/</guid>
-      <pubDate>Wed, 27 May 2015 11:41:22 GMT</pubDate>
-      <description>
-      <![CDATA[Go言語入門に最適！コンソール画面で、テトリスがプレイできる「gotetris」が面白い！]]>
-      
-      </description>
-      <content:encoded><![CDATA[<p><img src="/images/2015/internet/5/gotetris1.jpg" alt="1"></p>
-<p>Go言語も、意外と面白いんだなぁ…と感じたのでご紹介しておきます！</p>
-<p>コンソールの画面上に、プレイ可能な「テトリス」を再現した「<a href="https://github.com/jjinux/gotetris" target="_blank" rel="external">gotetris</a>」が、GitHubで公開されてます。</p>
-<p>すべてGo言語でプログラミングされており、非常にシンプルな構造にまとまっているのでコードリーディングにも良さそうです。</p>
-<a id="more"></a>
-<hr>
-<h3 id="遊び方！">遊び方！</h3><p>「README」テキストにも詳しく掲載されていますが、以下の手順で「gotetris」を簡単にインストールできます。</p>
-<p>まず、コンソール画面でディレクトリを作成して、「cd」で移動しておきます。</p>
-<pre><code>$ <span class="built_in">mkdir</span> -<span class="keyword">p</span> gotetris/src/github.<span class="keyword">com</span>/jjinux
-$ <span class="keyword">cd</span> gotetris
-</code></pre><p>　<br>次に、「git clone」で本体ファイルをインストールします。</p>
-<pre><code>$ <span class="keyword">cd</span> src/github.<span class="keyword">com</span>/jjinux &amp;&amp; git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/jjinux/gotetris.git
-</code></pre><p>　<br>あと、知らなかったのですが、Go言語は特殊な「環境変数」を設定するようです。</p>
-<pre><code>$ export GOPATH=`pwd`
-$ export PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin
-</code></pre><p>とりあえず、上記をコピペして実行してみてください。(見た目に変化は起きませんが…)</p>
-<p>　<br>必要なGoパッケージなどをインストールします。</p>
-<pre><code>$ <span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/nsf/termbox-<span class="keyword">go</span>
-</code></pre><p>　<br>そして、ビルド＆コンパイル！</p>
-<pre><code>$ <span class="keyword">go</span> install github.<span class="keyword">com</span>/jjinux/gotetris
-</code></pre><p>これで、準備完了です！</p>
-<hr>
-<h3 id="遊んでみる！">遊んでみる！</h3><p>「gotetris」で遊ぶには、以下のコマンドを実行すればOK！</p>
-<pre><code><span class="variable">$ </span>gotetris
-</code></pre><p>　<br>これで、コンソール画面の表示が以下のようになるはず！</p>
-<p><img src="/images/2015/internet/5/gotetris_2.jpg" alt="2"></p>
-<p>　<br>操作説明にも書いてますが、キーボードの「Sキー」を叩くとゲームが開始されます。(終了は「ESC」)</p>
-<p><img src="/images/2015/internet/5/gotetris_3.jpg" alt="3"></p>
-<p>操作は「矢印キー」で行い、スペースキーで一番下まで落とせます。</p>
-<p>あとは、普通にテトリスを楽しむだけ！</p>
-<p>コンソール画面でも、こんなにインタラクティブなゲームが作れるんですね…。</p>
-<p>　<br>ちなみに、コードを見てみると「モデル・ビュー・コントロール」の3つに分かれており、MVCベースでプログラミングされているようです。</p>
-<p>Go言語は、日本語ベースの「<a href="http://golang-jp.org/doc/" target="_blank" rel="external">ドキュメント＆学習サービス</a>」も用意されているようなので、「gotetris」と合わせて勉強すると良いかもしれません。</p>
-<blockquote>
-<p>（参考）<br>「<a href="https://github.com/jjinux/gotetris" target="_blank" rel="external">gotetris</a>」GitHubサイト</p>
-</blockquote>
-]]></content:encoded>
-      <comments>http://masatolan.com/internet/gotetris/#disqus_thread</comments>
     </item>
     
   </channel>
