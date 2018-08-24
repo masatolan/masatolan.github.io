@@ -11,6 +11,87 @@
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title><![CDATA[電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた]]></title>
+      <link>http://masatolan.com/programming/obniz-basic/</link>
+      <guid>http://masatolan.com/programming/obniz-basic/</guid>
+      <pubDate>Fri, 24 Aug 2018 14:05:53 GMT</pubDate>
+      <description>
+      <![CDATA[電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた]]>
+      
+      </description>
+      <content:encoded><![CDATA[<p><img src="/images/2018/programming/8/obniz-basic-1.jpg" alt="1"></p>
+<p>今年に入ってからJavaScriptでIoT開発が楽しめるという「obniz」に興味があり、いろいろ情報収集をしていました。</p>
+<p>専用のクラウドサービスと最初から連携しており、WIFiにさえ繋げればブラウザからプログラミングができて、面倒な配線も不要で電子部品を制御できるお手軽感たっぷりなところに惹かれて購入したわけです。</p>
+<p>そこで、今回は温度センサーを組み合わせて室内の温度を計測してみたのでご紹介してみます！</p>
+<a id="more"></a>
+<hr>
+<h3 id="事前準備！">事前準備！</h3>
+<p><img src="/images/2018/programming/8/obniz-basic-2.jpg" alt="2"></p>
+<ul>
+<li>・obniz本体(電源コード含む)</li>
+<li>・温度センサー(LM35DZ)</li>
+</ul>
+<p>今回、準備するものなんですが「obniz」を持っていれば、あとは温度センサーだけあればOKです。</p>
+<p>普通は、ブレッドボードやジャンパーワイヤなどを使って電子部品を繋げるのですが、単純に温度を計測するだけならobnizの本体にセンサーをそのまま刺せば良いだけなので簡単なのです。あとは、PCかスマホのブラウザからJavaScriptでプログラミングするだけで手軽に制御できるというわけです。</p>
+<p>ちなみに湿度も同時に計測しようと思ったんですが、手持ちの部品が無くて現在は調達中です。RSコンポーネンツさんでは<a href="https://jp.rs-online.com/web/c/semiconductors/sensor-ics/temperature-humidity-sensors/" target="_blank" rel="external">湿度センサーの部品が種類豊富なのでオススメです！</a></p>
+<hr>
+<h3 id="温度センサー(LM35DZ)のGNDはどれ？">温度センサー(LM35DZ)のGNDはどれ？</h3>
+<p>今回、利用する温度センサーは「LM35DZ」という部品で、電子温度計などにもよく使われているわりと定番のモノです。</p>
+<p>このセンサーに限った話ではありませんが、データシートを見て部品の足を確認する時は注意が必要です。例えば、GNDはどこかを確認する際にデータシートでは次のように図解されています。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-3.jpg" alt="3"></p>
+<p>この図を見ると部品の右側にある足がGNDに見えますが、よく読むとこれは「BOTTOM VIEW」と書かれていますよね？</p><br>
+<p>つまり、部品を下から見た図なので以下の方向から見るわけです。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-4.jpg" alt="4"></p><br>
+<p>そのため、GNDは左側の足になるわけです！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-5.jpg" alt="5"></p><br>
+<p>慣れている方にとっては当たり前の話なのですが、初心者の方は間違いやすいので覚えておきましょう！</p>
+<hr>
+<h3 id="室内の温度を測定してみる！">室内の温度を測定してみる！</h3>
+<p>それでは、早速ですが「obniz」を使って温度を測定してみましょう！</p>
+<p>「obniz」の電源を入れてWiFiに繋ぐと、以下のようにQRコードとID番号が表示されて待機状態になります。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-6.jpg" alt="6"></p><br>
+<p>この状態で、IOに温度センサーをそのまま接続します！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-7.jpg" alt="7"></p><br>
+<p>「obniz」のIOは、部品の表裏に関係なくどのピンに接続しても大丈夫で、あとからプログラム上で制御できるように工夫されているのが特徴です。</p>
+<p>今回は0番にGNDを刺しているので、次のようにJavaScriptで記述すると「obniz」に認識されます！</p>
+<script src="https://gist.github.com/webhacck/31723dbdebb24687c3e7cecb47691682.js"></script>
+<p>「obniz.wired()」で、使用部品とピン番号を設定することができるので簡単ですね。</p>
+<p>また、「onchange」を使えば温度に変化があるたびに任意の関数を実行することができます。そこで、コンソールログに引数の「temp」を出力することで温度を確認することができます。</p>
+<p>実行すると、こんな感じになります！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-8.jpg" alt="8"></p><br>
+<p>無事に温度がログへ出力されているのが分かります。</p>
+<hr>
+<h3 id="「Chart.js」で温度をグラフ化してみよう！">「Chart.js」で温度をグラフ化してみよう！</h3>
+<p>せっかく温度が取得できるようになったので、もう少し見やすいグラフに変換して表示してみましょう。</p>
+<p>今回は初心者でも扱いやすいライブラリ「Chart.js」を使ってみます。</p>
+<p>まずは、HTMLにcanvasとグラフを表示するためのボタンを設置しましょう！</p>
+<script src="https://gist.github.com/webhacck/d0bce94f0522c4ef8602741488a4a72c.js"></script>
+<p>ボタンをクリックすることで、取得した温度をグラフに変換してcanvasへ表示したいと思います。</p><br>
+<p>そこで、温度とラベルを保管しておく配列を作り、Chart.jsをインスタンス化する際にオプションとして初期データを設定しておきます。</p>
+<script src="https://gist.github.com/webhacck/3e03e28a0d4c4c9ecf129a69d2f0297f.js"></script>
+<p>Chart.jsでは、初期データとして「labels: []」と「datasets[]」は必ず必要なので上記のように空のデータを設定しておくわけです。</p><br>
+<p>あとは、温度の変化があるたびに用意した配列へ温度とラベルを格納していけば良いでしょう！</p>
+<script src="https://gist.github.com/webhacck/7916d2409b311c2f4a8a5b067db80e14.js"></script>
+<p>温度のデータだけだと上手くグラフに表示されないので、必ずラベル（横軸）も同時に格納するようにしておきましょう。</p><br>
+<p>最後に、ボタンをクリックした際にChart.jsのグラフ描画を行えば完成です！</p>
+<script src="https://gist.github.com/webhacck/18a807c2ea04b5810140ff0c1d4c4f86.js"></script>
+<p>ラベルや温度のデータには「chart.data」からアクセスできるようになっています。</p>
+<p>また、最後に「update()」を実行してグラフを再描画しないと反映されないので注意しておきましょう！</p><br>
+<p>これで、実行してボタンをクリックすると温度データが見事にグラフ表示になります！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-9.jpg" alt="9"></p><br>
+<hr>
+<h3 id="まとめ">まとめ</h3>
+<p>簡単な温度測定を行いグラフ化するまでをやってみました。</p>
+<p>今回は、JavaScriptの「onchange」を使ってデータを収集しましたが、無料の「obniz Cloud」を使えばプログラムの定期実行が可能なので好きなタイミングでデータを取得できるようになります。（参考資料：<a href="https://paiza.hatenablog.com/entry/2018/08/22/PC%E3%83%BB%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%AE%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89%E7%84%A1%E6%96%99%E3%81%A7IoT%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B" target="_blank" rel="external">paiza開発日誌</a>）</p>
+<p>ぜひ、みなさんも「obniz」を活用して手軽にIoT開発に挑戦してみてください！</p><br>
+<p>＜参考＞</p>
+<p><a href="https://obniz.io/">・「obniz」公式サイト</a></p>
+]]></content:encoded>
+<comments>http://masatolan.com/programming/yuru-charactor-name-search-engine/#disqus_thread</comments>
+</item>
+    
+    
+    <item>
       <title><![CDATA[無償で使えるLinkDataのオープンデータで、ゆるキャラ名検索エンジンを作ってみた！]]></title>
       <link>http://masatolan.com/programming/yuru-charactor-name-search-engine/</link>
       <guid>http://masatolan.com/programming/yuru-charactor-name-search-engine/</guid>
