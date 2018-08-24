@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ja">
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="aEk51_OgV-jJijN1xs3h_4wqbxta6nwG-hR0JMtceuA" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた | うえぶまなぶ</title>
+    <meta name="description" content="Webで学んだことをメモ…"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた"/>
+    <meta property="og:url" content="http://masatolan.com/programming/obniz-basic/"/>
+    <meta property="og:site_name" content="うえぶまなぶ"/>
+    <meta property="og:description" content="電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた"/>
+    <meta property="og:image" content="/images/2018/programming/8/obniz-basic-1.jpg"/>
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="fb:app_id" content="276163375913272"/>
+    <link rel="canonical" href="http://masatolan.com/programming/obniz-basic/">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="alternative" href="http://masatolan.com/rss2.xml" title="うえぶまなぶ" type="application/atom+xml">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon.png">
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-58437234-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+</head>
+    <body>
+        <!-- Header -->
+<header id="header">
+    <div class="header-box">
+        <div class="header-image">
+            <img src="/touch-icon.png" class="img-responsive" alt="">
+        </div>
+        <a href="/" class="header-link">
+            <h1 class="header-title">うえぶまなぶ</h1>
+        </a>
+        <div class="header-search">
+            <div class="header-search-box">
+            <form action="http://www.google.co.jp/cse" id="cse-search-box" target="_blank">
+              <div>
+                <input type="hidden" name="cx" value="partner-pub-3321334233282170:3779892255" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" size="10" />
+                <input type="submit" name="sa" value="検索" />
+              </div>
+            </form>
+            
+            <script type="text/javascript" src="http://www.google.co.jp/coop/cse/brand?form=cse-search-box&amp;lang=ja"></script>
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+    <article id="article" class="post">
+    
+
+<div class="article-title">
+    <h2 class="article-title-text text-center">電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた</h2>
+    <div class="article-info">
+        <div class="article-date">
+            <time class="article-date-text">
+                公開日：2018/8/24
+            </time>
+        </div>
+        <div class="article-tag">
+          	<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+        </div>
+        <div class="article-category">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">programming</a></li></ul>
+        </div>
+    </div>
+</div>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/obniz-basic/&text=電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた -【うえぶまなぶ】" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="http://www.facebook.com/share.php?u=http://masatolan.com/programming/obniz-basic/" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">Facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/obniz-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/obniz-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/obniz-basic/&text=電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた -【うえぶまなぶ】" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="http://www.facebook.com/share.php?u=http://masatolan.com/programming/obniz-basic/" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/obniz-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/obniz-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+        <div class="container">
+            <p><img src="/images/2018/programming/8/obniz-basic-1.jpg" alt="1"></p>
+<p>今年に入ってからJavaScriptでIoT開発が楽しめるという「obniz」に興味があり、いろいろ情報収集をしていました。</p>
+<p>専用のクラウドサービスと最初から連携しており、WIFiにさえ繋げればブラウザからプログラミングができて、面倒な配線も不要で電子部品を制御できるお手軽感たっぷりなところに惹かれて購入したわけです。</p>
+<p>そこで、今回は温度センサーを組み合わせて室内の温度を計測してみたのでご紹介してみます！</p>
+<a id="more"></a>
+
+<hr>
+
+<h3 id="事前準備！">事前準備！</h3>
+<p><img src="/images/2018/programming/8/obniz-basic-2.jpg" alt="2"></p>
+<ul>
+<li>・obniz本体(電源コード含む)</li>
+<li>・温度センサー(LM35DZ)</li>
+</ul>
+<p>今回、準備するものなんですが「obniz」を持っていれば、あとは温度センサーだけあればOKです。</p>
+<p>普通は、ブレッドボードやジャンパーワイヤなどを使って電子部品を繋げるのですが、単純に温度を計測するだけならobnizの本体にセンサーをそのまま刺せば良いだけなので簡単なのです。あとは、PCかスマホのブラウザからJavaScriptでプログラミングするだけで手軽に制御できるというわけです。</p>
+<p>ちなみに湿度も同時に計測しようと思ったんですが、手持ちの部品が無くて現在は調達中です。RSコンポーネンツさんでは<a href="https://jp.rs-online.com/web/c/semiconductors/sensor-ics/temperature-humidity-sensors/" target="_blank" rel="external">湿度センサーの部品が種類豊富なのでオススメです！</a></p>
+
+<hr>
+
+<h3 id="温度センサー(LM35DZ)のGNDはどれ？">温度センサー(LM35DZ)のGNDはどれ？</h3>
+<p>今回、利用する温度センサーは「LM35DZ」という部品で、電子温度計などにもよく使われているわりと定番のモノです。</p>
+<p>このセンサーに限った話ではありませんが、データシートを見て部品の足を確認する時は注意が必要です。例えば、GNDはどこかを確認する際にデータシートでは次のように図解されています。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-3.jpg" alt="3"></p>
+<p>この図を見ると部品の右側にある足がGNDに見えますが、よく読むとこれは「BOTTOM VIEW」と書かれていますよね？</p><br>
+<p>つまり、部品を下から見た図なので以下の方向から見るわけです。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-4.jpg" alt="4"></p><br>
+<p>そのため、GNDは左側の足になるわけです！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-5.jpg" alt="5"></p><br>
+<p>慣れている方にとっては当たり前の話なのですが、初心者の方は間違いやすいので覚えておきましょう！</p>
+
+<hr>
+
+<h3 id="室内の温度を測定してみる！">室内の温度を測定してみる！</h3>
+<p>それでは、早速ですが「obniz」を使って温度を測定してみましょう！</p>
+<p>「obniz」の電源を入れてWiFiに繋ぐと、以下のようにQRコードとID番号が表示されて待機状態になります。</p>
+<p><img src="/images/2018/programming/8/obniz-basic-6.jpg" alt="6"></p><br>
+<p>この状態で、IOに温度センサーをそのまま接続します！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-7.jpg" alt="7"></p><br>
+<p>「obniz」のIOは、部品の表裏に関係なくどのピンに接続しても大丈夫で、あとからプログラム上で制御できるように工夫されているのが特徴です。</p>
+<p>今回は0番にGNDを刺しているので、次のようにJavaScriptで記述すると「obniz」に認識されます！</p>
+<script src="https://gist.github.com/webhacck/31723dbdebb24687c3e7cecb47691682.js"></script>
+<p>「obniz.wired()」で、使用部品とピン番号を設定することができるので簡単ですね。</p>
+<p>また、「onchange」を使えば温度に変化があるたびに任意の関数を実行することができます。そこで、コンソールログに引数の「temp」を出力することで温度を確認することができます。</p>
+<p>実行すると、こんな感じになります！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-8.jpg" alt="8"></p><br>
+<p>無事に温度がログへ出力されているのが分かります。</p>
+
+<hr>
+
+<h3 id="「Chart.js」で温度をグラフ化してみよう！">「Chart.js」で温度をグラフ化してみよう！</h3>
+<p>せっかく温度が取得できるようになったので、もう少し見やすいグラフに変換して表示してみましょう。</p>
+<p>今回は初心者でも扱いやすいライブラリ「Chart.js」を使ってみます。</p>
+<p>まずは、HTMLにcanvasとグラフを表示するためのボタンを設置しましょう！</p>
+<script src="https://gist.github.com/webhacck/d0bce94f0522c4ef8602741488a4a72c.js"></script>
+<p>ボタンをクリックすることで、取得した温度をグラフに変換してcanvasへ表示したいと思います。</p><br>
+<p>そこで、温度とラベルを保管しておく配列を作り、Chart.jsをインスタンス化する際にオプションとして初期データを設定しておきます。</p>
+<script src="https://gist.github.com/webhacck/3e03e28a0d4c4c9ecf129a69d2f0297f.js"></script>
+<p>Chart.jsでは、初期データとして「labels: []」と「datasets[]」は必ず必要なので上記のように空のデータを設定しておくわけです。</p><br>
+<p>あとは、温度の変化があるたびに用意した配列へ温度とラベルを格納していけば良いでしょう！</p>
+<script src="https://gist.github.com/webhacck/7916d2409b311c2f4a8a5b067db80e14.js"></script>
+<p>温度のデータだけだと上手くグラフに表示されないので、必ずラベル（横軸）も同時に格納するようにしておきましょう。</p><br>
+<p>最後に、ボタンをクリックした際にChart.jsのグラフ描画を行えば完成です！</p>
+<script src="https://gist.github.com/webhacck/18a807c2ea04b5810140ff0c1d4c4f86.js"></script>
+<p>ラベルや温度のデータには「chart.data」からアクセスできるようになっています。</p>
+<p>また、最後に「update()」を実行してグラフを再描画しないと反映されないので注意しておきましょう！</p><br>
+<p>これで、実行してボタンをクリックすると温度データが見事にグラフ表示になります！</p>
+<p><img src="/images/2018/programming/8/obniz-basic-9.jpg" alt="9"></p><br>
+
+<hr>
+
+<h3 id="まとめ">まとめ</h3>
+<p>簡単な温度測定を行いグラフ化するまでをやってみました。</p>
+<p>今回は、JavaScriptの「onchange」を使ってデータを収集しましたが、無料の「obniz Cloud」を使えばプログラムの定期実行が可能なので好きなタイミングでデータを取得できるようになります。（参考資料：<a href="https://paiza.hatenablog.com/entry/2018/08/22/PC%E3%83%BB%E3%82%B9%E3%83%9E%E3%83%9B%E3%81%AE%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89%E7%84%A1%E6%96%99%E3%81%A7IoT%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%81%8C%E4%BD%BF%E3%81%88%E3%82%8B" target="_blank" rel="external">paiza開発日誌</a>）</p>
+<p>ぜひ、みなさんも「obniz」を活用して手軽にIoT開発に挑戦してみてください！</p><br>
+<p>＜参考＞</p>
+<p><a href="https://obniz.io/">・「obniz」公式サイト</a></p>
+
+<hr/> 
+
+            <aside id="post-ad">
+                <p class="post-ad-title">スポンサードリンク</p>
+                <div class="post-ad-box1">
+                    <div class="post-ad-box-content1">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- webmanabu-post-bottom-1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:250px"
+                         data-ad-client="ca-pub-3321334233282170"
+                         data-ad-slot="6814083857"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    </div>
+                </div>
+                <div class="post-ad-box2">
+                    <div class="post-ad-box-content2">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- webmanabu-post-bottom-2 -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:300px;height:250px"
+                             data-ad-client="ca-pub-3321334233282170"
+                             data-ad-slot="2244283458"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            <section id="feed-check">
+    <div class="feed-check-title">
+        <h4 class="feed-check-title-text">最新情報をチェック！</h4>
+    </div>
+    <div class="feed-check-rss">
+        <a href="/rss2.xml">
+            <img src="/img/article/rss-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">RSS</p>
+        </a>
+    </div>
+    <div class="feed-check-feedly">
+        <a href="https://feedly.com/i/subscription/feed/http://masatolan.com/rss2.xml">
+            <img src="/img/article/feedly-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">feedly</p>
+        </a>
+    </div>
+    <div class="feed-check-twitter">
+        <a href="https://twitter.com/0310lan">
+            <img src="/img/article/twitter-feed.png" width="100" height="100">
+            <p class="feed-check-rss-text">twitter</p>
+        </a>
+    </div>
+</section>
+        </div>
+      
+    </article>
+    <section id="share">
+    <div class="share-normal">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/obniz-basic/&text=電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた -【うえぶまなぶ】" target="_blank">twitter</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="http://www.facebook.com/share.php?u=http://masatolan.com/programming/obniz-basic/" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">Facebook</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/obniz-basic/" target="_blank">google+</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/obniz-basic/" target="_blank">はてな</a>
+        </div>
+    </div>
+    <div class="share-small">
+        <div class="share-twitter">
+            <a class="share-twitter-text" href="https://twitter.com/share?url=http://masatolan.com/programming/obniz-basic/&text=電子部品をぶっ刺すだけ！obnizを使ったJavaScirptによる温度測定をやってみた -【うえぶまなぶ】" target="_blank">t</a>
+        </div>
+        <div class="share-facebook">
+            <a class="share-facebook-text" href="http://www.facebook.com/share.php?u=http://masatolan.com/programming/obniz-basic/" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;">f</a>
+        </div>
+        <div class="share-google">
+            <a class="share-google-text" href="https://plus.google.com/share?url=masatolan.com/programming/obniz-basic/" target="_blank">g</a>
+        </div>
+        <div class="share-hatena">
+            <a class="share-hatena-text" href="http://b.hatena.ne.jp/entry/masatolan.com/programming/obniz-basic/" target="_blank">は</a>
+        </div>
+    </div>
+    
+    
+</section>
+    <section id="relation">
+    <div class="container">
+        <div class="relation-title">
+            <h2 class="relation-title-text text-center">一緒によく読まれている記事</h2>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/hexo-blog-basic/">
+                        Hexoでブログ作ってGithub Pagesへ公開するまでの手順！
+                        <img src="/images/2015/programming/1/hexo-blog-basic1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/chrome-extension/">
+                        クリック1発でテトリスが遊べる「Chrome拡張機能」を、できるだけ簡単に開発してみた！
+                        <img src="/images/2015/programming/8/chrome-extension1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/todo/">
+                        コマンドライン上で、「todoリスト」を作ってタスク管理できる「todo」を使ってみた！
+                        <img src="/images/2015/programming/7/todo1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/enchantjs-box2d/">
+                        「box2d.enchant.js」で、2D物理エンジンを使って遊んでみた！
+                        <img src="/images/2015/programming/7/box2d-enchantjs1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/dynamics/">
+                        JavaScriptでCSSアニメーションを自在に制御可能なライブラリ「Dynamics.js」を試してみた！
+                        <img src="/images/2015/programming/6/dynamics-js1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/random-user-generator/">
+                        ダミーの「顔写真付きユーザー情報」をJSONで提供する「Random User Generator」を使ってみた！
+                        <img src="/images/2015/programming/5/random-user-generator1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/milkcocoa-and-angularjs/">
+                        「AngularJS」と「milkcocoa」で、簡単なチャットアプリを作ってみた！
+                        <img src="/images/2015/programming/5/milkcocoa-and-angularjs1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="relation-box">
+                    <a class="relation-box-link" href="/programming/thefuck/">
+                        コマンドラインで入力ミスった時に、「fuck」と打ち込めば自動修正してくれるツールがスゴイ！
+                        <img src="/images/2015/programming/4/thefuck1.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- Tag Section -->
+<section id="tag">
+    <h2 class="tag-title text-center">キーワード <small class="tag-title-sub">Keyword</small></h2>
+    <div>
+  	    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Electronics/">Electronics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIF/">GIF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPhone/">iPhone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icon/">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ipad/">ipad</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tips/">tips</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-design/">web design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/オープンデータ/">オープンデータ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ゲーム/">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ファイル/">ファイル</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/仕事/">仕事</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写真/">写真</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/動画/">動画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学習/">学習</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情報収集/">情報収集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/障害/">障害</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/電子書籍/">電子書籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面白/">面白</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音楽/">音楽</a></li></ul>
+    </div>
+</section>
+
+
+        
+        <!-- Footer -->
+<footer id="footer" class="text-center">
+    <div class="footer-bottom">
+        <p>&copy; 2017 <a href="/">うえぶまなぶ</a>　　
+        by <a href="https://twitter.com/0310lan">0310lan</a>　　
+        <a href="https://goo.gl/forms/5Xsftd9JhRNqvEK72">お問い合わせ</a>
+        </p>
+    </div>
+</footer>
+    </body>
+</html>
